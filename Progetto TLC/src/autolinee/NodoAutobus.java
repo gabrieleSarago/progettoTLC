@@ -5,28 +5,31 @@
  */
 package autolinee;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.graphstream.algorithm.Dijkstra;
+import org.graphstream.graph.Edge;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+
 import autoMobility.MobilityMap;
 import base_simulator.Grafo;
 import base_simulator.Messaggi;
 import base_simulator.Nodo;
 import base_simulator.canale;
+import base_simulator.scheduler;
 import base_simulator.layers.LinkLayer;
 import base_simulator.layers.NetworkLayer;
 import base_simulator.layers.TransportLayer;
 import base_simulator.layers.physicalLayer;
-import base_simulator.scheduler;
-import java.util.ArrayList;
-import org.graphstream.algorithm.Dijkstra;
-import org.graphstream.graph.Edge;
-import org.graphstream.graph.Graph;
-import org.graphstream.graph.Node;
 import reti_tlc_gruppo_0.nodo_host;
 
 /**
  *
  * @author franco
  */
-public class NodoMacchina extends nodo_host {
+public class NodoAutobus extends nodo_host {
 
     final String UPDATE_POSITION = "update_pos";
     final String START_ROAD_RUN = "start_road_run";
@@ -43,8 +46,8 @@ public class NodoMacchina extends nodo_host {
     MobilityMap cityMap;
     Graph mappa;
     Dijkstra dijkstra;
-
-    ArrayList<Node> list1;
+    
+    ArrayList<Node> percorso;
     private canale my_wireless_channel;
     
     private boolean carIsPowerOff = true;
@@ -59,8 +62,15 @@ public class NodoMacchina extends nodo_host {
         this.my_wireless_channel = my_wireless_channel;
     }
 
-    public NodoMacchina(scheduler s, int id_nodo, physicalLayer myPhyLayer, LinkLayer myLinkLayer, NetworkLayer myNetLayer, TransportLayer myTransportLayer, Grafo network, String tipo, int gtw) {
+    public NodoAutobus(scheduler s, int id_nodo, physicalLayer myPhyLayer, LinkLayer myLinkLayer, NetworkLayer myNetLayer, TransportLayer myTransportLayer, Grafo network, String tipo, int gtw) {
         super(s, id_nodo, myPhyLayer, myLinkLayer, myNetLayer, myTransportLayer, network, tipo, gtw);
+        dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "length");
+
+    }
+    
+    public NodoAutobus(scheduler s, int id_nodo, physicalLayer myPhyLayer, LinkLayer myLinkLayer, NetworkLayer myNetLayer, TransportLayer myTransportLayer, Grafo network, String tipo, int gtw, ArrayList<Node> percorso) {
+        super(s, id_nodo, myPhyLayer, myLinkLayer, myNetLayer, myTransportLayer, network, tipo, gtw);
+        this.percorso = percorso;
         dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "length");
 
     }
@@ -125,22 +135,28 @@ public class NodoMacchina extends nodo_host {
             currDistance = currDistance + distance;
         }
     }
-
+    
+    public void setPercorso(List<Node> percorso){
+    	this.percorso = (ArrayList<Node>) percorso;
+    }
+    
     @Override
     public void Handler(Messaggi m) {
         if (m.getTipo_Messaggio().equals(START_ROAD_RUN)) {
             carIsPowerOff = false;
-            dijkstra.init(mappa);
+            /*dijkstra.init(mappa);
             dijkstra.setSource(mappa.getNode(nodo_ingresso));
-            dijkstra.compute();
+            dijkstra.compute();*/
 
             index_nodo_attuale = 0;
-            list1 = new ArrayList<Node>();
+            /*list1 = new ArrayList<Node>();
+            
             for (Node node : dijkstra.getPathNodes(mappa.getNode(nodo_uscita))) {
                 list1.add(0, node);
-            }
+            }*/
 
-            Node curr = list1.get(index_nodo_attuale);
+            Node curr = percorso.get(index_nodo_attuale);
+            
             Object x1 = ((Object[]) curr.getAttribute("xy"))[0];
             Object y1 = ((Object[]) curr.getAttribute("xy"))[1];
 
@@ -157,9 +173,9 @@ public class NodoMacchina extends nodo_host {
         } else if (m.getTipo_Messaggio().equals(UPDATE_POSITION)) {
             //TODO: MANAGE MOVEMENTS
             if (!nodo_ingresso.equals(nodo_uscita)) {
-                if (index_nodo_attuale < list1.size() - 1) {                    
-                    Node curr = list1.get(index_nodo_attuale);
-                    Node next = list1.get(index_nodo_attuale + 1);
+                if (index_nodo_attuale < percorso.size() - 1) {           
+                    Node curr = percorso.get(index_nodo_attuale);
+                    Node next = percorso.get(index_nodo_attuale + 1);
 
                     Object x1 = ((Object[]) curr.getAttribute("xy"))[0];
                     Object x2 = ((Object[]) next.getAttribute("xy"))[0];

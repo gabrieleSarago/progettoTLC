@@ -90,7 +90,7 @@ public class waveNetLayer extends NetworkLayer {
         //Generate discover message
         if (m.getTipo_Messaggio().equals(DISCOVER_NEIGHBOURS)) {
             super.nr_pkt_prt++;
-            NodoMacchina ns = (NodoMacchina) m.getNodoSorgente();
+            NodoAutobus ns = (NodoAutobus) m.getNodoSorgente();
             double distance = getDistanceBetweenNodes(ns);
             if (distance < NEIGHBOUR_THRESHOLD) {
 
@@ -136,7 +136,7 @@ public class waveNetLayer extends NetworkLayer {
 
                 for (HashMap.Entry<String, RoutingRow> e : ((HashMap<String, RoutingRow>) m.getData()).entrySet()) {
                     RoutingRow r = e.getValue();
-                    int idNodoCorrente = ((NodoMacchina) nodo).getId();
+                    int idNodoCorrente = ((NodoAutobus) nodo).getId();
                     int destId = Integer.parseInt(e.getKey());
                     int nextHop = ns.getId();
                     double costo_next_hop_dest = r.getCosto();
@@ -178,7 +178,7 @@ public class waveNetLayer extends NetworkLayer {
 //
 //                            }
                         }
-                    } else if (Integer.parseInt(e.getKey()) != ((NodoMacchina) nodo).getId()) {
+                    } else if (Integer.parseInt(e.getKey()) != ((NodoAutobus) nodo).getId()) {
 
                         RoutingRow r1 = new RoutingRow(destId,
                                 nextHop,
@@ -262,7 +262,7 @@ public class waveNetLayer extends NetworkLayer {
 //            }
             updateNetwork();
         } else if (m.getTipo_Messaggio().equals(SEND_DISCOVER_NEIGHBOURS)) {
-            NodoMacchina n = (NodoMacchina) nodo;
+            NodoAutobus n = (NodoAutobus) nodo;
 
             //Send messages in broadcasting
             ArrayList<Nodo> nodes = n.getInfo().getNodes();
@@ -282,7 +282,7 @@ public class waveNetLayer extends NetworkLayer {
 
             sendDiscoverMessage();
         } else if (m.getTipo_Messaggio().equals(this.POWER_OFF)) {
-            NodoMacchina n = (NodoMacchina) m.getNodoSorgente();
+            NodoAutobus n = (NodoAutobus) m.getNodoSorgente();
             if (routes.containsKey("" + n.getId())) {
                 routes.remove("" + n.getId());
                 updateNetwork();
@@ -306,9 +306,9 @@ public class waveNetLayer extends NetworkLayer {
 
     }
 
-    private double getDistanceBetweenNodes(NodoMacchina ns) {
+    private double getDistanceBetweenNodes(NodoAutobus ns) {
         double res = 0;
-        NodoMacchina n = (NodoMacchina) nodo;
+        NodoAutobus n = (NodoAutobus) nodo;
         res = Math.sqrt(Math.pow((ns.currX - n.currX), 2) + Math.pow((ns.currY - n.currY), 2));
 
         averageNodeDistance += res;
@@ -320,13 +320,13 @@ public class waveNetLayer extends NetworkLayer {
     private void gestisciPacchettoLivelloLink(Messaggi m) {
         ritardoE2E += s.orologio.getCurrent_Time() - m.getTempo_di_partenza();
         pacchettiGestitiRx++;
-        if (((NodoMacchina) m.getNodoDestinazione()).getId() == ((NodoMacchina) nodo).getId()) {
+        if (((NodoAutobus) m.getNodoDestinazione()).getId() == ((NodoAutobus) nodo).getId()) {
             m.shifta(this.tempo_di_processamento);
             m.setSorgente(this);
             m.setDestinazione(this.transportLayer);
             s.insertMessage(m);
         } else {
-            int id_dest = ((NodoMacchina) m.getNodoDestinazione()).getId();
+            int id_dest = ((NodoAutobus) m.getNodoDestinazione()).getId();
             if(routes.get("" + id_dest) != null)
             {
             m.setNextHop_id(routes.get("" + id_dest).getNextHop());
@@ -394,7 +394,7 @@ public class waveNetLayer extends NetworkLayer {
     public String getStat() {
         String res = "";
         res += "STATISTICHE WAVE NETLAYER......\n";
-        res += "NODO ID: " + ((NodoMacchina) nodo).getId() + "\n";
+        res += "NODO ID: " + ((NodoAutobus) nodo).getId() + "\n";
         res += "Pacchetti Ricevuti :" + pacchettiGestitiRx + "\n";
         res += "Pacchetti Inviati  :" + pacchettiGestitiTx + "\n";
         res += "Average E2E........:" + ritardoE2E / pacchettiGestitiRx + "\n";
@@ -434,7 +434,7 @@ public class waveNetLayer extends NetworkLayer {
 
         mst.compute();
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("output/routes_" + ((NodoMacchina) nodo).getId() + ".txt", true));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("output/routes_" + ((NodoAutobus) nodo).getId() + ".txt", true));
             bw.write("\nTempo:" + s.orologio.getCurrent_Time() + "\n");
             bw.write("Destinazione\t NEXTHOP\t Costo\n");
             for (HashMap.Entry<String, RoutingRow> e : routes.entrySet()) {

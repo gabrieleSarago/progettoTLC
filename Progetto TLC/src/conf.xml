@@ -32,15 +32,16 @@ and open the template in the editor.
         availableSpaceForSession : Dimensione della finestra di ricezione in numero di MSS
 -->
 
-    <nodo_host id="0" gateway="2" net_size="5" nodo_ingresso = "C" nodo_uscita="C" exitAt="0" showUI = "1">        
+<!--    <nodo_host id="0" gateway="2" net_size="5" nodo_ingresso = "C" nodo_uscita="C" exitAt="0" showUI = "1"> -->        
 <!--        
         <application type="simple_source_tcp" rate="100.0" TON="100" TOFF="0" port="1234" dest="1" size="4" pckt_size="1460.0" availableSpaceForSession = "50" start="60000" 
             payload="Trasferimento file" file="null">             
         </application> 
 -->
+<!--
     </nodo_host>
-    
-
+-->    
+<!--
     <nodo_host id="1" gateway="0" net_size="100" nodo_ingresso = "G" nodo_uscita="E" exitAt="3000" showUI = "0">
     </nodo_host>
     <nodo_host id="2" gateway="0" net_size="100" nodo_ingresso = "G" nodo_uscita="E" exitAt="5000" showUI = "0">
@@ -59,15 +60,16 @@ and open the template in the editor.
     </nodo_host>
     <nodo_host id="9" gateway="0" net_size="100" nodo_ingresso = "G" nodo_uscita="E" exitAt="60000" showUI = "0">
     </nodo_host>
-        
+-->        
     <!--RSU -->
+    <!--
     <nodo_host id="10" gateway="0" net_size="100" nodo_ingresso = "F" nodo_uscita="F" exitAt="0" showUI = "0">
     </nodo_host>
     <nodo_host id="11" gateway="0" net_size="100" nodo_ingresso = "E" nodo_uscita="E" exitAt="0" showUI = "0">
     </nodo_host>
     <nodo_host id="12" gateway="0" net_size="100" nodo_ingresso = "H" nodo_uscita="H" exitAt="0" showUI = "0">
     </nodo_host>
-    
+-->    
     
     
     <!-- generatore di veicoli -->
@@ -77,9 +79,20 @@ and open the template in the editor.
          exitAt = istante iniziale dal quale il generatore inizierà a fare pull di veicoli all'interno del sistema
          generation rate = rate di generazione espresso in veicoli al minuto
     -->     
-    <pozzo gateway = "0" nodo_ingresso="B" nodo_uscita="E" exitAt="0" generationRate="2" maxVehicles="100" showUI = "0">
+    <pozzo gateway = "0" nodo_ingresso="T" nodo_uscita="7" exitAt="0" generationRate="2" maxVehicles="100" showUI = "0">
         
     </pozzo>
+    
+    <percorso nodo_partenza = "T" nodo_arrivo = "17">
+    	<nodo_intermedio>18</nodo_intermedio>
+    	<nodo_intermedio>19</nodo_intermedio>
+    	<nodo_intermedio>20</nodo_intermedio>
+    	<nodo_intermedio>21</nodo_intermedio>
+    	<nodo_intermedio>22</nodo_intermedio>
+    	<nodo_intermedio>23</nodo_intermedio>
+    	<nodo_intermedio>24</nodo_intermedio>
+    	<nodo_intermedio>5</nodo_intermedio>
+    </percorso>
     
     
 <!--    

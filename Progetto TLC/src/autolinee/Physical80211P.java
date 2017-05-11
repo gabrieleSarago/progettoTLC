@@ -70,9 +70,9 @@ public class Physical80211P extends physicalLayer {
         }
     }
 
-    private double getDistanceBetweenNodes(NodoMacchina ns) {
+    private double getDistanceBetweenNodes(NodoAutobus ns) {
         double res = 0;        
-        NodoMacchina n = (NodoMacchina) nodo;
+        NodoAutobus n = (NodoAutobus) nodo;
         res = Math.sqrt(Math.pow((ns.currX - n.currX), 2) + Math.pow((ns.currY - n.currY), 2));
 
         return res;
@@ -81,7 +81,7 @@ public class Physical80211P extends physicalLayer {
     private double getPowerRx(Messaggi m) {        
         try
         {
-        NodoMacchina ns = (NodoMacchina) m.getNodoSorgente();
+        NodoAutobus ns = (NodoAutobus) m.getNodoSorgente();
         double distance = getDistanceBetweenNodes(ns);
         if(distance == 0)
             distance = 1;
@@ -108,7 +108,7 @@ public class Physical80211P extends physicalLayer {
     public void stampaStatistiche()
     {
         System.out.println("STATISTICHE LIVELLO FISICO");
-        System.out.println("NODO..:"+((NodoMacchina)nodo).getId());
+        System.out.println("NODO..:"+((NodoAutobus)nodo).getId());
         System.out.println("Pacchetti Rigettati..:"+this.lostPacket);
         System.out.println("Pacchetti Ricevuti...:"+this.receivedPacket);        
         System.out.println("Average Power Received (dBm):"+this.avg_pw_rx/this.cnt_pw_rx);

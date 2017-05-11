@@ -3,45 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vanet;
-
-import reti_tlc_gruppo_0.*;
-import Mobility.MobilityMap;
-import Mobility.car_node;
-
-import base_simulator.NetworkInterface;
-import base_simulator.Infos;
-import base_simulator.Applicazione;
-import base_simulator.Grafo;
-import base_simulator.canale;
-import base_simulator.layers.LinkLayer;
-import base_simulator.layers.NetworkLayer;
-import base_simulator.layers.TransportLayer;
-import base_simulator.layers.physicalLayer;
-import base_simulator.link_extended;
-import base_simulator.scheduler;
+package autolinee;
 
 import java.io.File;
-
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
 import javax.swing.JFileChooser;
 
+import org.graphstream.graph.Node;
 import org.jdom2.Document;
-
 import org.jdom2.Element;
-
 import org.jdom2.JDOMException;
-
 import org.jdom2.input.SAXBuilder;
+
+import autoMobility.MobilityMap;
+import autoMobility.Bus_node;
+import base_simulator.Applicazione;
+import base_simulator.Grafo;
+import base_simulator.Infos;
+import base_simulator.NetworkInterface;
+import base_simulator.canale;
+import base_simulator.link_extended;
+import base_simulator.scheduler;
+import base_simulator.layers.LinkLayer;
+import base_simulator.layers.TransportLayer;
+import base_simulator.layers.physicalLayer;
+import reti_tlc_gruppo_0.netLayerLinkState;
+import reti_tlc_gruppo_0.nodo_router;
 
 /**
  *
  * @author afsantamaria
  */
-public class main_app extends javax.swing.JFrame {
+public class Main_app extends javax.swing.JFrame {
 
     private static scheduler s;
+    
+    HashMap<Integer, ArrayList<Node>> percorsi;
 
     private static void init_sim_parameters() {
         s = new scheduler(600000, false);
@@ -52,7 +53,7 @@ public class main_app extends javax.swing.JFrame {
     /**
      * Creates new form main_app
      */
-    public main_app() {
+    public Main_app() {
     	//parte grafica
         initComponents();
     }
@@ -266,13 +267,13 @@ public class main_app extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(main_app.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_app.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(main_app.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_app.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(main_app.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_app.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(main_app.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_app.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         init_sim_parameters();
@@ -280,7 +281,7 @@ public class main_app extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new main_app().setVisible(true);
+                new Main_app().setVisible(true);
             }
         });
     }
@@ -383,14 +384,14 @@ public class main_app extends javax.swing.JFrame {
                 /**
                  * ****PER TEST VANET
                  */
-                NodoMacchina nh = new NodoMacchina(s, id, pl, ll, nl, tl, null, "nodo_host", gateway);
+                NodoAutobus nh = new NodoAutobus(s, id, pl, ll, nl, tl, null, "nodo_host", gateway);
 
                 nh.setMappa(roadMap);
                 nh.setNodo_ingresso(nodo_ingresso);
                 nh.setNodo_uscita(nodo_uscita);
                 nh.setExitFromGate(exitGateAt);
                 //car_node car = new car_node(id, 0, 0);
-                car_node car = new car_node(0, 0, id);
+                Bus_node car = new Bus_node(0, 0, id);
                 roadMap.vehicles.put("" + id, car);
 
                 canale c = new canale(s, idCanale,
@@ -481,14 +482,42 @@ public class main_app extends javax.swing.JFrame {
 
             }
             
+            //percorsi
+            listElement = rootElement.getChildren("percorso");
+            //lista dei percorsi presenti nel file .xml
+            percorsi = new HashMap<>();
+            int id = 0;
+            //per ogni percorso crea una lista di nodi da attraversare e la aggiunge alla lista dei percorsi
+            for (Object nodo : listElement) {
+            	ArrayList<Node> percorso = new ArrayList<>();
+            	//primo nodo
+            	Node nodo_partenza = roadMap.getCityRoadMap().getNode(((Element) nodo).getAttributeValue("nodo_partenza"));
+            	percorso.add(nodo_partenza);
+            	for(Object nodo1 : ((Element) nodo).getChildren("nodo_intermedio")){
+            		percorso.add(roadMap.getCityRoadMap().getNode(((Element) nodo1).getText()));
+            	}
+            	//ultimo nodo
+            	Node nodo_arrivo = roadMap.getCityRoadMap().getNode(((Element) nodo).getAttributeValue("nodo_arrivo"));
+            	percorso.add(nodo_arrivo);
+            	percorsi.put(id, percorso);
+            	id++;
+            }
+            
             //nodo pozzo
             
             listElement = rootElement.getChildren("pozzo");
-            int counterNodeId = 1;
+            int counterNodeId = 1000;
+            int id_percorso = 0;
             for (Object nodo : listElement) {
-                String nodo_ingresso = ((Element) nodo).getAttributeValue("nodo_ingresso");
-                String nodo_uscita = ((Element) nodo).getAttributeValue("nodo_uscita");
-                double exitGateAt = Double.parseDouble(((Element) nodo).getAttributeValue("exitAt"));
+            	//lista delle fermate da cui passare
+            	ArrayList<Node> percorso = percorsi.get(id_percorso);
+                //String nodo_ingresso = ((Element) nodo).getAttributeValue("nodo_ingresso");
+                //String nodo_uscita = ((Element) nodo).getAttributeValue("nodo_uscita");
+            	//ingresso = primo elemento, uscita = ultimo elemento della lista
+            	String nodo_ingresso = percorso.get(0).getId();
+            	String nodo_uscita = percorso.get(percorso.size()-1).getId();
+            	
+            	double exitGateAt = Double.parseDouble(((Element) nodo).getAttributeValue("exitAt"));
                 double generationRate = Double.parseDouble(((Element) nodo).getAttributeValue("generationRate"));
                 double maxVehicles = Double.parseDouble(((Element) nodo).getAttributeValue("maxVehicles"));
                 int gateway = Integer.valueOf(((Element) nodo).getAttributeValue("gateway"));
@@ -499,7 +528,7 @@ public class main_app extends javax.swing.JFrame {
                 int vehicleCounter = 0;
                 for (vehicleCounter = 0; vehicleCounter < maxVehicles; vehicleCounter++) {
 
-                    int id = lastNodeId + counterNodeId;
+                    id = lastNodeId + counterNodeId;
                     counterNodeId++;                   
                     Grafo grafo = new Grafo(5);
 
@@ -513,15 +542,22 @@ public class main_app extends javax.swing.JFrame {
                     waveFSCTPTransportLayer tl = new waveFSCTPTransportLayer(s, 5.0);
                     
                     //nodi macchina generati dal pozzo
+                    //costruttore che si prende il percorso e fa partire il movimento dell'autobus
+                    NodoAutobus nh = new NodoAutobus(s, id, pl, ll, nl, tl, null, "nodo_host", gateway, percorso);
+                    //id_percorso server ad assegnare un percorso all'autobus
+                    //si incrementa l'id, se questo supera il numero di percorsi si pone a 0
+                    id_percorso++;
+                    if(!percorsi.containsKey(id_percorso)){
+                    	id_percorso = 0;
+                    }
                     
-                    NodoMacchina nh = new NodoMacchina(s, id, pl, ll, nl, tl, null, "nodo_host", gateway);
-
                     nh.setMappa(roadMap);
                     nh.setNodo_ingresso(nodo_ingresso);
                     nh.setNodo_uscita(nodo_uscita);
                     nh.setExitFromGate(exitGateAt);
+                    
                     //car_node car = new car_node(id, 0, 0);
-                    car_node car = new car_node(0, 0, id);
+                    Bus_node car = new Bus_node(0, 0, id);
                     roadMap.vehicles.put("" + id, car);
 
                     canale c = new canale(s, idCanale,
@@ -540,6 +576,7 @@ public class main_app extends javax.swing.JFrame {
                     info.addNodo(nh);
                 }
             }
+            
             
             //commentato nel file xml
             listElement = rootElement.getChildren("router");

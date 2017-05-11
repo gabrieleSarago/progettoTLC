@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Mobility;
+package autoMobility;
 
 /**
  *
  * @author afsantamaria
  */
-public class car_node {
+public class Bus_node {
     double x;
     double y;
     int id;
 
-    public car_node(double x, double y, int id) {
+    public Bus_node(double x, double y, int id) {
         this.x = x;
         this.y = y;
         this.id = id;
