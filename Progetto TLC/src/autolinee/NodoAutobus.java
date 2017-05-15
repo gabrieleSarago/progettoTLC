@@ -172,7 +172,7 @@ public class NodoAutobus extends nodo_host {
 
         } else if (m.getTipo_Messaggio().equals(UPDATE_POSITION)) {
             //TODO: MANAGE MOVEMENTS
-            if (!nodo_ingresso.equals(nodo_uscita)) {
+            //if (!nodo_ingresso.equals(nodo_uscita)) {
                 if (index_nodo_attuale < percorso.size() - 1) {           
                     Node curr = percorso.get(index_nodo_attuale);
                     Node next = percorso.get(index_nodo_attuale + 1);
@@ -189,7 +189,11 @@ public class NodoAutobus extends nodo_host {
                     //Get average speed from cityMap by reading edge info
                     String edge_label = curr.toString() + next.toString();
                     Edge e = mappa.getEdge(edge_label);
-
+                    
+                    if(e == null){
+                    	edge_label = next.toString() + curr.toString();
+                    	e = mappa.getEdge(edge_label);
+                    }
                     calcolaNuovaPosizione(e, Double.parseDouble("" + x1),
                             Double.parseDouble("" + y1),
                             Double.parseDouble("" + x2),
@@ -228,7 +232,7 @@ public class NodoAutobus extends nodo_host {
                       s.insertMessage(m);
                     }
                 }
-            }
+            //}
 
         } else if (m.getTipo_Messaggio().equals("DISCOVER_NEIGHBOURS")) {
             if(this.carIsPowerOff == false)

@@ -27,3 +27,933 @@
 2017-05-11 21:17:58,384  INFO   [scheduler] la simulazione sta per iniziare all'ora 11/5/2017 ora 21:17:58 
 2017-05-11 21:27:40,722  INFO   [scheduler] la simulazione sta per iniziare all'ora 11/5/2017 ora 21:27:40 
 2017-05-11 21:35:21,423  INFO   [scheduler] la simulazione sta per iniziare all'ora 11/5/2017 ora 21:35:21 
+2017-05-11 22:20:26,276  INFO   [scheduler] la simulazione sta per iniziare all'ora 11/5/2017 ora 22:20:26 
+2017-05-11 22:45:00,714  INFO   [scheduler] la simulazione sta per iniziare all'ora 11/5/2017 ora 22:45:0 
+2017-05-12 08:32:59,109  INFO   [scheduler] la simulazione sta per iniziare all'ora 12/5/2017 ora 8:32:59 
+2017-05-12 08:35:45,466  INFO   [scheduler] la simulazione sta per iniziare all'ora 12/5/2017 ora 8:35:45 
+2017-05-12 08:38:08,955  INFO   [scheduler] la simulazione sta per iniziare all'ora 12/5/2017 ora 8:38:8 
+2017-05-12 08:39:59,622  INFO   [scheduler] la simulazione sta per iniziare all'ora 12/5/2017 ora 8:39:59 
+2017-05-12 19:36:17,917  INFO   [scheduler] la simulazione sta per iniziare all'ora 12/5/2017 ora 19:36:17 
+2017-05-15 18:40:21,166  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 18:40:21 
+2017-05-15 18:41:34,086  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 18:41:34 
+2017-05-15 18:44:04,079  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 18:44:4 
+2017-05-15 18:44:42,942  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 18:44:42 
+2017-05-15 18:46:14,981  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 18:46:14 
+2017-05-15 18:46:36,036  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 18:46:36 
+2017-05-15 18:47:10,325  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 18:47:10 
+2017-05-15 18:49:15,631  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 18:49:15 
+2017-05-15 18:51:39,526  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 18:51:39 
+2017-05-15 18:56:39,785  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 18:56:39 
+2017-05-15 19:00:22,814  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:0:22 
+2017-05-15 19:01:59,559  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:1:59 
+2017-05-15 19:02:10,884  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:2:10 
+2017-05-15 19:04:01,899  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:4:1 
+2017-05-15 19:11:19,207  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:11:19 
+2017-05-15 19:14:09,730  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:14:9 
+2017-05-15 19:16:24,892  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:16:24 
+2017-05-15 19:16:25,491  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:16:25,491  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1000
+Numero di pacchetti totali gestiti (Nr) :24.0
+Numero di pacchetti prt gestiti (Nr) :24
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:16:25,491  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:16:25,491  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1001
+Numero di pacchetti totali gestiti (Nr) :24.0
+Numero di pacchetti prt gestiti (Nr) :24
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:16:25,491  INFO   [scheduler] la simulazione è terminata il : 15/5/2017 ora 19:16:25 
+2017-05-15 19:17:10,159  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:17:10 
+2017-05-15 19:17:10,914  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:17:10,914  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1000
+Numero di pacchetti totali gestiti (Nr) :24.0
+Numero di pacchetti prt gestiti (Nr) :24
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:17:10,914  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:17:10,914  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1001
+Numero di pacchetti totali gestiti (Nr) :24.0
+Numero di pacchetti prt gestiti (Nr) :24
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:17:10,914  INFO   [scheduler] la simulazione è terminata il : 15/5/2017 ora 19:17:10 
+2017-05-15 19:17:38,815  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:17:38 
+2017-05-15 19:18:11,365  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:18:11 
+2017-05-15 19:20:55,749  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:20:55 
+2017-05-15 19:21:58,588  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:21:58 
+2017-05-15 19:22:38,502  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:22:38 
+2017-05-15 19:26:36,619  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:26:36 
+2017-05-15 19:29:59,686  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:29:59 
+2017-05-15 19:30:28,848  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:30:28 
+2017-05-15 19:31:36,249  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:31:36 
+2017-05-15 19:32:30,982  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:32:30 
+2017-05-15 19:33:56,975  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:33:56 
+2017-05-15 19:34:21,873  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1000
+Numero di pacchetti totali gestiti (Nr) :96.0
+Numero di pacchetti prt gestiti (Nr) :96
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1001
+Numero di pacchetti totali gestiti (Nr) :121.0
+Numero di pacchetti prt gestiti (Nr) :121
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1002
+Numero di pacchetti totali gestiti (Nr) :128.0
+Numero di pacchetti prt gestiti (Nr) :128
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1003
+Numero di pacchetti totali gestiti (Nr) :133.0
+Numero di pacchetti prt gestiti (Nr) :133
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1004
+Numero di pacchetti totali gestiti (Nr) :139.0
+Numero di pacchetti prt gestiti (Nr) :139
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1005
+Numero di pacchetti totali gestiti (Nr) :143.0
+Numero di pacchetti prt gestiti (Nr) :143
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1006
+Numero di pacchetti totali gestiti (Nr) :145.0
+Numero di pacchetti prt gestiti (Nr) :145
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1007
+Numero di pacchetti totali gestiti (Nr) :125.0
+Numero di pacchetti prt gestiti (Nr) :125
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1008
+Numero di pacchetti totali gestiti (Nr) :111.0
+Numero di pacchetti prt gestiti (Nr) :111
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1009
+Numero di pacchetti totali gestiti (Nr) :100.0
+Numero di pacchetti prt gestiti (Nr) :100
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1010
+Numero di pacchetti totali gestiti (Nr) :97.0
+Numero di pacchetti prt gestiti (Nr) :97
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1011
+Numero di pacchetti totali gestiti (Nr) :98.0
+Numero di pacchetti prt gestiti (Nr) :98
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1012
+Numero di pacchetti totali gestiti (Nr) :94.0
+Numero di pacchetti prt gestiti (Nr) :94
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1013
+Numero di pacchetti totali gestiti (Nr) :93.0
+Numero di pacchetti prt gestiti (Nr) :93
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1014
+Numero di pacchetti totali gestiti (Nr) :87.0
+Numero di pacchetti prt gestiti (Nr) :87
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1015
+Numero di pacchetti totali gestiti (Nr) :76.0
+Numero di pacchetti prt gestiti (Nr) :76
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1016
+Numero di pacchetti totali gestiti (Nr) :66.0
+Numero di pacchetti prt gestiti (Nr) :66
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1017
+Numero di pacchetti totali gestiti (Nr) :58.0
+Numero di pacchetti prt gestiti (Nr) :58
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1018
+Numero di pacchetti totali gestiti (Nr) :41.0
+Numero di pacchetti prt gestiti (Nr) :41
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1019
+Numero di pacchetti totali gestiti (Nr) :19.0
+Numero di pacchetti prt gestiti (Nr) :19
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1020
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1021
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1022
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1023
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1024
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1025
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1026
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1027
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1028
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:34:21,874  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1029
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:34:21,874  INFO   [scheduler] la simulazione è terminata il : 15/5/2017 ora 19:34:21 
+2017-05-15 19:38:54,199  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:38:54 
+2017-05-15 19:40:09,062  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:40:9 
+2017-05-15 19:41:49,191  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:41:49 
+2017-05-15 19:44:44,422  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:44:44 
+2017-05-15 19:45:01,843  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,844  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1000
+Numero di pacchetti totali gestiti (Nr) :52.0
+Numero di pacchetti prt gestiti (Nr) :52
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,844  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,845  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1001
+Numero di pacchetti totali gestiti (Nr) :28.0
+Numero di pacchetti prt gestiti (Nr) :28
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,845  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,845  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1002
+Numero di pacchetti totali gestiti (Nr) :86.0
+Numero di pacchetti prt gestiti (Nr) :86
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,845  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,846  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1003
+Numero di pacchetti totali gestiti (Nr) :240.0
+Numero di pacchetti prt gestiti (Nr) :240
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,846  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,846  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1004
+Numero di pacchetti totali gestiti (Nr) :27.0
+Numero di pacchetti prt gestiti (Nr) :27
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,846  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,846  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1005
+Numero di pacchetti totali gestiti (Nr) :90.0
+Numero di pacchetti prt gestiti (Nr) :90
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1006
+Numero di pacchetti totali gestiti (Nr) :240.0
+Numero di pacchetti prt gestiti (Nr) :240
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1007
+Numero di pacchetti totali gestiti (Nr) :27.0
+Numero di pacchetti prt gestiti (Nr) :27
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1008
+Numero di pacchetti totali gestiti (Nr) :73.0
+Numero di pacchetti prt gestiti (Nr) :73
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1009
+Numero di pacchetti totali gestiti (Nr) :222.0
+Numero di pacchetti prt gestiti (Nr) :222
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1010
+Numero di pacchetti totali gestiti (Nr) :37.0
+Numero di pacchetti prt gestiti (Nr) :37
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1011
+Numero di pacchetti totali gestiti (Nr) :48.0
+Numero di pacchetti prt gestiti (Nr) :48
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1012
+Numero di pacchetti totali gestiti (Nr) :186.0
+Numero di pacchetti prt gestiti (Nr) :186
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1013
+Numero di pacchetti totali gestiti (Nr) :33.0
+Numero di pacchetti prt gestiti (Nr) :33
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1014
+Numero di pacchetti totali gestiti (Nr) :36.0
+Numero di pacchetti prt gestiti (Nr) :36
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1015
+Numero di pacchetti totali gestiti (Nr) :132.0
+Numero di pacchetti prt gestiti (Nr) :132
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1016
+Numero di pacchetti totali gestiti (Nr) :27.0
+Numero di pacchetti prt gestiti (Nr) :27
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1017
+Numero di pacchetti totali gestiti (Nr) :24.0
+Numero di pacchetti prt gestiti (Nr) :24
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1018
+Numero di pacchetti totali gestiti (Nr) :60.0
+Numero di pacchetti prt gestiti (Nr) :60
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1019
+Numero di pacchetti totali gestiti (Nr) :6.0
+Numero di pacchetti prt gestiti (Nr) :6
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1020
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1021
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1022
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1023
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1024
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1025
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1026
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1027
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1028
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:45:01,848  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1029
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:45:01,848  INFO   [scheduler] la simulazione è terminata il : 15/5/2017 ora 19:45:1 
+2017-05-15 19:50:14,093  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:50:14 
+2017-05-15 19:53:29,238  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:53:29 
+2017-05-15 19:53:45,873  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,873  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1000
+Numero di pacchetti totali gestiti (Nr) :73.0
+Numero di pacchetti prt gestiti (Nr) :73
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,873  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,873  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1001
+Numero di pacchetti totali gestiti (Nr) :37.0
+Numero di pacchetti prt gestiti (Nr) :37
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,873  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,873  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1002
+Numero di pacchetti totali gestiti (Nr) :135.0
+Numero di pacchetti prt gestiti (Nr) :135
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,873  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,873  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1003
+Numero di pacchetti totali gestiti (Nr) :106.0
+Numero di pacchetti prt gestiti (Nr) :106
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1004
+Numero di pacchetti totali gestiti (Nr) :47.0
+Numero di pacchetti prt gestiti (Nr) :47
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1005
+Numero di pacchetti totali gestiti (Nr) :138.0
+Numero di pacchetti prt gestiti (Nr) :138
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1006
+Numero di pacchetti totali gestiti (Nr) :120.0
+Numero di pacchetti prt gestiti (Nr) :120
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1007
+Numero di pacchetti totali gestiti (Nr) :47.0
+Numero di pacchetti prt gestiti (Nr) :47
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1008
+Numero di pacchetti totali gestiti (Nr) :115.0
+Numero di pacchetti prt gestiti (Nr) :115
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1009
+Numero di pacchetti totali gestiti (Nr) :100.0
+Numero di pacchetti prt gestiti (Nr) :100
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1010
+Numero di pacchetti totali gestiti (Nr) :57.0
+Numero di pacchetti prt gestiti (Nr) :57
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1011
+Numero di pacchetti totali gestiti (Nr) :84.0
+Numero di pacchetti prt gestiti (Nr) :84
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1012
+Numero di pacchetti totali gestiti (Nr) :91.0
+Numero di pacchetti prt gestiti (Nr) :91
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1013
+Numero di pacchetti totali gestiti (Nr) :63.0
+Numero di pacchetti prt gestiti (Nr) :63
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1014
+Numero di pacchetti totali gestiti (Nr) :69.0
+Numero di pacchetti prt gestiti (Nr) :69
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1015
+Numero di pacchetti totali gestiti (Nr) :51.0
+Numero di pacchetti prt gestiti (Nr) :51
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1016
+Numero di pacchetti totali gestiti (Nr) :63.0
+Numero di pacchetti prt gestiti (Nr) :63
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1017
+Numero di pacchetti totali gestiti (Nr) :42.0
+Numero di pacchetti prt gestiti (Nr) :42
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1018
+Numero di pacchetti totali gestiti (Nr) :28.0
+Numero di pacchetti prt gestiti (Nr) :28
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1019
+Numero di pacchetti totali gestiti (Nr) :16.0
+Numero di pacchetti prt gestiti (Nr) :16
+Numero di pacchetti dati gestiti (Nr) :0
+Percentuale di OverHead (%) :100.0
+Delay medio pkt protocollo (ms) :0.0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1020
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1021
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1022
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1023
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1024
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1025
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1026
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1027
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1028
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] statistiche del network layer 
+2017-05-15 19:53:45,889  INFO   [waveNetLayer] 
+--->Statistiche network Layer
+Tipo Nodo nodo_host
+Id del Nodo 1029
+Numero di pacchetti totali gestiti (Nr) :0.0
+Numero di pacchetti prt gestiti (Nr) :0
+Numero di pacchetti dati gestiti (Nr) :0 
+2017-05-15 19:53:45,889  INFO   [scheduler] la simulazione è terminata il : 15/5/2017 ora 19:53:45 
+2017-05-15 19:54:28,881  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:54:28 
+2017-05-15 19:58:32,710  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 19:58:32 
+2017-05-15 20:06:20,092  INFO   [scheduler] la simulazione sta per iniziare all'ora 15/5/2017 ora 20:6:20 

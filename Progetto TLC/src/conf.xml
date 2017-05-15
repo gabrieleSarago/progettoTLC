@@ -79,11 +79,11 @@ and open the template in the editor.
          exitAt = istante iniziale dal quale il generatore inizierà a fare pull di veicoli all'interno del sistema
          generation rate = rate di generazione espresso in veicoli al minuto
     -->     
-    <pozzo gateway = "0" nodo_ingresso="T" nodo_uscita="7" exitAt="0" generationRate="2" maxVehicles="100" showUI = "0">
+    <pozzo gateway = "0" exitAt="0" generationRate="2" maxVehicles="30" showUI = "0">
         
     </pozzo>
     
-    <percorso nodo_partenza = "T" nodo_arrivo = "17">
+    <percorso nodo_partenza = "T" nodo_arrivo = "T">
     	<nodo_intermedio>18</nodo_intermedio>
     	<nodo_intermedio>19</nodo_intermedio>
     	<nodo_intermedio>20</nodo_intermedio>
@@ -92,8 +92,59 @@ and open the template in the editor.
     	<nodo_intermedio>23</nodo_intermedio>
     	<nodo_intermedio>24</nodo_intermedio>
     	<nodo_intermedio>5</nodo_intermedio>
+    	<nodo_intermedio>17</nodo_intermedio>
+    	<nodo_intermedio>5</nodo_intermedio>
+    	<nodo_intermedio>24</nodo_intermedio>
+    	<nodo_intermedio>23</nodo_intermedio>
+    	<nodo_intermedio>22</nodo_intermedio>
+    	<nodo_intermedio>21</nodo_intermedio>
+    	<nodo_intermedio>20</nodo_intermedio>
+    	<nodo_intermedio>19</nodo_intermedio>
+    	<nodo_intermedio>18</nodo_intermedio>
     </percorso>
-    
+    <percorso nodo_partenza = "T" nodo_arrivo = "T">
+    	<nodo_intermedio>18</nodo_intermedio>
+    	<nodo_intermedio>25</nodo_intermedio>
+    	<nodo_intermedio>18</nodo_intermedio>
+   	</percorso>
+   	<!-- linea B -->
+   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>51</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
+   		<nodo_intermedio>3</nodo_intermedio>
+   		<nodo_intermedio>4</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>4</nodo_intermedio>
+   		<nodo_intermedio>3</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>51</nodo_intermedio>
+   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   	</percorso>
+   	<!-- linea C -->
+   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   		<nodo_intermedio>26</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>34</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>26</nodo_intermedio>
+   	</percorso>
     
 <!--    
     <router id="2" gateway="4" net_size="5">
