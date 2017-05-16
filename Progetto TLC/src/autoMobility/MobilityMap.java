@@ -5,11 +5,8 @@
  */
 package autoMobility;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.graphstream.algorithm.Dijkstra;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
@@ -170,7 +167,7 @@ public class MobilityMap {
         
         //Nodo Terminal
         cityRoadMap.addNode("T");
-        cityRoadMap.getNode("T").setAttribute("xy", 450, 610);
+        cityRoadMap.getNode("T").setAttribute("xy", 450, 600);
         //Nodi Fermate
         cityRoadMap.addNode("6");
         cityRoadMap.getNode("6").setAttribute("xy", 600, 620);
@@ -183,9 +180,9 @@ public class MobilityMap {
         cityRoadMap.addNode("47");
         cityRoadMap.getNode("47").setAttribute("xy", 1625, 620);
         cityRoadMap.addNode("18");
-        cityRoadMap.getNode("18").setAttribute("xy", 190, 600);
+        cityRoadMap.getNode("18").setAttribute("xy", 200, 600);
         cityRoadMap.addNode("19");
-        cityRoadMap.getNode("19").setAttribute("xy", 200, 440);
+        cityRoadMap.getNode("19").setAttribute("xy", 200, 450);
         cityRoadMap.addNode("20");
         cityRoadMap.getNode("20").setAttribute("xy", 0, 450);
         cityRoadMap.addNode("29");
@@ -426,14 +423,18 @@ public class MobilityMap {
             e.addAttribute("label", "" + (int) e.getNumber("length"));
         }
     }
+    
+    public HashMap<String, Bus_node> getVeicoli(){
+    	return vehicles;
+    }
 
-    public boolean validatePos(String id, double x, double y) {
+    public boolean validatePos(String id, double x, double y, int verso) {
         boolean res = true;
         for (Entry<String, Bus_node> entry : vehicles.entrySet()) {
             String key = entry.getKey();
-            Bus_node car = (Bus_node) entry.getValue();
-            if (!key.equals(id) && car.getX() == x && car.getY() == y) {
-                res = false;
+            Bus_node bus = (Bus_node) entry.getValue();
+            if (!key.equals(id) && bus.getX() == x && bus.getY() == y && verso == bus.getVerso()) {
+            	res = false;
                 break;
             }
         }

@@ -7,12 +7,14 @@ package autolinee;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.graphstream.algorithm.Dijkstra;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 
+import autoMobility.Bus_node;
 import autoMobility.MobilityMap;
 import base_simulator.Grafo;
 import base_simulator.Messaggi;
@@ -38,6 +40,7 @@ public class NodoAutobus extends nodo_host {
     String nodo_ingresso;
     String nodo_uscita;
     int index_nodo_attuale;
+    int verso = -1;
 
     double currX = 0;
     double currY = 0;
@@ -112,24 +115,38 @@ public class NodoAutobus extends nodo_host {
             //SONO nel primo quadrante sono tutti contributi positivi
             addX = 1;
             addY = 1;
+            verso = 0;
         } else if ((x2 >= x1) && (y2 < y1)) {
             //SONO nel secondo quadrante i contributi di y sono negativi
             addX = 1;
             addY = -1;
+            verso = 1;
         } else if ((x2 < x1) && (y2 < y1)) {
             //SONO nel terzo quadrante i contributi di y sono negativi
             addX = -1;
             addY = -1;
+            verso = 2;
         } else if ((x2 < x1) && (y2 >= y1)) {
             //SONO nel terzo quadrante i contributi di y sono negativi
             addX = -1;
             addY = 1;
+            verso = 3;
         }
-
+        
+        //si applica il verso al Nodo autobus ogni volta che aggiorna la posizione
+        for(Entry<String, Bus_node> entry : cityMap.getVeicoli().entrySet()){
+        	String id = entry.getKey();
+        	int i = Integer.parseInt(id);
+        	if(i == this.id_nodo){
+        		Bus_node bus = entry.getValue();
+        		bus.setVerso(verso);
+        	}
+        }
+        
         double temp_currX = currX + (addX) * distance * Math.cos(angle);
         double temp_currY = currY + (addY) * distance * Math.sin(angle);
 
-        if (cityMap.validatePos("" + this.id_nodo, temp_currX, temp_currY)) {
+        if (cityMap.validatePos("" + this.id_nodo, temp_currX, temp_currY, verso)) {
             currX = temp_currX;
             currY = temp_currY;
             currDistance = currDistance + distance;
@@ -188,12 +205,14 @@ public class NodoAutobus extends nodo_host {
 
                     //Get average speed from cityMap by reading edge info
                     String edge_label = curr.toString() + next.toString();
+                    
                     Edge e = mappa.getEdge(edge_label);
                     
                     if(e == null){
                     	edge_label = next.toString() + curr.toString();
                     	e = mappa.getEdge(edge_label);
                     }
+                    
                     calcolaNuovaPosizione(e, Double.parseDouble("" + x1),
                             Double.parseDouble("" + y1),
                             Double.parseDouble("" + x2),
@@ -209,7 +228,7 @@ public class NodoAutobus extends nodo_host {
                         currDistance = 0;
                         index_nodo_attuale++;
                         waitingTime = STOP_WAITING_TIME;
-                        System.out.println("nodo " + this.getId() + " Arrivato su incrocio " + next + " al tempo " + s.orologio.getCurrent_Time());
+                        //System.out.println("nodo " + this.getId() + " Arrivato su incrocio " + next + " al tempo " + s.orologio.getCurrent_Time());
                         
                         if(this.nodo_uscita.equals(next.toString())){
                             carIsPowerOff = true;
@@ -225,7 +244,7 @@ public class NodoAutobus extends nodo_host {
                         }
                     }
 
-                    System.out.println("nodo " + this.getId() + " posizione x,y (" + currX + "," + currY + ") al tempo " + s.orologio.getCurrent_Time());
+                    //System.out.println("nodo " + this.getId() + " posizione x,y (" + currX + "," + currY + ") al tempo " + s.orologio.getCurrent_Time());
                     if(carIsPowerOff == false)
                     {
                       m.shifta(waitingTime);

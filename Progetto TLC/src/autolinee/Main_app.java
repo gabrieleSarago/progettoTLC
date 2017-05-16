@@ -9,7 +9,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map.Entry;
 
 import javax.swing.JFileChooser;
 
@@ -19,8 +21,8 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
-import autoMobility.MobilityMap;
 import autoMobility.Bus_node;
+import autoMobility.MobilityMap;
 import base_simulator.Applicazione;
 import base_simulator.Grafo;
 import base_simulator.Infos;
@@ -48,6 +50,8 @@ public class Main_app extends javax.swing.JFrame {
 	private static scheduler s;
     
     HashMap<Integer, ArrayList<Node>> percorsi;
+    //HashMap id fermata, lista delle linee
+    HashMap<Integer, HashMap<Integer, LinkedList<Utente>>> fermate = new HashMap<>();
 
     private static void init_sim_parameters() {
         s = new scheduler(6000000, false);
@@ -95,7 +99,7 @@ public class Main_app extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Progetto Reti TLC - Gruppo 0");
+        jLabel1.setText("Progetto Reti TLC - Autolinee");
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Descrizione breve Progetto");
@@ -508,6 +512,24 @@ public class Main_app extends javax.swing.JFrame {
             	id++;
             }
             
+            listElement = rootElement.getChildren("fermata");
+            //per ogni nodo fermata
+            //HashMap id percorso, lista utenti
+            HashMap<Integer, LinkedList<Utente>> linee;
+            for(Object nodo : listElement){
+            	//id nodo fermata
+            	int id_fermata = Integer.parseInt(((Element) nodo).getAttributeValue("id"));
+            	linee = new HashMap<>();
+            	//per ogni percorso si prende l'id e si crea una lista di utenti
+            	int id_linea;
+            	for(Entry<Integer, ArrayList<Node>> e : percorsi.entrySet()){
+            		id_linea = e.getKey();
+            		linee.put(id_linea, new LinkedList<>());
+            	}
+            	
+            	fermate.put(id_fermata, linee);
+            }
+            
             //nodo pozzo
             
             listElement = rootElement.getChildren("pozzo");
@@ -565,8 +587,8 @@ public class Main_app extends javax.swing.JFrame {
                     nh.setExitFromGate(exitGateAt);
                     
                     //car_node car = new car_node(id, 0, 0);
-                    Bus_node car = new Bus_node(0, 0, id);
-                    roadMap.vehicles.put("" + id, car);
+                    Bus_node bus = new Bus_node(0, 0, id);
+                    roadMap.vehicles.put("" + id, bus);
 
                     canale c = new canale(s, idCanale,
                             info.getCanale(0).returnCapacita(),

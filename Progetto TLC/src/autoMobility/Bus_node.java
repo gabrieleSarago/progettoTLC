@@ -13,6 +13,7 @@ public class Bus_node {
     double x;
     double y;
     int id;
+    int verso = -1;
 
     public Bus_node(double x, double y, int id) {
         this.x = x;
@@ -20,7 +21,17 @@ public class Bus_node {
         this.id = id;
     }
 
-    public double getX() {
+    public int getVerso() {
+		return verso;
+	}
+
+	public void setVerso(int verso) {
+		this.verso = verso;
+	}
+
+
+
+	public double getX() {
         return x;
     }
 
