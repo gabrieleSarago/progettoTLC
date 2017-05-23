@@ -513,21 +513,90 @@ public class Main_app extends javax.swing.JFrame {
             }
             
             listElement = rootElement.getChildren("fermata");
-            //per ogni nodo fermata
             //HashMap id percorso, lista utenti
             HashMap<Integer, LinkedList<Utente>> linee;
+            //per ogni nodo fermata
             for(Object nodo : listElement){
             	//id nodo fermata
             	int id_fermata = Integer.parseInt(((Element) nodo).getAttributeValue("id"));
+            	int numUtenti = Integer.parseInt(((Element) nodo).getAttributeValue("numUtenti"));
+            	double generationRate = Integer.parseInt(((Element) nodo).getAttributeValue("generationRate"));
+            	double tempoAttesa = Integer.parseInt(((Element) nodo).getAttributeValue("exitAt"));
             	linee = new HashMap<>();
             	//per ogni percorso si prende l'id e si crea una lista di utenti
             	int id_linea;
             	for(Entry<Integer, ArrayList<Node>> e : percorsi.entrySet()){
             		id_linea = e.getKey();
-            		linee.put(id_linea, new LinkedList<>());
+            		ArrayList<Node> linea = e.getValue();
+            		//verifica che la linea passi dalla fermata
+            		for(Node n : linea){
+            			//se l'id di un nodo della linea coincide col nodo
+            			//della fermata allora la linea passa per la nostra fermata
+            			//quindi aggiungi la linea all'insieme di linee possedute
+            			//dalla nostra fermata.
+            			if(n.getId() == ((Element) nodo).getAttributeValue("id")){
+            				linee.put(id_linea, new LinkedList<>());
+            				break;
+            			}
+            		}
             	}
-            	
             	fermate.put(id_fermata, linee);
+            	//generazione degli utenti
+            	//id utente inteso come incrementale per qualsiasi utente di qualsiasi fermata
+                int id_utente = 0;
+            	double tempoGenerazione =  60000.0 / generationRate;
+            	for(int i = 0; i < numUtenti; i++){
+            		//scelta linea casuale
+            		//scelta indice casuale dell'HashMap linee
+            		int scelta_linea = (int)(Math.random()*linee.size());
+            		int linea = 0;
+            		//tra le linee disponibili sceglie una linea casuale
+            		//trovando quella linea il cui indice nell'HashMap
+            		//è stato trovato prima
+            		for(Entry<Integer,LinkedList<Utente>> e : linee.entrySet()){
+            			if(scelta_linea == 0){
+            				linea = e.getKey();
+            				break;
+            			}
+            			scelta_linea--;
+            		}
+            		
+            		//si genera un utente e si assegna l'id e il nodo uscita
+            		//il nodo uscita è ottenuto prendendo un nodo a caso della
+            		//linea casuale scelta diverso dalla fermata
+            		ArrayList<Node> nodi = percorsi.get(linea);
+            		int scelta_destinazione = (int)(Math.random()*nodi.size());
+            		int nodo_uscita = 0;
+            		while(scelta_destinazione >= 0){
+            			for(Node n : nodi){
+            				//se sei arrivato alla destinazione scelta ma questa coincide con la nostra fermata
+            				//scegli un'altra destinazione casuale
+            				if(scelta_destinazione == 0 && n.getId() == ((Element) nodo).getAttributeValue("id")){
+            					scelta_destinazione = (int)(Math.random()*nodi.size());
+            					break;
+            				}
+            				//ancora non sei arrivato
+            				if(scelta_destinazione != 0)
+            					scelta_destinazione--;
+            				//destinazione trovata
+            				else
+            					nodo_uscita = Integer.parseInt(n.getId());
+            			}
+            		}
+            		//genera l'utente
+            		Utente u = new Utente(id_utente, nodo_uscita);
+            		//TODO setExitFromGate nell'utente, in modo che il simulatore si gestisca
+            		//l'evento di generazione
+            		//aggiungi l'utente della lista di utenti della linea scelta
+            		LinkedList<Utente> utenti = linee.get(linea);
+            		utenti.add(u);
+            		//aggiorna la lista delle linee
+            		linee.put(linea, utenti);
+            		//aggiorna le linee nella fermata
+            		fermate.put(id_fermata, linee);
+            		id_utente++;
+            		tempoAttesa += tempoGenerazione;
+            	}
             }
             
             //nodo pozzo

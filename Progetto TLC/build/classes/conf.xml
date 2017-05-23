@@ -82,7 +82,7 @@ and open the template in the editor.
     <pozzo gateway = "0" exitAt="0" generationRate="2" maxVehicles="60" showUI = "0">
     </pozzo>
     
-    <fermata id = "18" numUtenti = "50" generationRate = "5">
+    <fermata id = "18" numUtenti = "50" generationRate = "5" exitAt="0">
     </fermata>
     
     <!-- linea A -->
