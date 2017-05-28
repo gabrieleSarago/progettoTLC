@@ -9,9 +9,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Random;
 
 import javax.swing.JFileChooser;
 
@@ -49,10 +51,6 @@ public class Main_app extends javax.swing.JFrame {
 
 	private static scheduler s;
     
-    HashMap<Integer, ArrayList<Node>> percorsi;
-    //HashMap id fermata, lista delle linee
-    HashMap<Integer, HashMap<Integer, LinkedList<Utente>>> fermate = new HashMap<>();
-
     private static void init_sim_parameters() {
         s = new scheduler(6000000, false);
     }
@@ -494,7 +492,7 @@ public class Main_app extends javax.swing.JFrame {
             //percorsi
             listElement = rootElement.getChildren("percorso");
             //lista dei percorsi presenti nel file .xml
-            percorsi = new HashMap<>();
+            HashMap<Integer, ArrayList<Node>> percorsi = roadMap.getPercorsi();
             int id = 0;
             //per ogni percorso crea una lista di nodi da attraversare e la aggiunge alla lista dei percorsi
             for (Object nodo : listElement) {
@@ -511,17 +509,20 @@ public class Main_app extends javax.swing.JFrame {
             	percorsi.put(id, percorso);
             	id++;
             }
+            roadMap.setPercorsi(percorsi);
             
             listElement = rootElement.getChildren("fermata");
             //HashMap id percorso, lista utenti
             HashMap<Integer, LinkedList<Utente>> linee;
+            Random r = new Random();
             //per ogni nodo fermata
             for(Object nodo : listElement){
             	//id nodo fermata
             	int id_fermata = Integer.parseInt(((Element) nodo).getAttributeValue("id"));
+            	//numero massimo di utenti generati in questa fermata
             	int numUtenti = Integer.parseInt(((Element) nodo).getAttributeValue("numUtenti"));
-            	double generationRate = Integer.parseInt(((Element) nodo).getAttributeValue("generationRate"));
-            	double tempoAttesa = Integer.parseInt(((Element) nodo).getAttributeValue("exitAt"));
+            	//double generationRate = Integer.parseInt(((Element) nodo).getAttributeValue("generationRate"));
+            	//double tempoAttesa = Integer.parseInt(((Element) nodo).getAttributeValue("exitAt"));
             	linee = new HashMap<>();
             	//per ogni percorso si prende l'id e si crea una lista di utenti
             	int id_linea;
@@ -534,68 +535,71 @@ public class Main_app extends javax.swing.JFrame {
             			//della fermata allora la linea passa per la nostra fermata
             			//quindi aggiungi la linea all'insieme di linee possedute
             			//dalla nostra fermata.
-            			if(n.getId() == ((Element) nodo).getAttributeValue("id")){
-            				linee.put(id_linea, new LinkedList<>());
+            			if(n.getId().equals(((Element) nodo).getAttributeValue("id"))){
+            				linee.put(id_linea, new LinkedList<Utente>());
             				break;
             			}
             		}
             	}
-            	fermate.put(id_fermata, linee);
+            	roadMap.addLinee(id_fermata, linee);
             	//generazione degli utenti
             	//id utente inteso come incrementale per qualsiasi utente di qualsiasi fermata
                 int id_utente = 0;
-            	double tempoGenerazione =  60000.0 / generationRate;
+            	//double tempoGenerazione =  60000.0 / generationRate;
+            	
             	for(int i = 0; i < numUtenti; i++){
-            		//scelta linea casuale
-            		//scelta indice casuale dell'HashMap linee
-            		int scelta_linea = (int)(Math.random()*linee.size());
-            		int linea = 0;
-            		//tra le linee disponibili sceglie una linea casuale
-            		//trovando quella linea il cui indice nell'HashMap
-            		//è stato trovato prima
-            		for(Entry<Integer,LinkedList<Utente>> e : linee.entrySet()){
-            			if(scelta_linea == 0){
-            				linea = e.getKey();
+
+            		//prende le linee che passano per la fermata e ne
+            		//aggiunge i nodi a una LinkedHashSet, per poi scegliere un
+            		//nodo casuale come nodo destinazione dell'utente
+            		HashMap<Integer, LinkedList<Utente>> percorsi_fermata = roadMap.getLinee(id_fermata);
+            		LinkedHashSet<Node> nodi = new LinkedHashSet<>();
+            		//per ogni linea aggiungi i nodi nella linkedHashSet
+            		for(Entry<Integer, LinkedList<Utente>> e : percorsi_fermata.entrySet()){
+            			int id_temp = e.getKey();
+            			System.out.println("id_temp: "+id_temp);
+            			ArrayList<Node> percorso_temp = percorsi.get(id_temp);
+            			nodi.addAll(percorso_temp);
+            		}
+            		//rimuovi il nodo della fermata attuale
+            		nodi.remove(roadMap.getCityRoadMap().getNode(id_fermata));
+            		//scegli una posizione casuale del nodo
+            		int scelta_nodo = r.nextInt(nodi.size()+1);
+            		int scelta_corrente = 0;
+            		int nodo_uscita = 0;
+            		for(Node n : nodi){
+            			if(scelta_corrente == scelta_nodo){
+            				//scegli il nodo di destinazione
+            				nodo_uscita = Integer.parseInt(n.getId());
             				break;
             			}
-            			scelta_linea--;
+            			scelta_corrente++;
             		}
             		
-            		//si genera un utente e si assegna l'id e il nodo uscita
-            		//il nodo uscita è ottenuto prendendo un nodo a caso della
-            		//linea casuale scelta diverso dalla fermata
-            		ArrayList<Node> nodi = percorsi.get(linea);
-            		int scelta_destinazione = (int)(Math.random()*nodi.size());
-            		int nodo_uscita = 0;
-            		while(scelta_destinazione >= 0){
-            			for(Node n : nodi){
-            				//se sei arrivato alla destinazione scelta ma questa coincide con la nostra fermata
-            				//scegli un'altra destinazione casuale
-            				if(scelta_destinazione == 0 && n.getId() == ((Element) nodo).getAttributeValue("id")){
-            					scelta_destinazione = (int)(Math.random()*nodi.size());
-            					break;
-            				}
-            				//ancora non sei arrivato
-            				if(scelta_destinazione != 0)
-            					scelta_destinazione--;
-            				//destinazione trovata
-            				else
-            					nodo_uscita = Integer.parseInt(n.getId());
+            		//linee percorribili dall'utente
+            		LinkedList<Integer> linee_percorribili = new LinkedList<>();
+            		for(Entry<Integer, LinkedList<Utente>> e : percorsi_fermata.entrySet()){
+            			int id_temp = e.getKey();
+            			ArrayList<Node> percorso_temp = percorsi.get(id_temp);
+            			if(percorso_temp.contains(roadMap.getCityRoadMap().getNode(nodo_uscita))){
+            				linee_percorribili.add(id_temp);
             			}
             		}
+            		
             		//genera l'utente
             		Utente u = new Utente(id_utente, nodo_uscita);
-            		//TODO setExitFromGate nell'utente, in modo che il simulatore si gestisca
-            		//l'evento di generazione
-            		//aggiungi l'utente della lista di utenti della linea scelta
-            		LinkedList<Utente> utenti = linee.get(linea);
-            		utenti.add(u);
-            		//aggiorna la lista delle linee
-            		linee.put(linea, utenti);
+            		System.out.format("E' stato generato l'utente %d con destinazione %d \n", id_utente, nodo_uscita);
+            		//aggiungi l'utente alle code per le linee percorribili
+            		for(Integer j : linee_percorribili){
+            			LinkedList<Utente> utenti = linee.get(j);
+            			utenti.add(u);
+            			//aggiorna la lista delle linee
+            			linee.put(j, utenti);
+            		}
             		//aggiorna le linee nella fermata
-            		fermate.put(id_fermata, linee);
+            		roadMap.addLinee(id_fermata, linee);
             		id_utente++;
-            		tempoAttesa += tempoGenerazione;
+            		//tempoAttesa += tempoGenerazione;
             	}
             }
             
@@ -642,7 +646,7 @@ public class Main_app extends javax.swing.JFrame {
                     //aggiorna nodi terminali
                     nodo_ingresso = percorso.get(0).getId();
                 	nodo_uscita = percorso.get(percorso.size()-1).getId();
-                    NodoAutobus nh = new NodoAutobus(s, id, pl, ll, nl, tl, null, "nodo_host", gateway, percorso);
+                    NodoAutobus nh = new NodoAutobus(s, id, pl, ll, nl, tl, null, "nodo_host", gateway, id_percorso, percorso);
                     //id_percorso server ad assegnare un percorso all'autobus
                     //si incrementa l'id, se questo supera il numero di percorsi si pone a 0
                     id_percorso++;

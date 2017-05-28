@@ -1,6 +1,6 @@
 package autolinee;
 
-public class Utente {
+public class Utente{
 
 	private int id;
 	private int nodo_uscita;
@@ -17,4 +17,5 @@ public class Utente {
 	public int getNodo_uscita() {
 		return nodo_uscita;
 	}
+	
 }
