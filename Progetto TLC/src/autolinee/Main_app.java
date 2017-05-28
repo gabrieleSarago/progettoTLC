@@ -521,8 +521,8 @@ public class Main_app extends javax.swing.JFrame {
             	int id_fermata = Integer.parseInt(((Element) nodo).getAttributeValue("id"));
             	//numero massimo di utenti generati in questa fermata
             	int numUtenti = Integer.parseInt(((Element) nodo).getAttributeValue("numUtenti"));
-            	//double generationRate = Integer.parseInt(((Element) nodo).getAttributeValue("generationRate"));
-            	//double tempoAttesa = Integer.parseInt(((Element) nodo).getAttributeValue("exitAt"));
+            	double generationRate = Integer.parseInt(((Element) nodo).getAttributeValue("generationRate"));
+            	double tempoAttesa = Integer.parseInt(((Element) nodo).getAttributeValue("exitAt"));
             	linee = new HashMap<>();
             	//per ogni percorso si prende l'id e si crea una lista di utenti
             	int id_linea;
@@ -545,7 +545,7 @@ public class Main_app extends javax.swing.JFrame {
             	//generazione degli utenti
             	//id utente inteso come incrementale per qualsiasi utente di qualsiasi fermata
                 int id_utente = 0;
-            	//double tempoGenerazione =  60000.0 / generationRate;
+            	double tempoGenerazione =  60000.0 / generationRate;
             	
             	for(int i = 0; i < numUtenti; i++){
 
@@ -587,19 +587,14 @@ public class Main_app extends javax.swing.JFrame {
             		}
             		
             		//genera l'utente
-            		Utente u = new Utente(id_utente, nodo_uscita);
+            		
+            		Utente u = new Utente(s, id_utente, nodo_uscita, id_fermata);
+            		u.setExitFromGate(tempoAttesa);
+            		u.setLineeAttesa(linee_percorribili);
+            		u.setMappa(roadMap);
             		System.out.format("E' stato generato l'utente %d con destinazione %d \n", id_utente, nodo_uscita);
-            		//aggiungi l'utente alle code per le linee percorribili
-            		for(Integer j : linee_percorribili){
-            			LinkedList<Utente> utenti = linee.get(j);
-            			utenti.add(u);
-            			//aggiorna la lista delle linee
-            			linee.put(j, utenti);
-            		}
-            		//aggiorna le linee nella fermata
-            		roadMap.addLinee(id_fermata, linee);
             		id_utente++;
-            		//tempoAttesa += tempoGenerazione;
+            		tempoAttesa += tempoGenerazione;
             	}
             }
             
