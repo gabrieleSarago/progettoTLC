@@ -5,7 +5,9 @@
  */
 package autoMobility;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map.Entry;
 import org.graphstream.algorithm.Dijkstra;
 import org.graphstream.graph.Edge;
@@ -14,6 +16,8 @@ import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.*;
 import org.graphstream.stream.ProxyPipe;
 import org.graphstream.ui.view.Viewer;
+
+import autolinee.Utente;
 
 /**
  *
@@ -24,7 +28,13 @@ public class MobilityMap {
     public Graph cityRoadMap;
     Dijkstra dijkstra;
     Dijkstra dijkstra_avg_speed;
-    public HashMap<String, Bus_node> vehicles = new HashMap<String, Bus_node>();
+    public HashMap<String, Bus_node> vehicles = new HashMap<>();
+    
+    //lista delle linee che vengono popolate in Main_app
+    HashMap<Integer, ArrayList<Node>> percorsi = new HashMap<>();
+    
+    //HashMap id fermata, lista delle linee
+    HashMap<Integer, HashMap<Integer, LinkedList<Utente>>> fermate = new HashMap<>();
     ProxyPipe pipe;
 
     public Graph getCityRoadMap() {
@@ -47,7 +57,7 @@ public class MobilityMap {
 
         // Compute the shortest paths in g from A to all nodes
         dijkstra.init(cityRoadMap);
-        dijkstra.setSource(cityRoadMap.getNode("T"));
+        dijkstra.setSource(cityRoadMap.getNode("0"));
         dijkstra.compute();
 
         // Print the lengths of all the shortest paths
@@ -79,7 +89,7 @@ public class MobilityMap {
         }*/
 
         dijkstra_avg_speed.init(cityRoadMap);
-        dijkstra_avg_speed.setSource(cityRoadMap.getNode("T"));
+        dijkstra_avg_speed.setSource(cityRoadMap.getNode("0"));
         dijkstra_avg_speed.compute();
         System.out.println("\n\n...Calcolo dei cammini in base alle velocit√† medie...");
         // Print the lengths of all the shortest paths
@@ -90,7 +100,7 @@ public class MobilityMap {
         
         for (Node n : cityRoadMap) {
             n.addAttribute("label", n.getId());
-            if (n.getId().equals("T")){
+            if (n.getId().equals("0")){
             	if (n.getAttribute("ui.style") == null)
                     n.addAttribute("ui.style", "fill-color: red; size: 30px,30px;");
             	else
@@ -166,8 +176,8 @@ public class MobilityMap {
         cityRoadMap = new SingleGraph("Autolinee");
         
         //Nodo Terminal
-        cityRoadMap.addNode("T");
-        cityRoadMap.getNode("T").setAttribute("xy", 450, 600);
+        cityRoadMap.addNode("0");
+        cityRoadMap.getNode("0").setAttribute("xy", 450, 600);
         //Nodi Fermate
         cityRoadMap.addNode("6");
         cityRoadMap.getNode("6").setAttribute("xy", 600, 620);
@@ -273,8 +283,8 @@ public class MobilityMap {
         cityRoadMap.getNode("46").setAttribute("xy", 1800, 720);
         
         //Archi
-        cityRoadMap.addEdge("T1", "T", "1").addAttribute("length", 200);
-        cityRoadMap.addEdge("T6", "T", "6").addAttribute("length", 150);
+        cityRoadMap.addEdge("01", "0", "1").addAttribute("length", 200);
+        cityRoadMap.addEdge("06", "0", "6").addAttribute("length", 150);
         cityRoadMap.addEdge("61", "6", "1").addAttribute("length", 200);
         cityRoadMap.addEdge("67", "6", "7").addAttribute("length", 350);
         cityRoadMap.addEdge("78", "7", "8").addAttribute("length", 100);
@@ -308,7 +318,7 @@ public class MobilityMap {
         cityRoadMap.addEdge("511", "51", "1").addAttribute("length", 230);
         cityRoadMap.addEdge("710", "7", "10").addAttribute("length", 215);
         cityRoadMap.addEdge("119", "11", "9").addAttribute("length", 230);
-        cityRoadMap.addEdge("T12", "T", "12").addAttribute("length", 170);
+        cityRoadMap.addEdge("012", "0", "12").addAttribute("length", 170);
         cityRoadMap.addEdge("1210", "12", "10").addAttribute("length", 390);
         cityRoadMap.addEdge("1011", "10", "11").addAttribute("length", 130);
         cityRoadMap.addEdge("1140", "11", "40").addAttribute("length", 140);
@@ -320,7 +330,7 @@ public class MobilityMap {
         cityRoadMap.addEdge("1213", "12", "13").addAttribute("length", 200);
         cityRoadMap.addEdge("3813", "38", "13").addAttribute("length", 180);
         cityRoadMap.addEdge("3238", "32", "38").addAttribute("length", 90);
-        cityRoadMap.addEdge("T32", "T", "32").addAttribute("length", 100);
+        cityRoadMap.addEdge("032", "0", "32").addAttribute("length", 100);
         cityRoadMap.addEdge("1448", "14", "48").addAttribute("length", 170);
         cityRoadMap.addEdge("3948", "39", "48").addAttribute("length", 210);
         cityRoadMap.addEdge("1339", "13", "39").addAttribute("length", 60);
@@ -334,7 +344,7 @@ public class MobilityMap {
         cityRoadMap.addEdge("3429", "34", "29").addAttribute("length", 120);
         cityRoadMap.addEdge("3330", "33", "30").addAttribute("length", 150);
         cityRoadMap.addEdge("3233", "32", "33").addAttribute("length", 130);
-        cityRoadMap.addEdge("T18", "T", "18").addAttribute("length", 210);
+        cityRoadMap.addEdge("018", "0", "18").addAttribute("length", 210);
         cityRoadMap.addEdge("1819", "18", "19").addAttribute("length", 140);
         cityRoadMap.addEdge("1920", "19", "20").addAttribute("length", 140);
         cityRoadMap.addEdge("2021", "20", "21").addAttribute("length", 800);
@@ -342,12 +352,12 @@ public class MobilityMap {
         cityRoadMap.addEdge("2526", "25", "26").addAttribute("length", 120);
         cityRoadMap.addEdge("2527", "25", "27").addAttribute("length", 210);
         cityRoadMap.addEdge("2627", "26", "27").addAttribute("length", 210);
-        cityRoadMap.addEdge("T26", "T", "26").addAttribute("length", 220);
+        cityRoadMap.addEdge("026", "0", "26").addAttribute("length", 220);
         cityRoadMap.addEdge("2029", "20", "29").addAttribute("length", 200);
         cityRoadMap.addEdge("2228", "22", "28").addAttribute("length", 70);
         
-        cityRoadMap.getEdge("T1").addAttribute("avgSpeed", 6.5);
-        cityRoadMap.getEdge("T6").addAttribute("avgSpeed", 6.5);
+        cityRoadMap.getEdge("01").addAttribute("avgSpeed", 6.5);
+        cityRoadMap.getEdge("06").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("61").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("67").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("78").addAttribute("avgSpeed", 6.5);
@@ -381,7 +391,7 @@ public class MobilityMap {
         cityRoadMap.getEdge("511").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("710").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("119").addAttribute("avgSpeed", 6.5);
-        cityRoadMap.getEdge("T12").addAttribute("avgSpeed", 6.5);
+        cityRoadMap.getEdge("012").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("1210").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("1011").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("1140").addAttribute("avgSpeed", 6.5);
@@ -393,7 +403,7 @@ public class MobilityMap {
         cityRoadMap.getEdge("1213").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("3813").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("3238").addAttribute("avgSpeed", 6.5);
-        cityRoadMap.getEdge("T32").addAttribute("avgSpeed", 6.5);
+        cityRoadMap.getEdge("032").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("1448").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("3948").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("1339").addAttribute("avgSpeed", 6.5);
@@ -407,7 +417,7 @@ public class MobilityMap {
         cityRoadMap.getEdge("3429").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("3330").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("3233").addAttribute("avgSpeed", 6.5);
-        cityRoadMap.getEdge("T18").addAttribute("avgSpeed", 20.0);
+        cityRoadMap.getEdge("018").addAttribute("avgSpeed", 20.0);
         cityRoadMap.getEdge("1819").addAttribute("avgSpeed", 20.0);
         cityRoadMap.getEdge("1920").addAttribute("avgSpeed", 20.0);
         cityRoadMap.getEdge("2021").addAttribute("avgSpeed", 20.0);
@@ -415,7 +425,7 @@ public class MobilityMap {
         cityRoadMap.getEdge("2526").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("2527").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("2627").addAttribute("avgSpeed", 6.5);
-        cityRoadMap.getEdge("T26").addAttribute("avgSpeed", 6.5);
+        cityRoadMap.getEdge("026").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("2029").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("2228").addAttribute("avgSpeed", 6.5);
 
@@ -439,9 +449,9 @@ public class MobilityMap {
             }
         }
         if (res == true) {
-            Bus_node car = vehicles.get(id);
-            car.setX(x);
-            car.setY(y);
+            Bus_node bus = vehicles.get(id);
+            bus.setX(x);
+            bus.setY(y);
 
             //Test car nodes
             if (cityRoadMap.getNode(id) == null) {
@@ -459,7 +469,41 @@ public class MobilityMap {
     public void updateVehiclePos(String id, double x, double y) {
         Bus_node car = vehicles.get(id);
         car.setX(x);
-        car.setY(y);	
-
+        car.setY(y);
     }
+    
+    public void addLinee(int id, HashMap<Integer, LinkedList<Utente>> linee){
+    	System.out.println("Aggiunta linee per la fermata"+id);
+    	fermate.put(id, linee);
+    }
+    
+    public HashMap<Integer, LinkedList<Utente>> getLinee(int id_fermata){
+    	return fermate.get(id_fermata);
+    }
+    
+    public LinkedList<Utente> getUtenti(int fermata, int linea){
+    	HashMap<Integer, LinkedList<Utente>> linee = fermate.get(fermata);
+    	if(linee == null){
+    		System.out.println("La fermata non Ë predisposta per generare utenti, quindi va aggiunta nel conf.xml");
+    		return new LinkedList<Utente>();
+    	}
+    	return linee.get(linea);
+    }
+    
+    public HashMap<Integer, ArrayList<Node>> getPercorsi(){
+    	return percorsi;
+    }
+    
+    public void setPercorsi(HashMap<Integer, ArrayList<Node>> percorsi){
+    	this.percorsi = percorsi;
+    }
+    
+    public void rimuovi_utente(Utente u, int id_fermata){
+    	HashMap<Integer, LinkedList<Utente>> code = fermate.get(id_fermata);
+    	for(Entry<Integer, LinkedList<Utente>> e : code.entrySet()){
+    		LinkedList<Utente> coda_utenti = e.getValue();
+    		coda_utenti.remove(u);
+    	}
+    }
+
 }

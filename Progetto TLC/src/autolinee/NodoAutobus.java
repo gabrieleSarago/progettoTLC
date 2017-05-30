@@ -6,6 +6,7 @@
 package autolinee;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -37,10 +38,15 @@ public class NodoAutobus extends nodo_host {
     final String START_ROAD_RUN = "start_road_run";
     final double UPDATE_POSITION_TIME = 1000.0; //UPDATE_POSITION_TIME
     final double STOP_WAITING_TIME = 10000.0; //WAIT AT ROAD_CROSS
+    //tempo impiegato dagli utenti a salire
+    final double TEMPO_SALITA = 3000.0;
+    final double TEMPO_DISCESA = 2000.0;
+    final int POSTI_MAX = 50;
     String nodo_ingresso;
     String nodo_uscita;
     int index_nodo_attuale;
     int verso = -1;
+    int id_percorso;
 
     double currX = 0;
     double currY = 0;
@@ -50,7 +56,12 @@ public class NodoAutobus extends nodo_host {
     Graph mappa;
     Dijkstra dijkstra;
     
+    //linea assegnata all'autobus
     ArrayList<Node> percorso;
+    
+    Utente[] utenti;
+    int numPosti = 0;
+    
     private canale my_wireless_channel;
     
     private boolean carIsPowerOff = true;
@@ -71,11 +82,13 @@ public class NodoAutobus extends nodo_host {
 
     }
     
-    public NodoAutobus(scheduler s, int id_nodo, physicalLayer myPhyLayer, LinkLayer myLinkLayer, NetworkLayer myNetLayer, TransportLayer myTransportLayer, Grafo network, String tipo, int gtw, ArrayList<Node> percorso) {
+    public NodoAutobus(scheduler s, int id_nodo, physicalLayer myPhyLayer, LinkLayer myLinkLayer, NetworkLayer myNetLayer, TransportLayer myTransportLayer, Grafo network, String tipo, int gtw, int id_percorso, ArrayList<Node> percorso) {
         super(s, id_nodo, myPhyLayer, myLinkLayer, myNetLayer, myTransportLayer, network, tipo, gtw);
+        this.id_percorso = id_percorso;
         this.percorso = percorso;
+        utenti = new Utente[POSTI_MAX];
         dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "length");
-
+        
     }
 
     public String getNodo_ingresso() {
@@ -140,6 +153,7 @@ public class NodoAutobus extends nodo_host {
         	if(i == this.id_nodo){
         		Bus_node bus = entry.getValue();
         		bus.setVerso(verso);
+        		//TODO put?
         	}
         }
         
@@ -164,15 +178,28 @@ public class NodoAutobus extends nodo_host {
             /*dijkstra.init(mappa);
             dijkstra.setSource(mappa.getNode(nodo_ingresso));
             dijkstra.compute();*/
-
-            index_nodo_attuale = 0;
+            
+            
+            
             /*list1 = new ArrayList<Node>();
             
             for (Node node : dijkstra.getPathNodes(mappa.getNode(nodo_uscita))) {
                 list1.add(0, node);
             }*/
-
+            
+            //all'inizio il primo nodo è il terminal
+            index_nodo_attuale = 0;
+            
             Node curr = percorso.get(index_nodo_attuale);
+            //TODO l'id del terminal è una stringa, bisogna cambiarlo	
+            int id_fermata = Integer.parseInt(curr.getId());
+            
+            /*utenti che sono saliti e che sono scesi dal bus
+            numero_utenti[0] = utenti scesi
+            numero_utenti[1] = utenti saliti*/
+            int[] numero_utenti = getUtenti(id_fermata);
+            
+            double waitingTime = UPDATE_POSITION_TIME + numero_utenti[1]*TEMPO_SALITA;
             
             Object x1 = ((Object[]) curr.getAttribute("xy"))[0];
             Object y1 = ((Object[]) curr.getAttribute("xy"))[1];
@@ -182,7 +209,7 @@ public class NodoAutobus extends nodo_host {
             currDistance = 0;
 
             m.setTipo_Messaggio(UPDATE_POSITION);
-            m.shifta(UPDATE_POSITION_TIME);
+            m.shifta(waitingTime);
             m.setDestinazione(this);
             m.setSorgente(this);
             s.insertMessage(m);
@@ -227,7 +254,16 @@ public class NodoAutobus extends nodo_host {
                         cityMap.updateVehiclePos("" + this.id_nodo, currX, currY);
                         currDistance = 0;
                         index_nodo_attuale++;
-                        waitingTime = STOP_WAITING_TIME;
+                        int id_fermata = Integer.parseInt(next.getId());
+                        
+                        //TODO ci sono piu autobus che interrogano una fermata
+                        //quindi va gestita la mutua esclusione.
+                        int[] numero_utenti = getUtenti(id_fermata);
+                        /*il tempo di attesa è dato da un tempo di fermata dell'autobus
+                        un tempo per far salire gli utenti sull'autobus e
+                        un tempo per ripartire. Il tempo di farmata e di partenza consiste
+                        nello STOP_WAITING_TIME */
+                        waitingTime = STOP_WAITING_TIME + numero_utenti[1]*TEMPO_SALITA + numero_utenti[0]*TEMPO_DISCESA;
                         //System.out.println("nodo " + this.getId() + " Arrivato su incrocio " + next + " al tempo " + s.orologio.getCurrent_Time());
                         
                         if(this.nodo_uscita.equals(next.toString())){
@@ -279,6 +315,43 @@ public class NodoAutobus extends nodo_host {
         Messaggi m = new Messaggi(START_ROAD_RUN, this, this, this, s.orologio.getCurrent_Time());        
         m.shifta(exitGateAt);
         s.insertMessage(m);
+    }
+    
+    public synchronized int[] getUtenti(int id_fermata){
+    	int[] ris = new int[2];
+    	//fai scendere gli utenti dall'autobus
+    	//TODO verificare che la lista degli utenti non sia
+    	//interrogata piu volte dall'autobus. Se uso una LL
+    	//viene generata una ConcurrentModificationException.
+    	for(int i = 0; i < utenti.length; i++){
+    		if(utenti[i] != null && utenti[i].getNodo_uscita() == id_fermata){
+    			System.out.format("L'utente %d è sceso alla fermata %d dall'autobus %d \n", utenti[i].getId(), id_fermata, id_nodo);
+    			utenti[i] = null;
+    			numPosti--;
+    			ris[0]++;
+    		}
+    	}
+    	//ottieni gli utenti in attesa alla fermata corrente e che attendono
+        //questo autobus che passa per il percorso che abbiamo scelto
+        LinkedList<Utente> utentiAttesa = cityMap.getUtenti(id_fermata, id_percorso);
+        //fai salire gli utenti sull'autobus, controllando che
+        //l'autobus non sia pieno
+        for(int i = 0; i < utentiAttesa.size(); i++){
+        	if(numPosti < POSTI_MAX){
+        		//l'autobus preleva l'utente e lo elimina da tutte le code in attesa
+        		//questo vuol dire che l'utente ha scelto il primo autobus che
+        		//arriva a destinazione
+        		//TODO previsto cambio di algoritmo della scelta dell'autobus da parte dell'utente
+        		Utente u = utentiAttesa.removeFirst();
+        		cityMap.rimuovi_utente(u, id_fermata);
+        		utenti[numPosti] = u;
+    			System.out.format("L'utente %d è salito sull'autobus %d dalla fermata %d \n", u.getId(), id_nodo, id_fermata);
+        		numPosti++;
+        		ris[1]++;
+        	}
+        	else break;
+        }
+        return ris;
     }
 
 }

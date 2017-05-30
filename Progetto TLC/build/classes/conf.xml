@@ -79,14 +79,9 @@ and open the template in the editor.
          exitAt = istante iniziale dal quale il generatore inizierà a fare pull di veicoli all'interno del sistema
          generation rate = rate di generazione espresso in veicoli al minuto
     -->
-    <pozzo gateway = "0" exitAt="0" generationRate="2" maxVehicles="60" showUI = "0">
-    </pozzo>
-    
-    <fermata id = "18" numUtenti = "50" generationRate = "5">
-    </fermata>
-    
+
     <!-- linea A -->
-    <percorso nodo_partenza = "T" nodo_arrivo = "T">
+    <percorso nodo_partenza = "0" nodo_arrivo = "0">
     	<nodo_intermedio>18</nodo_intermedio>
     	<nodo_intermedio>19</nodo_intermedio>
     	<nodo_intermedio>20</nodo_intermedio>
@@ -106,7 +101,7 @@ and open the template in the editor.
     	<nodo_intermedio>18</nodo_intermedio>
     </percorso>
    	<!-- linea B -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>18</nodo_intermedio>
    		<nodo_intermedio>25</nodo_intermedio>
    		<nodo_intermedio>27</nodo_intermedio>
@@ -128,7 +123,7 @@ and open the template in the editor.
    		<nodo_intermedio>18</nodo_intermedio>
    	</percorso>
    	<!-- linea C -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>26</nodo_intermedio>
    		<nodo_intermedio>25</nodo_intermedio>
    		<nodo_intermedio>18</nodo_intermedio>
@@ -144,7 +139,7 @@ and open the template in the editor.
    		<nodo_intermedio>26</nodo_intermedio>
    	</percorso>
    	<!-- linea D -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>1</nodo_intermedio>
    		<nodo_intermedio>2</nodo_intermedio>
    		<nodo_intermedio>15</nodo_intermedio>
@@ -158,7 +153,7 @@ and open the template in the editor.
    		<nodo_intermedio>1</nodo_intermedio>
    	</percorso>
    	<!-- linea E -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>6</nodo_intermedio>
    		<nodo_intermedio>7</nodo_intermedio>
    		<nodo_intermedio>8</nodo_intermedio>
@@ -176,7 +171,7 @@ and open the template in the editor.
    		<nodo_intermedio>6</nodo_intermedio>
    	</percorso>
    	<!-- linea F -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>6</nodo_intermedio>
    		<nodo_intermedio>7</nodo_intermedio>
    		<nodo_intermedio>10</nodo_intermedio>
@@ -190,7 +185,7 @@ and open the template in the editor.
    		<nodo_intermedio>6</nodo_intermedio>
    	</percorso>
    	<!-- linea G -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>12</nodo_intermedio>
    		<nodo_intermedio>13</nodo_intermedio>
    		<nodo_intermedio>39</nodo_intermedio>
@@ -202,7 +197,7 @@ and open the template in the editor.
    		<nodo_intermedio>12</nodo_intermedio>
    	</percorso>
    	<!-- linea H -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>32</nodo_intermedio>
    		<nodo_intermedio>38</nodo_intermedio>
    		<nodo_intermedio>13</nodo_intermedio>
@@ -214,7 +209,7 @@ and open the template in the editor.
    		<nodo_intermedio>32</nodo_intermedio>
    	</percorso>
    	<!-- linea I -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>32</nodo_intermedio>
    		<nodo_intermedio>33</nodo_intermedio>
    		<nodo_intermedio>30</nodo_intermedio>
@@ -226,7 +221,7 @@ and open the template in the editor.
    		<nodo_intermedio>32</nodo_intermedio>
    	</percorso>
    	<!-- linea L -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>1</nodo_intermedio>
    		<nodo_intermedio>2</nodo_intermedio>
    		<nodo_intermedio>16</nodo_intermedio>
@@ -242,7 +237,7 @@ and open the template in the editor.
    		<nodo_intermedio>1</nodo_intermedio>
    	</percorso>
    	<!-- linea M -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>1</nodo_intermedio>
    		<nodo_intermedio>2</nodo_intermedio>
    		<nodo_intermedio>3</nodo_intermedio>
@@ -262,7 +257,7 @@ and open the template in the editor.
    		<nodo_intermedio>1</nodo_intermedio>
    	</percorso>
    	<!-- linea N -->
-   	<percorso nodo_partenza = "T" nodo_arrivo = "T">
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>12</nodo_intermedio>
    		<nodo_intermedio>10</nodo_intermedio>
    		<nodo_intermedio>7</nodo_intermedio>
@@ -283,6 +278,14 @@ and open the template in the editor.
    		<nodo_intermedio>10</nodo_intermedio>
    		<nodo_intermedio>12</nodo_intermedio>
    	</percorso>
+   	
+   	<fermata id = "18" numUtenti = "50" generationRate = "5" exitAt="0">
+    </fermata>
+    <fermata id = "19" numUtenti = "50" generationRate = "5" exitAt="0">
+    </fermata>
+   	
+   	<pozzo gateway = "0" exitAt="0" generationRate="2" maxVehicles="60" showUI = "0">
+    </pozzo>
    		
 <!--    
     <router id="2" gateway="4" net_size="5">
