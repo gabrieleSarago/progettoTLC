@@ -279,6 +279,7 @@ and open the template in the editor.
    		<nodo_intermedio>12</nodo_intermedio>
    	</percorso>
    	
+   	<!-- ogni fermata genera 50 utenti, 5 utenti ogni minuto. -->
    	<fermata id = "18" numUtenti = "50" generationRate = "5" exitAt="0">
     </fermata>
     <fermata id = "19" numUtenti = "50" generationRate = "5" exitAt="0">

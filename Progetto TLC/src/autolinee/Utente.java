@@ -17,6 +17,8 @@ public class Utente{
 	private LinkedList<Integer> linee_percorribili;
 	private MobilityMap roadMap;
 	
+	private double inizioAttesa, inizioViaggio, termineViaggio;
+
 	public Utente(scheduler s, int id, int nodo_uscita, int nodo_attesa){
 		this.s = s;
 		this.id = id;
@@ -49,6 +51,8 @@ public class Utente{
 	
 	public void setLineeAttesa(LinkedList<Integer> linee_percorribili){
 		this.linee_percorribili = linee_percorribili;
+		//TODO una volta che l'utente riceve le linee sceglibili
+		//deve lanciare l'algoritmo per determinare 
 	}
 	
 	public void setMappa(MobilityMap roadMap){
@@ -61,4 +65,27 @@ public class Utente{
 	     s.insertMessage(m);
 	}
 	
+	public void setInizioAttesa(double inizioAttesa) {
+		this.inizioAttesa = inizioAttesa;
+	}
+
+	public void setInizioViaggio(double inizioViaggio) {
+		this.inizioViaggio = inizioViaggio;
+	}
+
+	public void setTermineViaggio(double termineViaggio) {
+		this.termineViaggio = termineViaggio;
+	}
+	
+	//tempo totale di attesa
+	public double getTempoAttesa(){
+		//momento in cui sale sull'autobus - momento in cui inizia 
+		//ad attendere(viene generato)
+		return inizioViaggio - inizioAttesa;
+	}
+	
+	//tempo in viaggio
+	public double getTempoViaggio(){
+		return termineViaggio - inizioViaggio;
+	}
 }
