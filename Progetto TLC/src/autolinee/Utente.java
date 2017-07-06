@@ -19,11 +19,12 @@ public class Utente{
 	
 	private double inizioAttesa, inizioViaggio, termineViaggio;
 
-	public Utente(scheduler s, int id, int nodo_uscita, int nodo_attesa){
+	public Utente(scheduler s, int id, int nodo_uscita, int nodo_attesa, LinkedList<Integer> linee_percorribili){
 		this.s = s;
 		this.id = id;
 		this.nodo_uscita = nodo_uscita;
 		this.nodo_attesa = nodo_attesa;
+		this.linee_percorribili = linee_percorribili;
 	}
 
 	public int getId() {
@@ -36,6 +37,8 @@ public class Utente{
 	
 	public void Handler(Messaggi m){
 		if (m.getTipo_Messaggio().equals(START_GENERATION)) {
+			//TODO algoritmo di scelta basato su costo viaggio o su velocita media
+			
 			//aggiungi l'utente alle code per le linee percorribili
 			HashMap<Integer,LinkedList<Utente>> linee = roadMap.getLinee(nodo_attesa);
     		for(Integer j : linee_percorribili){
@@ -47,12 +50,6 @@ public class Utente{
     		//aggiorna le linee nella fermata
     		roadMap.addLinee(nodo_attesa, linee);
 		}
-	}
-	
-	public void setLineeAttesa(LinkedList<Integer> linee_percorribili){
-		this.linee_percorribili = linee_percorribili;
-		//TODO una volta che l'utente riceve le linee sceglibili
-		//deve lanciare l'algoritmo per determinare 
 	}
 	
 	public void setMappa(MobilityMap roadMap){

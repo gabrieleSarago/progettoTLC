@@ -456,7 +456,7 @@ public class MobilityMap {
             //Test car nodes
             if (cityRoadMap.getNode(id) == null) {
                 cityRoadMap.addNode(id);
-                cityRoadMap.getNode(id).setAttribute("label", id);
+                cityRoadMap.getNode(id).setAttribute("label", "U"+id);
                 cityRoadMap.getNode(id).setAttribute("ui.style", "fill-color: green; size: 10px,10px;");
             }
 

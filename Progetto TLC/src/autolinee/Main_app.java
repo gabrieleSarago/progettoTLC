@@ -589,9 +589,7 @@ public class Main_app extends javax.swing.JFrame {
             		}
             		
             		//genera l'utente
-            		
-            		Utente u = new Utente(s, id_utente, nodo_uscita, id_fermata);
-            		u.setLineeAttesa(linee_percorribili);
+            		Utente u = new Utente(s, id_utente, nodo_uscita, id_fermata, linee_percorribili);
             		u.setMappa(roadMap);
             		u.setExitFromGate(tempoAttesa);
             		u.setInizioAttesa(s.orologio.getCurrent_Time());
@@ -645,7 +643,7 @@ public class Main_app extends javax.swing.JFrame {
                     nodo_ingresso = percorso.get(0).getId();
                 	nodo_uscita = percorso.get(percorso.size()-1).getId();
                     NodoAutobus nh = new NodoAutobus(s, id, pl, ll, nl, tl, null, "nodo_host", gateway, id_percorso, percorso);
-                    //id_percorso server ad assegnare un percorso all'autobus
+                    //id_percorso serve ad assegnare un percorso all'autobus
                     //si incrementa l'id, se questo supera il numero di percorsi si pone a 0
                     id_percorso++;
                     if(!percorsi.containsKey(id_percorso)){

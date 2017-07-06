@@ -266,8 +266,9 @@ public class NodoAutobus extends nodo_host {
                         
                         if(this.nodo_uscita.equals(next.toString())){
                             carIsPowerOff = true;
-                            for(Nodo n : info.getNodes())
-                            {
+                            for(Nodo n : info.getNodes()){
+                            	//come arriva al terminal non viene più disegnato.
+                            	cityMap.getCityRoadMap().getNode(""+this.id_nodo).clearAttributes();
                                 Messaggi m1 = new Messaggi(POWER_OFF,this,my_wireless_channel,n,s.orologio.getCurrent_Time());
                                 m1.setNodoSorgente(this);
                                 m1.saliPilaProtocollare = false;
