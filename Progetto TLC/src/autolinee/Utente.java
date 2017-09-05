@@ -37,8 +37,7 @@ public class Utente{
 	
 	public void Handler(Messaggi m){
 		if (m.getTipo_Messaggio().equals(START_GENERATION)) {
-			//TODO algoritmo di scelta basato su costo viaggio o su velocita media
-			
+			//TODO algoritmo di scelta basato su lunghezza viaggio o su velocita media
 			//aggiungi l'utente alle code per le linee percorribili
 			HashMap<Integer,LinkedList<Utente>> linee = roadMap.getLinee(nodo_attesa);
     		for(Integer j : linee_percorribili){
