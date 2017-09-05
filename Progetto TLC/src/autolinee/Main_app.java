@@ -52,6 +52,7 @@ public class Main_app extends javax.swing.JFrame {
 	private static scheduler s;
     
     private static void init_sim_parameters() {
+    	//nanosecondi - 10 minuti di simulazione
         s = new scheduler(6000000, false);
     }
 
@@ -575,9 +576,10 @@ public class Main_app extends javax.swing.JFrame {
             			}
             			scelta_corrente++;
             		}
-            		
             		//linee percorribili dall'utente
             		LinkedList<Integer> linee_percorribili = new LinkedList<>();
+            		//per ogni percorso che passa per la fermata attuale
+            		//verifica che sia presente il nodo destinazione dell'utente attuale
             		for(Entry<Integer, LinkedList<Utente>> e : percorsi_fermata.entrySet()){
             			int id_temp = e.getKey();
             			ArrayList<Node> percorso_temp = percorsi.get(id_temp);
@@ -587,11 +589,10 @@ public class Main_app extends javax.swing.JFrame {
             		}
             		
             		//genera l'utente
-            		
-            		Utente u = new Utente(s, id_utente, nodo_uscita, id_fermata);
-            		u.setExitFromGate(tempoAttesa);
-            		u.setLineeAttesa(linee_percorribili);
+            		Utente u = new Utente(s, id_utente, nodo_uscita, id_fermata, linee_percorribili);
             		u.setMappa(roadMap);
+            		u.setExitFromGate(tempoAttesa);
+            		u.setInizioAttesa(s.orologio.getCurrent_Time());
             		System.out.format("E' stato generato l'utente %d con destinazione %d \n", id_utente, nodo_uscita);
             		id_utente++;
             		tempoAttesa += tempoGenerazione;
@@ -642,7 +643,7 @@ public class Main_app extends javax.swing.JFrame {
                     nodo_ingresso = percorso.get(0).getId();
                 	nodo_uscita = percorso.get(percorso.size()-1).getId();
                     NodoAutobus nh = new NodoAutobus(s, id, pl, ll, nl, tl, null, "nodo_host", gateway, id_percorso, percorso);
-                    //id_percorso server ad assegnare un percorso all'autobus
+                    //id_percorso serve ad assegnare un percorso all'autobus
                     //si incrementa l'id, se questo supera il numero di percorsi si pone a 0
                     id_percorso++;
                     if(!percorsi.containsKey(id_percorso)){

@@ -17,11 +17,14 @@ public class Utente{
 	private LinkedList<Integer> linee_percorribili;
 	private MobilityMap roadMap;
 	
-	public Utente(scheduler s, int id, int nodo_uscita, int nodo_attesa){
+	private double inizioAttesa, inizioViaggio, termineViaggio;
+
+	public Utente(scheduler s, int id, int nodo_uscita, int nodo_attesa, LinkedList<Integer> linee_percorribili){
 		this.s = s;
 		this.id = id;
 		this.nodo_uscita = nodo_uscita;
 		this.nodo_attesa = nodo_attesa;
+		this.linee_percorribili = linee_percorribili;
 	}
 
 	public int getId() {
@@ -34,6 +37,7 @@ public class Utente{
 	
 	public void Handler(Messaggi m){
 		if (m.getTipo_Messaggio().equals(START_GENERATION)) {
+			//TODO algoritmo di scelta basato su lunghezza viaggio o su velocita media
 			//aggiungi l'utente alle code per le linee percorribili
 			HashMap<Integer,LinkedList<Utente>> linee = roadMap.getLinee(nodo_attesa);
     		for(Integer j : linee_percorribili){
@@ -47,10 +51,6 @@ public class Utente{
 		}
 	}
 	
-	public void setLineeAttesa(LinkedList<Integer> linee_percorribili){
-		this.linee_percorribili = linee_percorribili;
-	}
-	
 	public void setMappa(MobilityMap roadMap){
 		this.roadMap = roadMap;
 	}
@@ -61,4 +61,27 @@ public class Utente{
 	     s.insertMessage(m);
 	}
 	
+	public void setInizioAttesa(double inizioAttesa) {
+		this.inizioAttesa = inizioAttesa;
+	}
+
+	public void setInizioViaggio(double inizioViaggio) {
+		this.inizioViaggio = inizioViaggio;
+	}
+
+	public void setTermineViaggio(double termineViaggio) {
+		this.termineViaggio = termineViaggio;
+	}
+	
+	//tempo totale di attesa
+	public double getTempoAttesa(){
+		//momento in cui sale sull'autobus - momento in cui inizia 
+		//ad attendere(viene generato)
+		return inizioViaggio - inizioAttesa;
+	}
+	
+	//tempo in viaggio
+	public double getTempoViaggio(){
+		return termineViaggio - inizioViaggio;
+	}
 }

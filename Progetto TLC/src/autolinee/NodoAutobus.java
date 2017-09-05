@@ -191,7 +191,7 @@ public class NodoAutobus extends nodo_host {
             index_nodo_attuale = 0;
             
             Node curr = percorso.get(index_nodo_attuale);
-            //TODO l'id del terminal è una stringa, bisogna cambiarlo	
+            
             int id_fermata = Integer.parseInt(curr.getId());
             
             /*utenti che sono saliti e che sono scesi dal bus
@@ -256,8 +256,6 @@ public class NodoAutobus extends nodo_host {
                         index_nodo_attuale++;
                         int id_fermata = Integer.parseInt(next.getId());
                         
-                        //TODO ci sono piu autobus che interrogano una fermata
-                        //quindi va gestita la mutua esclusione.
                         int[] numero_utenti = getUtenti(id_fermata);
                         /*il tempo di attesa è dato da un tempo di fermata dell'autobus
                         un tempo per far salire gli utenti sull'autobus e
@@ -268,8 +266,9 @@ public class NodoAutobus extends nodo_host {
                         
                         if(this.nodo_uscita.equals(next.toString())){
                             carIsPowerOff = true;
-                            for(Nodo n : info.getNodes())
-                            {
+                            for(Nodo n : info.getNodes()){
+                            	//come arriva al terminal non viene più disegnato.
+                            	cityMap.getCityRoadMap().getNode(""+this.id_nodo).clearAttributes();
                                 Messaggi m1 = new Messaggi(POWER_OFF,this,my_wireless_channel,n,s.orologio.getCurrent_Time());
                                 m1.setNodoSorgente(this);
                                 m1.saliPilaProtocollare = false;
@@ -320,12 +319,17 @@ public class NodoAutobus extends nodo_host {
     public synchronized int[] getUtenti(int id_fermata){
     	int[] ris = new int[2];
     	//fai scendere gli utenti dall'autobus
-    	//TODO verificare che la lista degli utenti non sia
-    	//interrogata piu volte dall'autobus. Se uso una LL
-    	//viene generata una ConcurrentModificationException.
+    	/*TODO Se uso una LL viene generata una ConcurrentModificationException
+    	 * questo perchè l'autobus rimuove l'utente, la size diminuisce
+    	 * e l'iteratore non riesce ad andare avanti.
+    	*/
     	for(int i = 0; i < utenti.length; i++){
     		if(utenti[i] != null && utenti[i].getNodo_uscita() == id_fermata){
     			System.out.format("L'utente %d è sceso alla fermata %d dall'autobus %d \n", utenti[i].getId(), id_fermata, id_nodo);
+    			//si conserva nell'utente il momento in cui finisce di viaggiare
+    			utenti[i].setTermineViaggio(s.orologio.getCurrent_Time());
+    			//stampa i tempi di attesa e di viaggio da usare nelle statistiche
+    			System.out.format("Utente %d - tempo di attesa %d - tempo viaggio %d \n", utenti[i].getId(), (int)utenti[i].getTempoAttesa(), (int)utenti[i].getTempoViaggio());
     			utenti[i] = null;
     			numPosti--;
     			ris[0]++;
@@ -333,7 +337,7 @@ public class NodoAutobus extends nodo_host {
     	}
     	//ottieni gli utenti in attesa alla fermata corrente e che attendono
         //questo autobus che passa per il percorso che abbiamo scelto
-        LinkedList<Utente> utentiAttesa = cityMap.getUtenti(id_fermata, id_percorso);
+    	LinkedList<Utente> utentiAttesa = cityMap.getUtenti(id_fermata, id_percorso);
         //fai salire gli utenti sull'autobus, controllando che
         //l'autobus non sia pieno
         for(int i = 0; i < utentiAttesa.size(); i++){
@@ -342,7 +346,13 @@ public class NodoAutobus extends nodo_host {
         		//questo vuol dire che l'utente ha scelto il primo autobus che
         		//arriva a destinazione
         		//TODO previsto cambio di algoritmo della scelta dell'autobus da parte dell'utente
+        		/*
+        		 * L'algoritmo andrebbe usato dall'utente per determinare quale autobus sia adatto.
+        		 * L'autobus verifica che il suo id sia uguale a quello scelto dall'utente e lo preleva.
+        		 */
         		Utente u = utentiAttesa.removeFirst();
+        		//si conserva nell'utente il momento in cui inizia a viaggiare
+        		u.setInizioViaggio(s.orologio.getCurrent_Time());
         		cityMap.rimuovi_utente(u, id_fermata);
         		utenti[numPosti] = u;
     			System.out.format("L'utente %d è salito sull'autobus %d dalla fermata %d \n", u.getId(), id_nodo, id_fermata);
