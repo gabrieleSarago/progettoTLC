@@ -246,8 +246,8 @@ public class NodoAutobus extends nodo_host {
                             Double.parseDouble("" + y2));
 
                     double waitingTime = UPDATE_POSITION_TIME;
+                    
                     //Sono arrivato alla fine del segmento
-
                     if (currDistance >= segment_length) {
                         currX = Double.parseDouble("" + x2);
                         currY = Double.parseDouble("" + y2);
@@ -342,18 +342,14 @@ public class NodoAutobus extends nodo_host {
         //l'autobus non sia pieno
         for(int i = 0; i < utentiAttesa.size(); i++){
         	if(numPosti < POSTI_MAX){
-        		//l'autobus preleva l'utente e lo elimina da tutte le code in attesa
-        		//questo vuol dire che l'utente ha scelto il primo autobus che
-        		//arriva a destinazione
-        		//TODO previsto cambio di algoritmo della scelta dell'autobus da parte dell'utente
-        		/*
-        		 * L'algoritmo andrebbe usato dall'utente per determinare quale autobus sia adatto.
-        		 * L'autobus verifica che il suo id sia uguale a quello scelto dall'utente e lo preleva.
-        		 */
+        		/*Non c'è bisogno di fare nessun controllo da parte dell'autobus
+        		perchè l'utente sceglie la coda relativa a un percorso
+        		e l'autobus che segue quel percorso lo preleva.*/
         		Utente u = utentiAttesa.removeFirst();
-        		//si conserva nell'utente il momento in cui inizia a viaggiare
+        		//si conserva nell'Utente il momento in cui inizia a viaggiare
         		u.setInizioViaggio(s.orologio.getCurrent_Time());
-        		cityMap.rimuovi_utente(u, id_fermata);
+        		//rimuove l'utente dalla coda in cui è presente
+        		cityMap.rimuovi_utente(u, id_fermata, id_percorso);
         		utenti[numPosti] = u;
     			System.out.format("L'utente %d è salito sull'autobus %d dalla fermata %d \n", u.getId(), id_nodo, id_fermata);
         		numPosti++;

@@ -473,7 +473,7 @@ public class MobilityMap {
     }
     
     public void addLinee(int id, HashMap<Integer, LinkedList<Utente>> linee){
-    	System.out.println("Aggiunta linee per la fermata"+id);
+    	//System.out.println("Aggiunta linee per la fermata"+id);
     	fermate.put(id, linee);
     }
     
@@ -498,11 +498,16 @@ public class MobilityMap {
     	this.percorsi = percorsi;
     }
     
-    public void rimuovi_utente(Utente u, int id_fermata){
+    public void rimuovi_utente(Utente u, int id_fermata, int id_percorso){
     	HashMap<Integer, LinkedList<Utente>> code = fermate.get(id_fermata);
     	for(Entry<Integer, LinkedList<Utente>> e : code.entrySet()){
-    		LinkedList<Utente> coda_utenti = e.getValue();
-    		coda_utenti.remove(u);
+    		//una volta trovata la coda relativa al percorso
+    		//viene rimosso l'utente in attesa su quella coda
+    		if(e.getKey() == id_percorso){
+    			LinkedList<Utente> coda_utenti = e.getValue();
+    			coda_utenti.remove(u);
+    			break;
+    		}
     	}
     }
 

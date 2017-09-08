@@ -52,7 +52,7 @@ public class Main_app extends javax.swing.JFrame {
 	private static scheduler s;
     
     private static void init_sim_parameters() {
-    	//nanosecondi - 10 minuti di simulazione
+    	//millisecondi - 100 minuti di simulazione
         s = new scheduler(6000000, false);
     }
 
@@ -516,6 +516,8 @@ public class Main_app extends javax.swing.JFrame {
             //HashMap id percorso, lista utenti
             HashMap<Integer, LinkedList<Utente>> linee;
             Random r = new Random();
+        	//id utente inteso come incrementale per qualsiasi utente di qualsiasi fermata
+        	int id_utente = 0;
             //per ogni nodo fermata
             for(Object nodo : listElement){
             	//id nodo fermata
@@ -544,8 +546,6 @@ public class Main_app extends javax.swing.JFrame {
             	}
             	roadMap.addLinee(id_fermata, linee);
             	//generazione degli utenti
-            	//id utente inteso come incrementale per qualsiasi utente di qualsiasi fermata
-                int id_utente = 0;
             	double tempoGenerazione =  60000.0 / generationRate;
             	
             	for(int i = 0; i < numUtenti; i++){
@@ -558,12 +558,15 @@ public class Main_app extends javax.swing.JFrame {
             		//per ogni linea aggiungi i nodi nella linkedHashSet
             		for(Entry<Integer, LinkedList<Utente>> e : percorsi_fermata.entrySet()){
             			int id_temp = e.getKey();
-            			System.out.println("id_temp: "+id_temp);
+            			//System.out.println("id_temp: "+id_temp);
             			ArrayList<Node> percorso_temp = percorsi.get(id_temp);
             			nodi.addAll(percorso_temp);
             		}
             		//rimuovi il nodo della fermata attuale
-            		nodi.remove(roadMap.getCityRoadMap().getNode(id_fermata));
+            		Node partenza = roadMap.getCityRoadMap().getNode(""+id_fermata);
+            		nodi.remove(partenza);
+            		//System.out.println(partenza.getId());
+            		//System.out.println("utente "+id_utente+ " fermata " + id_fermata+ " nodi destinazioni "+nodi.toString());
             		//scegli una posizione casuale del nodo
             		int scelta_nodo = r.nextInt(nodi.size()+1);
             		int scelta_corrente = 0;
@@ -583,7 +586,7 @@ public class Main_app extends javax.swing.JFrame {
             		for(Entry<Integer, LinkedList<Utente>> e : percorsi_fermata.entrySet()){
             			int id_temp = e.getKey();
             			ArrayList<Node> percorso_temp = percorsi.get(id_temp);
-            			if(percorso_temp.contains(roadMap.getCityRoadMap().getNode(nodo_uscita))){
+            			if(percorso_temp.contains(roadMap.getCityRoadMap().getNode(""+nodo_uscita))){
             				linee_percorribili.add(id_temp);
             			}
             		}
@@ -593,7 +596,7 @@ public class Main_app extends javax.swing.JFrame {
             		u.setMappa(roadMap);
             		u.setExitFromGate(tempoAttesa);
             		u.setInizioAttesa(s.orologio.getCurrent_Time());
-            		System.out.format("E' stato generato l'utente %d con destinazione %d \n", id_utente, nodo_uscita);
+            		System.out.format("E' stato generato l'utente %d con partenza %d e destinazione %d \n", id_utente, id_fermata, nodo_uscita);
             		id_utente++;
             		tempoAttesa += tempoGenerazione;
             	}
