@@ -285,9 +285,9 @@ and open the template in the editor.
     <fermata id = "19" numUtenti = "50" generationRate = "5" exitAt="0">
     </fermata>
    	
+   	<!-- il pozzo è il terminal e genera 2 autobus ogni minuto. -->
    	<pozzo gateway = "0" exitAt="0" generationRate="2" maxVehicles="60" showUI = "0">
     </pozzo>
-   		
 <!--    
     <router id="2" gateway="4" net_size="5">
         <protocol tipo="OSPF" TTL="1" ROUTING="auto"></protocol>
