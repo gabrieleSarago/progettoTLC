@@ -50,8 +50,18 @@ public class Utente{
 			//algoritmo di scelta basato su lunghezza viaggio o su meno fermate
 			//busMinHop();
 			//busMinLenght();
-			busMinTime();
-			accoda();
+			percorso_scelto = busMinTime();
+			//prendiamo la linea dell'ultimo autobus passato dalla nostra fermata
+			//se la linea coincide col percorso migliore allora oggiorna il percorso
+			//altrimenti ci possiamo accodare alla linea scelta
+			int ultima_linea = roadMap.cityRoadMap.getNode(""+nodo_attesa).getAttribute("linea");
+			System.out.println("linea ultimo autobus "+ultima_linea+" linea scelta "+percorso_scelto);
+			if(ultima_linea == percorso_scelto){
+				aggiornaPercorsoMigliore();
+			}
+			else{
+				accoda();
+			}
 		}
 	}
 	
@@ -73,7 +83,8 @@ public class Utente{
 	
 	//Algoritmi di scelta dell'autobus
 	//algoritmo basato sul numero minore di fermate intermedie
-	private void busMinHop(){
+	private int busMinHop(){
+		int res = 0;
 		//per ogni linea percorribile estrai la lista di fermate
 		//calcola in numero di hop dal nodo_attesa al nodo_uscita
 		//se il numero di fermate è minore rispetto a un altro percorso aggiorna l'id
@@ -101,7 +112,7 @@ public class Utente{
 					//allora aggiorna il minimo e l'id del percorso scelto
 					if(numFermateCorrente < min_fermate){
 						min_fermate = numFermateCorrente;
-						percorso_scelto = id_linea;
+						res = id_linea;
 						percorsi_migliori[2] = percorsi_migliori[1];
 						percorsi_migliori[1] = percorsi_migliori[0];
 						percorsi_migliori[0] = id_linea;
@@ -119,11 +130,12 @@ public class Utente{
 		}
 		System.out.format("L'utente %d ha scelto la linea %d con numero di fermate %d \n", id, percorso_scelto, min_fermate);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
-		
+		return res;
 	}
 	
 	//algoritmo basato sulla lunghezza minore percorsa
-	private void busMinLenght(){
+	private int busMinLenght(){
+		int res = 0;
 		//per ogni linea percorribile
 		int min_lenght = Integer.MAX_VALUE;
 		for(int id_linea : linee_percorribili){
@@ -135,7 +147,7 @@ public class Utente{
 				int id_corrente = Integer.parseInt(n.getId());
 				if(id_corrente == nodo_attesa)
 					start = true;
-				if(id_corrente == nodo_uscita && start){
+				if(id_corrente == nodo_uscita && start && id_precedente != id_corrente){
 					String label = id_precedente+""+id_corrente;
 					Edge e = roadMap.getCityRoadMap().getEdge(label);
 					if(e == null){
@@ -145,7 +157,7 @@ public class Utente{
 					min_lenght_corrente += (Integer) e.getAttribute("length");
 					if(min_lenght_corrente < min_lenght){
 						min_lenght = min_lenght_corrente;
-						percorso_scelto = id_linea;
+						res = id_linea;
 						percorsi_migliori[2] = percorsi_migliori[1];
 						percorsi_migliori[1] = percorsi_migliori[0];
 						percorsi_migliori[0] = id_linea;
@@ -168,11 +180,12 @@ public class Utente{
 		}
 		System.out.format("L'utente %d ha scelto la linea %d con una lunghezza %d \n", id, percorso_scelto, min_lenght);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
-
+		return res;
 	}
 	
 	//algoritmo basato sul tempo minore per arrivare a destinazione
-	private void busMinTime(){
+	private int busMinTime(){
+		int res = 0;
 		//per ogni linea percorribile
 		int min_time = Integer.MAX_VALUE;
 		for(int id_linea : linee_percorribili){
@@ -186,7 +199,9 @@ public class Utente{
 				if(id_corrente == nodo_attesa){
 					start = true;
 				}
-				if(id_corrente == nodo_uscita && start){
+				//non devono coincidere la fermata precedente e quella corrente,
+				//questo accade se il nodo_attesa è 0
+				if(id_corrente == nodo_uscita && start && id_precedente != id_corrente){
 					String label = id_precedente+""+id_corrente;
 					Edge e = roadMap.getCityRoadMap().getEdge(label);
 					if(e == null){
@@ -198,7 +213,7 @@ public class Utente{
 					min_time_corrente += lenght_corrente/speed;
 					if(min_time_corrente < min_time){
 						min_time = min_time_corrente;
-						percorso_scelto = id_linea;
+						res = id_linea;
 						percorsi_migliori[2] = percorsi_migliori[1];
 						percorsi_migliori[1] = percorsi_migliori[0];
 						percorsi_migliori[0] = id_linea;
@@ -221,6 +236,7 @@ public class Utente{
 		}
 		System.out.format("L'utente %d ha scelto la linea %d con un tempo %d \n", id, percorso_scelto, min_time);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
+		return res;
 	}
 	
 	public void setMappa(MobilityMap roadMap){

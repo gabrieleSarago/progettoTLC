@@ -198,7 +198,8 @@ public class NodoAutobus extends nodo_host {
             index_nodo_attuale = 0;
             
             Node curr = percorso.get(index_nodo_attuale);
-            
+            //salva la linea di questo autobus nella fermata corrente
+            cityMap.cityRoadMap.getNode(curr.getId()).setAttribute("linea", id_percorso);
             int id_fermata = Integer.parseInt(curr.getId());
             
             /*utenti che sono saliti e che sono scesi dal bus
@@ -262,6 +263,9 @@ public class NodoAutobus extends nodo_host {
                         currDistance = 0;
                         index_nodo_attuale++;
                         int id_fermata = Integer.parseInt(next.getId());
+                        
+                        //salva la linea di questo autobus nella fermata che sta attraversando
+                        cityMap.cityRoadMap.getNode(next.getId()).changeAttribute("linea", id_percorso);
                         
                         int[] numero_utenti = getUtenti(id_fermata);
                         /*il tempo di attesa è dato da un tempo di fermata dell'autobus
