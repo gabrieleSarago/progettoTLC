@@ -51,17 +51,7 @@ public class Utente{
 			//busMinHop();
 			//busMinLenght();
 			percorso_scelto = busMinTime();
-			//prendiamo la linea dell'ultimo autobus passato dalla nostra fermata
-			//se la linea coincide col percorso migliore allora oggiorna il percorso
-			//altrimenti ci possiamo accodare alla linea scelta
-			int ultima_linea = roadMap.cityRoadMap.getNode(""+nodo_attesa).getAttribute("linea");
-			System.out.println("linea ultimo autobus "+ultima_linea+" linea scelta "+percorso_scelto);
-			if(ultima_linea == percorso_scelto){
-				aggiornaPercorsoMigliore();
-			}
-			else{
-				accoda();
-			}
+			accoda();
 		}
 	}
 	
@@ -128,7 +118,7 @@ public class Utente{
 				}
 			}
 		}
-		System.out.format("L'utente %d ha scelto la linea %d con numero di fermate %d \n", id, percorso_scelto, min_fermate);
+		System.out.format("L'utente %d ha scelto la linea %d con numero di fermate %d \n", id, res, min_fermate);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
 		return res;
 	}
@@ -178,7 +168,7 @@ public class Utente{
 				id_precedente = id_corrente;
 			}
 		}
-		System.out.format("L'utente %d ha scelto la linea %d con una lunghezza %d \n", id, percorso_scelto, min_lenght);
+		System.out.format("L'utente %d ha scelto la linea %d con una lunghezza %d \n", id, res, min_lenght);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
 		return res;
 	}
@@ -234,7 +224,7 @@ public class Utente{
 				id_precedente = id_corrente;
 			}
 		}
-		System.out.format("L'utente %d ha scelto la linea %d con un tempo %d \n", id, percorso_scelto, min_time);
+		System.out.format("L'utente %d ha scelto la linea %d con un tempo %d \n", id, res, min_time);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
 		return res;
 	}
