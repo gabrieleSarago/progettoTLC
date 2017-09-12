@@ -17,6 +17,8 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import autolinee.Statistica;
+
 /**
  *
  * @author franco
@@ -158,7 +160,8 @@ public class scheduler implements Runnable{
         
         //Simulazione terminata stampiamo le statistiche dei nodi interessati
         info.stampaStatisticheNodo();
-        
+        //Salva le statistiche degli utenti e degli autobus su file di log.
+        Statistica.salva();
         
         //Solo aggiornamento interfaccia grafica
         while(buffer.isEmpty() && orologio.getCurrent_Time()<=max_Time){

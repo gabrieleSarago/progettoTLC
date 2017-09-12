@@ -1,0 +1,5 @@
+numero utenti = 944
+media tempo viaggio = 297819.9152542373
+media tempo attesa = 910701.2711864407
+media posti occupati = 9
+utenti generati = 1541

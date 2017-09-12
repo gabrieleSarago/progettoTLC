@@ -47,6 +47,11 @@ public class NodoAutobus extends nodo_host {
     int index_nodo_attuale;
     int verso = -1;
     int id_percorso;
+    static int id = 0;
+    int idAutobus = 0;
+    
+    //posti occupati dell'autobus per ogni fermata
+    int postiOccupati = 0;
 
     double currX = 0;
     double currY = 0;
@@ -88,6 +93,8 @@ public class NodoAutobus extends nodo_host {
         this.percorso = percorso;
         utenti = new Utente[POSTI_MAX];
         dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "length");
+        idAutobus = id;
+        id++;
         
     }
 
@@ -264,8 +271,12 @@ public class NodoAutobus extends nodo_host {
                         waitingTime = STOP_WAITING_TIME + numero_utenti[1]*TEMPO_SALITA + numero_utenti[0]*TEMPO_DISCESA;
                         //System.out.println("nodo " + this.getId() + " Arrivato su incrocio " + next + " al tempo " + s.orologio.getCurrent_Time());
                         
+                        //L'autobus arriva a destinazione
                         if(this.nodo_uscita.equals(next.toString())){
                             carIsPowerOff = true;
+                            //non si conta l'ultima fermata perchè non ci sono utenti
+                            //per questo si usa percorso.size()-1 (archi)
+                            Statistica.setStatisticheAutobus(postiOccupati/(percorso.size()-1));
                             for(Nodo n : info.getNodes()){
                             	//come arriva al terminal non viene più disegnato.
                             	cityMap.getCityRoadMap().getNode(""+this.id_nodo).clearAttributes();
@@ -355,8 +366,22 @@ public class NodoAutobus extends nodo_host {
         		numPosti++;
         		ris[1]++;
         	}
-        	else break;
+        	else{
+        		//l'autobus è pieno, quindi fa in modo che l'utente scelga il secondo
+        		//autobus migliore secondo l'algoritmo scelto.
+        		//finchè la lista degli utenti non è vuota
+        		while(!(utentiAttesa.isEmpty())){
+        			Utente u = utentiAttesa.removeFirst();
+        			//rimuovi l'utente dalla coda attesa della linea scelta
+        			cityMap.rimuovi_utente(u, id_fermata, id_percorso);
+        			//scegli un'altra linea e aggiungi l'utente in coda
+        			u.aggiornaPercorsoMigliore();
+        		}
+        		break;
+        	}
         }
+        System.out.println("Autobus "+ idAutobus + " num Posti Occupati = "+numPosti);
+        postiOccupati += numPosti;
         return ris;
     }
 

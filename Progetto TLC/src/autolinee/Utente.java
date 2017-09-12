@@ -3,6 +3,7 @@ package autolinee;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Random;
 
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Node;
@@ -23,6 +24,8 @@ public class Utente{
 	private LinkedList<Integer> linee_percorribili;
 	private MobilityMap roadMap;
 	private HashMap<Integer, ArrayList<Node>> percorsi;
+	private int[] percorsi_migliori = {-1,-1,-1};
+	private int percorso_corrente = 0;
 	
 	private double inizioAttesa, inizioViaggio, termineViaggio;
 
@@ -48,20 +51,24 @@ public class Utente{
 			//busMinHop();
 			//busMinLenght();
 			busMinTime();
-			//aggiunge l'utente alla coda per il percorso scelto
-			HashMap<Integer,LinkedList<Utente>> linee = roadMap.getLinee(nodo_attesa);
-    		for(Integer j : linee_percorribili){
-    			if(j == percorso_scelto){
-    				LinkedList<Utente> utenti = linee.get(j);
-    				utenti.add(this);
-    				//aggiorna la lista delle linee
-    				linee.put(j, utenti);
-    				break;
-    			}
-    		}
-    		//aggiorna le linee nella fermata
-    		roadMap.addLinee(nodo_attesa, linee);
+			accoda();
 		}
+	}
+	
+	private void accoda(){
+		//aggiunge l'utente alla coda per il percorso scelto
+		HashMap<Integer,LinkedList<Utente>> linee = roadMap.getLinee(nodo_attesa);
+		for(Integer j : linee_percorribili){
+			if(j == percorso_scelto){
+				LinkedList<Utente> utenti = linee.get(j);
+				utenti.add(this);
+				//aggiorna la lista delle linee
+				linee.put(j, utenti);
+				break;
+			}
+		}
+		//aggiorna le linee nella fermata
+		roadMap.addLinee(nodo_attesa, linee);
 	}
 	
 	//Algoritmi di scelta dell'autobus
@@ -94,7 +101,10 @@ public class Utente{
 					//allora aggiorna il minimo e l'id del percorso scelto
 					if(numFermateCorrente < min_fermate){
 						min_fermate = numFermateCorrente;
-						percorso_scelto = id_corrente;
+						percorso_scelto = id_linea;
+						percorsi_migliori[2] = percorsi_migliori[1];
+						percorsi_migliori[1] = percorsi_migliori[0];
+						percorsi_migliori[0] = id_linea;
 					}
 					//passa alla prossima linea percorribile
 					break;
@@ -108,6 +118,8 @@ public class Utente{
 			}
 		}
 		System.out.format("L'utente %d ha scelto la linea %d con numero di fermate %d \n", id, percorso_scelto, min_fermate);
+		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
+		
 	}
 	
 	//algoritmo basato sulla lunghezza minore percorsa
@@ -124,9 +136,19 @@ public class Utente{
 				if(id_corrente == nodo_attesa)
 					start = true;
 				if(id_corrente == nodo_uscita && start){
+					String label = id_precedente+""+id_corrente;
+					Edge e = roadMap.getCityRoadMap().getEdge(label);
+					if(e == null){
+						label = id_corrente+""+id_precedente;
+						e = roadMap.getCityRoadMap().getEdge(label);
+					}
+					min_lenght_corrente += (Integer) e.getAttribute("length");
 					if(min_lenght_corrente < min_lenght){
 						min_lenght = min_lenght_corrente;
-						percorso_scelto = id_corrente;
+						percorso_scelto = id_linea;
+						percorsi_migliori[2] = percorsi_migliori[1];
+						percorsi_migliori[1] = percorsi_migliori[0];
+						percorsi_migliori[0] = id_linea;
 					}
 					break;
 				}
@@ -145,6 +167,8 @@ public class Utente{
 			}
 		}
 		System.out.format("L'utente %d ha scelto la linea %d con una lunghezza %d \n", id, percorso_scelto, min_lenght);
+		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
+
 	}
 	
 	//algoritmo basato sul tempo minore per arrivare a destinazione
@@ -159,12 +183,25 @@ public class Utente{
 			int id_precedente = 0;
 			for(Node n: percorso){
 				int id_corrente = Integer.parseInt(n.getId());
-				if(id_corrente == nodo_attesa)
+				if(id_corrente == nodo_attesa){
 					start = true;
+				}
 				if(id_corrente == nodo_uscita && start){
+					String label = id_precedente+""+id_corrente;
+					Edge e = roadMap.getCityRoadMap().getEdge(label);
+					if(e == null){
+						label = id_corrente+""+id_precedente;
+						e = roadMap.getCityRoadMap().getEdge(label);
+					}
+					lenght_corrente += (Integer) e.getAttribute("length");
+					double speed = (Double) e.getAttribute("avgSpeed");
+					min_time_corrente += lenght_corrente/speed;
 					if(min_time_corrente < min_time){
 						min_time = min_time_corrente;
-						percorso_scelto = id_corrente;
+						percorso_scelto = id_linea;
+						percorsi_migliori[2] = percorsi_migliori[1];
+						percorsi_migliori[1] = percorsi_migliori[0];
+						percorsi_migliori[0] = id_linea;
 					}
 					break;
 				}
@@ -183,6 +220,7 @@ public class Utente{
 			}
 		}
 		System.out.format("L'utente %d ha scelto la linea %d con un tempo %d \n", id, percorso_scelto, min_time);
+		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
 	}
 	
 	public void setMappa(MobilityMap roadMap){
@@ -206,6 +244,7 @@ public class Utente{
 
 	public void setTermineViaggio(double termineViaggio) {
 		this.termineViaggio = termineViaggio;
+		Statistica.setStatiche(getTempoViaggio(), getTempoAttesa());
 	}
 	
 	//tempo totale di attesa
@@ -218,5 +257,37 @@ public class Utente{
 	//tempo in viaggio
 	public double getTempoViaggio(){
 		return termineViaggio - inizioViaggio;
+	}
+	
+	//sceglie un'altra linea nel momento in cui l'autobus della linea già scelta è pieno
+	public void aggiornaPercorsoMigliore(){
+		percorso_corrente++;
+		//se ci troviamo a sceglie per più di 3 volte la linea di attesa
+		if(percorso_corrente >= percorsi_migliori.length){
+			//si crea una copia della lista delle linee percorribili
+			//tranne le prime tre scelte
+			LinkedList<Integer> copia = new LinkedList<>();
+			copia.addAll(linee_percorribili);
+			copia.remove(percorsi_migliori[0]);
+			copia.remove(percorsi_migliori[1]);
+			copia.remove(percorsi_migliori[2]);
+			//scegli una linea casuale tra quelle rimaste
+			if(copia.size()!=0){
+				int percorso_casuale = (new Random()).nextInt(copia.size());
+				percorso_scelto = copia.get(percorso_casuale);
+				accoda();
+				System.out.println("L'utente "+id+" ha scelto la nuova linea "+percorso_scelto);
+			}
+		}
+		else{
+			//se non ci sono abbastanza linee da scegliere
+			//l'array avrà elementi "-1" e a quel punto non è possibile scegliere
+			//una nuova linea
+			if(!(percorsi_migliori[percorso_corrente] == -1)){
+				percorso_scelto = percorsi_migliori[percorso_corrente];
+				accoda();
+				System.out.println("L'utente "+id+" ha scelto la nuova linea "+percorso_scelto);
+			}
+		}
 	}
 }
