@@ -178,6 +178,7 @@ public class MobilityMap {
         //Nodo Terminal
         cityRoadMap.addNode("0");
         cityRoadMap.getNode("0").setAttribute("xy", 450, 600);
+
         //Nodi Fermate
         cityRoadMap.addNode("6");
         cityRoadMap.getNode("6").setAttribute("xy", 600, 620);
@@ -373,7 +374,7 @@ public class MobilityMap {
         cityRoadMap.getEdge("4243").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("442").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("54").addAttribute("avgSpeed", 6.5);
-        cityRoadMap.getEdge("517").addAttribute("avgSpeed", 20.0);
+        cityRoadMap.getEdge("517").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("34").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("24").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("23").addAttribute("avgSpeed", 6.5);
@@ -381,11 +382,11 @@ public class MobilityMap {
         cityRoadMap.getEdge("12").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("83").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("215").addAttribute("avgSpeed", 6.5);
-        cityRoadMap.getEdge("245").addAttribute("avgSpeed", 20.0);
-        cityRoadMap.getEdge("2324").addAttribute("avgSpeed", 20.0);
+        cityRoadMap.getEdge("245").addAttribute("avgSpeed", 6.5);
+        cityRoadMap.getEdge("2324").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("2316").addAttribute("avgSpeed", 6.5);
-        cityRoadMap.getEdge("2223").addAttribute("avgSpeed", 20.0);
-        cityRoadMap.getEdge("2122").addAttribute("avgSpeed", 20.0);
+        cityRoadMap.getEdge("2223").addAttribute("avgSpeed", 6.5);
+        cityRoadMap.getEdge("2122").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("2728").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("2851").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("511").addAttribute("avgSpeed", 6.5);
@@ -417,10 +418,10 @@ public class MobilityMap {
         cityRoadMap.getEdge("3429").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("3330").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("3233").addAttribute("avgSpeed", 6.5);
-        cityRoadMap.getEdge("018").addAttribute("avgSpeed", 20.0);
-        cityRoadMap.getEdge("1819").addAttribute("avgSpeed", 20.0);
-        cityRoadMap.getEdge("1920").addAttribute("avgSpeed", 20.0);
-        cityRoadMap.getEdge("2021").addAttribute("avgSpeed", 20.0);
+        cityRoadMap.getEdge("018").addAttribute("avgSpeed", 6.5);
+        cityRoadMap.getEdge("1819").addAttribute("avgSpeed", 6.5);
+        cityRoadMap.getEdge("1920").addAttribute("avgSpeed", 6.5);
+        cityRoadMap.getEdge("2021").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("1825").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("2526").addAttribute("avgSpeed", 6.5);
         cityRoadMap.getEdge("2527").addAttribute("avgSpeed", 6.5);

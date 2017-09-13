@@ -52,8 +52,8 @@ public class Main_app extends javax.swing.JFrame {
 	private static scheduler s;
     
     private static void init_sim_parameters() {
-    	//millisecondi - 100 minuti di simulazione
-        s = new scheduler(6000000, false);
+    	//millisecondi - 50 minuti di simulazione
+        s = new scheduler(3000000, false);
     }
 
     private String conf_file_path;
@@ -523,7 +523,10 @@ public class Main_app extends javax.swing.JFrame {
             	//id nodo fermata
             	int id_fermata = Integer.parseInt(((Element) nodo).getAttributeValue("id"));
             	//numero massimo di utenti generati in questa fermata
-            	int numUtenti = Integer.parseInt(((Element) nodo).getAttributeValue("numUtenti"));
+            	//int numUtenti = Integer.parseInt(((Element) nodo).getAttributeValue("numUtenti"));
+            	//numero massimo di utenti che genera da 10 a 50 utenti al massimo
+            	int numUtenti = (new Random()).nextInt(41) + 10;
+            	Statistica.setUtenti(numUtenti);
             	double generationRate = Integer.parseInt(((Element) nodo).getAttributeValue("generationRate"));
             	double tempoAttesa = Integer.parseInt(((Element) nodo).getAttributeValue("exitAt"));
             	linee = new HashMap<>();
@@ -590,7 +593,7 @@ public class Main_app extends javax.swing.JFrame {
             				linee_percorribili.add(id_temp);
             			}
             		}
-            		
+            	
             		//genera l'utente
             		Utente u = new Utente(s, id_utente, nodo_uscita, id_fermata, linee_percorribili);
             		u.setMappa(roadMap);
@@ -628,7 +631,7 @@ public class Main_app extends javax.swing.JFrame {
                 for (vehicleCounter = 0; vehicleCounter < maxVehicles; vehicleCounter++) {
 
                     id = lastNodeId + counterNodeId;
-                    counterNodeId++;               
+                    counterNodeId++;
                     Grafo grafo = new Grafo(5);
 
                     Physical80211P pl = new Physical80211P(s, 0.0);
