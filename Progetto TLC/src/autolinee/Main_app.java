@@ -52,8 +52,8 @@ public class Main_app extends javax.swing.JFrame {
 	private static scheduler s;
     
     private static void init_sim_parameters() {
-    	//millisecondi - 50 minuti di simulazione
-        s = new scheduler(3000000, false);
+    	//millisecondi - 83 minuti di simulazione
+        s = new scheduler(5000000, false);
     }
 
     private String conf_file_path;
