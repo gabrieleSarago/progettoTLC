@@ -31,10 +31,10 @@ public class MobilityMap {
     public HashMap<String, Bus_node> vehicles = new HashMap<>();
     
     //lista delle linee che vengono popolate in Main_app
-    HashMap<Integer, ArrayList<Node>> percorsi = new HashMap<>();
+    HashMap<String, ArrayList<Node>> percorsi = new HashMap<>();
     
     //HashMap id fermata, lista delle linee
-    HashMap<Integer, HashMap<Integer, LinkedList<Utente>>> fermate = new HashMap<>();
+    HashMap<Integer, HashMap<String, LinkedList<Utente>>> fermate = new HashMap<>();
     ProxyPipe pipe;
 
     public Graph getCityRoadMap() {
@@ -473,17 +473,17 @@ public class MobilityMap {
         car.setY(y);
     }
     
-    public void addLinee(int id, HashMap<Integer, LinkedList<Utente>> linee){
+    public void addLinee(int id, HashMap<String, LinkedList<Utente>> linee){
     	//System.out.println("Aggiunta linee per la fermata"+id);
     	fermate.put(id, linee);
     }
     
-    public HashMap<Integer, LinkedList<Utente>> getLinee(int id_fermata){
+    public HashMap<String, LinkedList<Utente>> getLinee(int id_fermata){
     	return fermate.get(id_fermata);
     }
     
-    public LinkedList<Utente> getUtenti(int fermata, int linea){
-    	HashMap<Integer, LinkedList<Utente>> linee = fermate.get(fermata);
+    public LinkedList<Utente> getUtenti(int fermata, String linea){
+    	HashMap<String, LinkedList<Utente>> linee = fermate.get(fermata);
     	if(linee == null){
     		System.out.println("La fermata non è predisposta per generare utenti, quindi va aggiunta nel conf.xml");
     		return new LinkedList<Utente>();
@@ -491,20 +491,20 @@ public class MobilityMap {
     	return linee.get(linea);
     }
     
-    public HashMap<Integer, ArrayList<Node>> getPercorsi(){
+    public HashMap<String, ArrayList<Node>> getPercorsi(){
     	return percorsi;
     }
     
-    public void setPercorsi(HashMap<Integer, ArrayList<Node>> percorsi){
+    public void setPercorsi(HashMap<String, ArrayList<Node>> percorsi){
     	this.percorsi = percorsi;
     }
     
-    public void rimuovi_utente(Utente u, int id_fermata, int id_percorso){
-    	HashMap<Integer, LinkedList<Utente>> code = fermate.get(id_fermata);
-    	for(Entry<Integer, LinkedList<Utente>> e : code.entrySet()){
+    public void rimuovi_utente(Utente u, int id_fermata, String id_percorso){
+    	HashMap<String, LinkedList<Utente>> code = fermate.get(id_fermata);
+    	for(Entry<String, LinkedList<Utente>> e : code.entrySet()){
     		//una volta trovata la coda relativa al percorso
     		//viene rimosso l'utente in attesa su quella coda
-    		if(e.getKey() == id_percorso){
+    		if(e.getKey().equals(id_percorso)){
     			LinkedList<Utente> coda_utenti = e.getValue();
     			coda_utenti.remove(u);
     			break;

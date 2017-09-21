@@ -493,11 +493,12 @@ public class Main_app extends javax.swing.JFrame {
             //percorsi
             listElement = rootElement.getChildren("percorso");
             //lista dei percorsi presenti nel file .xml
-            HashMap<Integer, ArrayList<Node>> percorsi = roadMap.getPercorsi();
+            HashMap<String, ArrayList<Node>> percorsi = roadMap.getPercorsi();
             int id = 0;
             //per ogni percorso crea una lista di nodi da attraversare e la aggiunge alla lista dei percorsi
             for (Object nodo : listElement) {
             	ArrayList<Node> percorso = new ArrayList<>();
+            	String linea = ((Element) nodo).getAttributeValue("linea");
             	//primo nodo
             	Node nodo_partenza = roadMap.getCityRoadMap().getNode(((Element) nodo).getAttributeValue("nodo_partenza"));
             	percorso.add(nodo_partenza);
@@ -507,14 +508,14 @@ public class Main_app extends javax.swing.JFrame {
             	//ultimo nodo
             	Node nodo_arrivo = roadMap.getCityRoadMap().getNode(((Element) nodo).getAttributeValue("nodo_arrivo"));
             	percorso.add(nodo_arrivo);
-            	percorsi.put(id, percorso);
+            	percorsi.put(linea, percorso);
             	id++;
             }
             roadMap.setPercorsi(percorsi);
             
             listElement = rootElement.getChildren("fermata");
             //HashMap id percorso, lista utenti
-            HashMap<Integer, LinkedList<Utente>> linee;
+            HashMap<String, LinkedList<Utente>> linee;
             Random r = new Random();
         	//id utente inteso come incrementale per qualsiasi utente di qualsiasi fermata
         	int id_utente = 0;
@@ -531,8 +532,8 @@ public class Main_app extends javax.swing.JFrame {
             	double tempoAttesa = Integer.parseInt(((Element) nodo).getAttributeValue("exitAt"));
             	linee = new HashMap<>();
             	//per ogni percorso si prende l'id e si crea una lista di utenti
-            	int id_linea;
-            	for(Entry<Integer, ArrayList<Node>> e : percorsi.entrySet()){
+            	String id_linea;
+            	for(Entry<String, ArrayList<Node>> e : percorsi.entrySet()){
             		id_linea = e.getKey();
             		ArrayList<Node> linea = e.getValue();
             		//verifica che la linea passi dalla fermata
@@ -556,11 +557,11 @@ public class Main_app extends javax.swing.JFrame {
             		//prende le linee che passano per la fermata e ne
             		//aggiunge i nodi a una LinkedHashSet, per poi scegliere un
             		//nodo casuale come nodo destinazione dell'utente
-            		HashMap<Integer, LinkedList<Utente>> percorsi_fermata = roadMap.getLinee(id_fermata);
+            		HashMap<String, LinkedList<Utente>> percorsi_fermata = roadMap.getLinee(id_fermata);
             		LinkedHashSet<Node> nodi = new LinkedHashSet<>();
             		//per ogni linea aggiungi i nodi nella linkedHashSet
-            		for(Entry<Integer, LinkedList<Utente>> e : percorsi_fermata.entrySet()){
-            			int id_temp = e.getKey();
+            		for(Entry<String, LinkedList<Utente>> e : percorsi_fermata.entrySet()){
+            			String id_temp = e.getKey();
             			//System.out.println("id_temp: "+id_temp);
             			ArrayList<Node> percorso_temp = percorsi.get(id_temp);
             			nodi.addAll(percorso_temp);
@@ -583,11 +584,11 @@ public class Main_app extends javax.swing.JFrame {
             			scelta_corrente++;
             		}
             		//linee percorribili dall'utente
-            		LinkedList<Integer> linee_percorribili = new LinkedList<>();
+            		LinkedList<String> linee_percorribili = new LinkedList<>();
             		//per ogni percorso che passa per la fermata attuale
             		//verifica che sia presente il nodo destinazione dell'utente attuale
-            		for(Entry<Integer, LinkedList<Utente>> e : percorsi_fermata.entrySet()){
-            			int id_temp = e.getKey();
+            		for(Entry<String, LinkedList<Utente>> e : percorsi_fermata.entrySet()){
+            			String id_temp = e.getKey();
             			ArrayList<Node> percorso_temp = percorsi.get(id_temp);
             			if(percorso_temp.contains(roadMap.getCityRoadMap().getNode(""+nodo_uscita))){
             				linee_percorribili.add(id_temp);
@@ -609,7 +610,8 @@ public class Main_app extends javax.swing.JFrame {
             
             listElement = rootElement.getChildren("pozzo");
             int counterNodeId = 1000;
-            int id_percorso = 0;
+            //il primo percorso è A = 65
+            int id_percorso = 65;
             for (Object nodo : listElement) {
             	//lista delle fermate da cui passare
             	ArrayList<Node> percorso;
@@ -644,16 +646,17 @@ public class Main_app extends javax.swing.JFrame {
                     //nodi macchina generati dal pozzo
                     //costruttore che si prende il percorso e fa partire il movimento dell'autobus
                     //aggiorna percorso
-                    percorso = percorsi.get(id_percorso);
+                    String linea = ""+(char)id_percorso;
+                    percorso = percorsi.get(linea);
                     //aggiorna nodi terminali
                     nodo_ingresso = percorso.get(0).getId();
                 	nodo_uscita = percorso.get(percorso.size()-1).getId();
-                    NodoAutobus nh = new NodoAutobus(s, id, pl, ll, nl, tl, null, "nodo_host", gateway, id_percorso, percorso);
+                    NodoAutobus nh = new NodoAutobus(s, id, pl, ll, nl, tl, null, "nodo_host", gateway, linea, percorso);
                     //id_percorso serve ad assegnare un percorso all'autobus
                     //si incrementa l'id, se questo supera il numero di percorsi si pone a 0
                     id_percorso++;
-                    if(!percorsi.containsKey(id_percorso)){
-                    	id_percorso = 0;
+                    if(!percorsi.containsKey(""+(char)id_percorso)){
+                    	id_percorso = 65;
                     }
                     
                     nh.setMappa(roadMap);

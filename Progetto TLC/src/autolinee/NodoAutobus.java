@@ -46,7 +46,7 @@ public class NodoAutobus extends nodo_host {
     String nodo_uscita;
     int index_nodo_attuale;
     int verso = -1;
-    int id_percorso;
+    String id_percorso;
     static int id = 0;
     int idAutobus = 0;
     
@@ -87,7 +87,7 @@ public class NodoAutobus extends nodo_host {
 
     }
     
-    public NodoAutobus(scheduler s, int id_nodo, physicalLayer myPhyLayer, LinkLayer myLinkLayer, NetworkLayer myNetLayer, TransportLayer myTransportLayer, Grafo network, String tipo, int gtw, int id_percorso, ArrayList<Node> percorso) {
+    public NodoAutobus(scheduler s, int id_nodo, physicalLayer myPhyLayer, LinkLayer myLinkLayer, NetworkLayer myNetLayer, TransportLayer myTransportLayer, Grafo network, String tipo, int gtw, String id_percorso, ArrayList<Node> percorso) {
         super(s, id_nodo, myPhyLayer, myLinkLayer, myNetLayer, myTransportLayer, network, tipo, gtw);
         this.id_percorso = id_percorso;
         this.percorso = percorso;
@@ -379,7 +379,7 @@ public class NodoAutobus extends nodo_host {
         		break;
         	}
         }
-        System.out.println("Autobus "+ idAutobus + " num Posti Occupati = "+numPosti);
+        System.out.println("Autobus "+ idAutobus + " linea: "+id_percorso+" num Posti Occupati = "+numPosti);
         postiOccupati += numPosti;
         return ris;
     }

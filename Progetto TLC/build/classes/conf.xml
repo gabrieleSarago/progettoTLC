@@ -81,7 +81,7 @@ and open the template in the editor.
     -->
 
     <!-- linea A -->
-    <percorso nodo_partenza = "0" nodo_arrivo = "0">
+    <percorso linea = "A" nodo_partenza = "0" nodo_arrivo = "0">
     	<nodo_intermedio>6</nodo_intermedio>
     	<nodo_intermedio>7</nodo_intermedio>
     	<nodo_intermedio>8</nodo_intermedio>
@@ -109,7 +109,7 @@ and open the template in the editor.
     	<nodo_intermedio>1</nodo_intermedio>
     </percorso>
    	<!-- linea B -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "B" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>12</nodo_intermedio>
    		<nodo_intermedio>10</nodo_intermedio>
    		<nodo_intermedio>11</nodo_intermedio>
@@ -128,7 +128,7 @@ and open the template in the editor.
    		<nodo_intermedio>32</nodo_intermedio>
    	</percorso>
    	<!-- linea C -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "C" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>32</nodo_intermedio>
    		<nodo_intermedio>33</nodo_intermedio>
    		<nodo_intermedio>30</nodo_intermedio>
@@ -148,7 +148,7 @@ and open the template in the editor.
    		<nodo_intermedio>6</nodo_intermedio>
    	</percorso>
    	<!-- linea D -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "D" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>6</nodo_intermedio>
    		<nodo_intermedio>1</nodo_intermedio>
    		<nodo_intermedio>51</nodo_intermedio>
@@ -177,7 +177,7 @@ and open the template in the editor.
    		<nodo_intermedio>12</nodo_intermedio>
    	</percorso>
    	<!-- linea E -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "E" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>18</nodo_intermedio>
    		<nodo_intermedio>25</nodo_intermedio>
    		<nodo_intermedio>27</nodo_intermedio>
@@ -215,7 +215,7 @@ and open the template in the editor.
    		<nodo_intermedio>26</nodo_intermedio>
    	</percorso>
    	<!-- linea F -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "F" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>26</nodo_intermedio>
    		<nodo_intermedio>27</nodo_intermedio>
    		<nodo_intermedio>25</nodo_intermedio>
@@ -254,7 +254,7 @@ and open the template in the editor.
    		<nodo_intermedio>18</nodo_intermedio>
    	</percorso>
    	<!-- linea G -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "G" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>1</nodo_intermedio>
    		<nodo_intermedio>2</nodo_intermedio>
    		<nodo_intermedio>3</nodo_intermedio>
@@ -274,7 +274,7 @@ and open the template in the editor.
    		<nodo_intermedio>1</nodo_intermedio>
    	</percorso>
    	<!-- linea H -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "H" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>26</nodo_intermedio>
    		<nodo_intermedio>25</nodo_intermedio>
    		<nodo_intermedio>27</nodo_intermedio>
@@ -307,7 +307,7 @@ and open the template in the editor.
    		<nodo_intermedio>18</nodo_intermedio>
    	</percorso>
    	<!-- linea I -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "I" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>32</nodo_intermedio>
    		<nodo_intermedio>38</nodo_intermedio>
    		<nodo_intermedio>13</nodo_intermedio>
@@ -339,7 +339,7 @@ and open the template in the editor.
    		<nodo_intermedio>26</nodo_intermedio>
    	</percorso>
    	<!-- linea L -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "J" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>18</nodo_intermedio>
    		<nodo_intermedio>19</nodo_intermedio>
    		<nodo_intermedio>20</nodo_intermedio>
@@ -399,7 +399,7 @@ and open the template in the editor.
    		<nodo_intermedio>26</nodo_intermedio>
    	</percorso>
    	<!-- linea M -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "K" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>26</nodo_intermedio>
    		<nodo_intermedio>27</nodo_intermedio>
    		<nodo_intermedio>25</nodo_intermedio>
@@ -459,7 +459,7 @@ and open the template in the editor.
    		<nodo_intermedio>18</nodo_intermedio>
    	</percorso>
    	<!-- linea N -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "L" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>12</nodo_intermedio>
    		<nodo_intermedio>10</nodo_intermedio>
    		<nodo_intermedio>7</nodo_intermedio>
@@ -496,7 +496,7 @@ and open the template in the editor.
    		<nodo_intermedio>26</nodo_intermedio>
    	</percorso>
    	<!-- linea O -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "M" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>12</nodo_intermedio>
    		<nodo_intermedio>10</nodo_intermedio>
    		<nodo_intermedio>7</nodo_intermedio>
@@ -559,7 +559,7 @@ and open the template in the editor.
    		<nodo_intermedio>6</nodo_intermedio>
    	</percorso>
    	<!-- linea P -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   	<percorso linea = "N" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>6</nodo_intermedio>
    		<nodo_intermedio>1</nodo_intermedio>
    		<nodo_intermedio>51</nodo_intermedio>

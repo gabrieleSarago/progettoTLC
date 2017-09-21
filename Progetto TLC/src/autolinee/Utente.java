@@ -18,18 +18,18 @@ public class Utente{
 	private int nodo_uscita;
 	private int nodo_attesa;
 	//percorso scelto dall'utente sulla base di un criterio
-	private int percorso_scelto;
+	private String percorso_scelto;
 	private scheduler s;
 	final String START_GENERATION = "start_generation";
-	private LinkedList<Integer> linee_percorribili;
+	private LinkedList<String> linee_percorribili;
 	private MobilityMap roadMap;
-	private HashMap<Integer, ArrayList<Node>> percorsi;
-	private int[] percorsi_migliori = {-1,-1,-1};
+	private HashMap<String, ArrayList<Node>> percorsi;
+	private String[] percorsi_migliori = {"","",""};
 	private int percorso_corrente = 0;
 	
 	private double inizioAttesa, inizioViaggio, termineViaggio;
 
-	public Utente(scheduler s, int id, int nodo_uscita, int nodo_attesa, LinkedList<Integer> linee_percorribili){
+	public Utente(scheduler s, int id, int nodo_uscita, int nodo_attesa, LinkedList<String> linee_percorribili){
 		this.s = s;
 		this.id = id;
 		this.nodo_uscita = nodo_uscita;
@@ -57,9 +57,9 @@ public class Utente{
 	
 	private void accoda(){
 		//aggiunge l'utente alla coda per il percorso scelto
-		HashMap<Integer,LinkedList<Utente>> linee = roadMap.getLinee(nodo_attesa);
-		for(Integer j : linee_percorribili){
-			if(j == percorso_scelto){
+		HashMap<String,LinkedList<Utente>> linee = roadMap.getLinee(nodo_attesa);
+		for(String j : linee_percorribili){
+			if(j.equals(percorso_scelto)){
 				LinkedList<Utente> utenti = linee.get(j);
 				utenti.add(this);
 				//aggiorna la lista delle linee
@@ -73,18 +73,18 @@ public class Utente{
 	
 	//Algoritmi di scelta dell'autobus
 	//algoritmo basato sul numero minore di fermate intermedie
-	private int busMinHop(){
-		int res = 0;
+	private String busMinHop(){
+		String res = "";
 		//per ogni linea percorribile estrai la lista di fermate
 		//calcola in numero di hop dal nodo_attesa al nodo_uscita
 		//se il numero di fermate è minore rispetto a un altro percorso aggiorna l'id
 		//del percorso scelto e il numero di fermate intermedie.
 		//id percorso scelto
-		percorso_scelto = 0;
+		percorso_scelto = "";
 		//minimo numero di fermate che inizialmente deve essere enorme
 		int min_fermate = Integer.MAX_VALUE;
 		//per ogni linea percorribile
-		for(int id_linea : linee_percorribili){
+		for(String id_linea : linee_percorribili){
 			boolean start = false;
 			//fermate appartenenti al percorso
 			ArrayList<Node> percorso = percorsi.get(id_linea);
@@ -124,11 +124,11 @@ public class Utente{
 	}
 	
 	//algoritmo basato sulla lunghezza minore percorsa
-	private int busMinLenght(){
-		int res = 0;
+	private String busMinLenght(){
+		String res = "";
 		//per ogni linea percorribile
 		int min_lenght = Integer.MAX_VALUE;
-		for(int id_linea : linee_percorribili){
+		for(String id_linea : linee_percorribili){
 			boolean start = false;
 			int min_lenght_corrente = 0;
 			ArrayList<Node> percorso = percorsi.get(id_linea);
@@ -174,11 +174,11 @@ public class Utente{
 	}
 	
 	//algoritmo basato sul tempo minore per arrivare a destinazione
-	private int busMinTime(){
-		int res = 0;
+	private String busMinTime(){
+		String res = "";
 		//per ogni linea percorribile
 		int min_time = Integer.MAX_VALUE;
-		for(int id_linea : linee_percorribili){
+		for(String id_linea : linee_percorribili){
 			boolean start = false;
 			int lenght_corrente = 0;
 			int min_time_corrente = 0;
@@ -228,7 +228,7 @@ public class Utente{
 				id_precedente = id_corrente;
 			}
 		}
-		System.out.format("L'utente %d ha scelto la linea %d con un tempo %d \n", id, res, min_time);
+		System.out.format("L'utente %d ha scelto la linea %s con un tempo %d \n", id, res, min_time);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
 		return res;
 	}
@@ -276,7 +276,7 @@ public class Utente{
 		if(percorso_corrente >= percorsi_migliori.length){
 			//si crea una copia della lista delle linee percorribili
 			//tranne le prime tre scelte
-			LinkedList<Integer> copia = new LinkedList<>();
+			LinkedList<String> copia = new LinkedList<>();
 			copia.addAll(linee_percorribili);
 			copia.remove(percorsi_migliori[0]);
 			copia.remove(percorsi_migliori[1]);
@@ -293,7 +293,7 @@ public class Utente{
 			//se non ci sono abbastanza linee da scegliere
 			//l'array avrà elementi "-1" e a quel punto non è possibile scegliere
 			//una nuova linea
-			if(!(percorsi_migliori[percorso_corrente] == -1)){
+			if(!(percorsi_migliori[percorso_corrente].equals(""))){
 				percorso_scelto = percorsi_migliori[percorso_corrente];
 				accoda();
 				System.out.println("L'utente "+id+" ha scelto la nuova linea "+percorso_scelto);

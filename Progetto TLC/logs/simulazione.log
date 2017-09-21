@@ -4394,3 +4394,5 @@ Numero di pacchetti dati gestiti (Nr) :0
 Percentuale di OverHead (%) :100.0
 Delay medio pkt protocollo (ms) :0.0 
 2017-09-21 09:33:13,086  INFO   [scheduler] la simulazione è terminata il : 21/9/2017 ora 9:33:13 
+2017-09-21 17:21:05,932  INFO   [scheduler] la simulazione sta per iniziare all'ora 21/9/2017 ora 17:21:5 
+2017-09-21 17:21:42,495  INFO   [scheduler] la simulazione sta per iniziare all'ora 21/9/2017 ora 17:21:42 
