@@ -82,133 +82,52 @@ and open the template in the editor.
 
     <!-- linea A -->
     <percorso nodo_partenza = "0" nodo_arrivo = "0">
-    	<nodo_intermedio>18</nodo_intermedio>
-    	<nodo_intermedio>19</nodo_intermedio>
-    	<nodo_intermedio>20</nodo_intermedio>
-    	<nodo_intermedio>21</nodo_intermedio>
-    	<nodo_intermedio>22</nodo_intermedio>
-    	<nodo_intermedio>23</nodo_intermedio>
-    	<nodo_intermedio>24</nodo_intermedio>
+    	<nodo_intermedio>6</nodo_intermedio>
+    	<nodo_intermedio>7</nodo_intermedio>
+    	<nodo_intermedio>8</nodo_intermedio>
+    	<nodo_intermedio>9</nodo_intermedio>
+    	<nodo_intermedio>15</nodo_intermedio>
+    	<nodo_intermedio>47</nodo_intermedio>
+    	<nodo_intermedio>45</nodo_intermedio>
+    	<nodo_intermedio>46</nodo_intermedio>
+    	<nodo_intermedio>45</nodo_intermedio>
+    	<nodo_intermedio>44</nodo_intermedio>
+    	<nodo_intermedio>43</nodo_intermedio>
+    	<nodo_intermedio>42</nodo_intermedio>
+    	<nodo_intermedio>41</nodo_intermedio>
+    	<nodo_intermedio>15</nodo_intermedio>
+    	<nodo_intermedio>2</nodo_intermedio>
+    	<nodo_intermedio>3</nodo_intermedio>
+    	<nodo_intermedio>4</nodo_intermedio>
     	<nodo_intermedio>5</nodo_intermedio>
     	<nodo_intermedio>17</nodo_intermedio>
     	<nodo_intermedio>5</nodo_intermedio>
     	<nodo_intermedio>24</nodo_intermedio>
     	<nodo_intermedio>23</nodo_intermedio>
-    	<nodo_intermedio>22</nodo_intermedio>
-    	<nodo_intermedio>21</nodo_intermedio>
-    	<nodo_intermedio>20</nodo_intermedio>
-    	<nodo_intermedio>19</nodo_intermedio>
-    	<nodo_intermedio>18</nodo_intermedio>
+    	<nodo_intermedio>16</nodo_intermedio>
+    	<nodo_intermedio>2</nodo_intermedio>
+    	<nodo_intermedio>1</nodo_intermedio>
     </percorso>
    	<!-- linea B -->
    	<percorso nodo_partenza = "0" nodo_arrivo = "0">
-   		<nodo_intermedio>18</nodo_intermedio>
-   		<nodo_intermedio>25</nodo_intermedio>
-   		<nodo_intermedio>27</nodo_intermedio>
-   		<nodo_intermedio>28</nodo_intermedio>
-   		<nodo_intermedio>51</nodo_intermedio>
-   		<nodo_intermedio>1</nodo_intermedio>
-   		<nodo_intermedio>2</nodo_intermedio>
-   		<nodo_intermedio>3</nodo_intermedio>
-   		<nodo_intermedio>4</nodo_intermedio>
-   		<nodo_intermedio>5</nodo_intermedio>
-   		<nodo_intermedio>4</nodo_intermedio>
-   		<nodo_intermedio>3</nodo_intermedio>
-   		<nodo_intermedio>2</nodo_intermedio>
-   		<nodo_intermedio>1</nodo_intermedio>
-   		<nodo_intermedio>51</nodo_intermedio>
-   		<nodo_intermedio>28</nodo_intermedio>
-   		<nodo_intermedio>27</nodo_intermedio>
-   		<nodo_intermedio>25</nodo_intermedio>
-   		<nodo_intermedio>18</nodo_intermedio>
-   	</percorso>
-   	<!-- linea C -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
-   		<nodo_intermedio>26</nodo_intermedio>
-   		<nodo_intermedio>25</nodo_intermedio>
-   		<nodo_intermedio>18</nodo_intermedio>
-   		<nodo_intermedio>19</nodo_intermedio>
-   		<nodo_intermedio>20</nodo_intermedio>
-   		<nodo_intermedio>29</nodo_intermedio>
-   		<nodo_intermedio>34</nodo_intermedio>
-   		<nodo_intermedio>29</nodo_intermedio>
-   		<nodo_intermedio>20</nodo_intermedio>
-   		<nodo_intermedio>19</nodo_intermedio>
-   		<nodo_intermedio>18</nodo_intermedio>
-   		<nodo_intermedio>25</nodo_intermedio>
-   		<nodo_intermedio>26</nodo_intermedio>
-   	</percorso>
-   	<!-- linea D -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
-   		<nodo_intermedio>1</nodo_intermedio>
-   		<nodo_intermedio>2</nodo_intermedio>
-   		<nodo_intermedio>15</nodo_intermedio>
-   		<nodo_intermedio>47</nodo_intermedio>
-   		<nodo_intermedio>45</nodo_intermedio>
-   		<nodo_intermedio>46</nodo_intermedio>
-   		<nodo_intermedio>45</nodo_intermedio>
-   		<nodo_intermedio>47</nodo_intermedio>
-   		<nodo_intermedio>15</nodo_intermedio>
-   		<nodo_intermedio>2</nodo_intermedio>
-   		<nodo_intermedio>1</nodo_intermedio>
-   	</percorso>
-   	<!-- linea E -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
-   		<nodo_intermedio>6</nodo_intermedio>
-   		<nodo_intermedio>7</nodo_intermedio>
-   		<nodo_intermedio>8</nodo_intermedio>
-   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>12</nodo_intermedio>
+   		<nodo_intermedio>10</nodo_intermedio>
    		<nodo_intermedio>11</nodo_intermedio>
    		<nodo_intermedio>40</nodo_intermedio>
    		<nodo_intermedio>50</nodo_intermedio>
    		<nodo_intermedio>49</nodo_intermedio>
-   		<nodo_intermedio>50</nodo_intermedio>
-   		<nodo_intermedio>40</nodo_intermedio>
-   		<nodo_intermedio>11</nodo_intermedio>
-   		<nodo_intermedio>9</nodo_intermedio>
-   		<nodo_intermedio>8</nodo_intermedio>
-   		<nodo_intermedio>7</nodo_intermedio>
-   		<nodo_intermedio>6</nodo_intermedio>
-   	</percorso>
-   	<!-- linea F -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
-   		<nodo_intermedio>6</nodo_intermedio>
-   		<nodo_intermedio>7</nodo_intermedio>
-   		<nodo_intermedio>10</nodo_intermedio>
-   		<nodo_intermedio>11</nodo_intermedio>
    		<nodo_intermedio>14</nodo_intermedio>
    		<nodo_intermedio>48</nodo_intermedio>
-   		<nodo_intermedio>14</nodo_intermedio>
-   		<nodo_intermedio>11</nodo_intermedio>
-   		<nodo_intermedio>10</nodo_intermedio>
-   		<nodo_intermedio>7</nodo_intermedio>
-   		<nodo_intermedio>6</nodo_intermedio>
-   	</percorso>
-   	<!-- linea G -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
-   		<nodo_intermedio>12</nodo_intermedio>
-   		<nodo_intermedio>13</nodo_intermedio>
    		<nodo_intermedio>39</nodo_intermedio>
    		<nodo_intermedio>31</nodo_intermedio>
    		<nodo_intermedio>37</nodo_intermedio>
    		<nodo_intermedio>31</nodo_intermedio>
    		<nodo_intermedio>39</nodo_intermedio>
    		<nodo_intermedio>13</nodo_intermedio>
-   		<nodo_intermedio>12</nodo_intermedio>
-   	</percorso>
-   	<!-- linea H -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
-   		<nodo_intermedio>32</nodo_intermedio>
-   		<nodo_intermedio>38</nodo_intermedio>
-   		<nodo_intermedio>13</nodo_intermedio>
-   		<nodo_intermedio>39</nodo_intermedio>
-   		<nodo_intermedio>48</nodo_intermedio>
-   		<nodo_intermedio>39</nodo_intermedio>
-   		<nodo_intermedio>13</nodo_intermedio>
    		<nodo_intermedio>38</nodo_intermedio>
    		<nodo_intermedio>32</nodo_intermedio>
    	</percorso>
-   	<!-- linea I -->
+   	<!-- linea C -->
    	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>32</nodo_intermedio>
    		<nodo_intermedio>33</nodo_intermedio>
@@ -217,26 +136,124 @@ and open the template in the editor.
    		<nodo_intermedio>36</nodo_intermedio>
    		<nodo_intermedio>35</nodo_intermedio>
    		<nodo_intermedio>30</nodo_intermedio>
-   		<nodo_intermedio>33</nodo_intermedio>
-   		<nodo_intermedio>32</nodo_intermedio>
-   	</percorso>
-   	<!-- linea L -->
-   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
-   		<nodo_intermedio>1</nodo_intermedio>
-   		<nodo_intermedio>2</nodo_intermedio>
-   		<nodo_intermedio>16</nodo_intermedio>
-   		<nodo_intermedio>23</nodo_intermedio>
+   		<nodo_intermedio>34</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>21</nodo_intermedio>
    		<nodo_intermedio>22</nodo_intermedio>
-   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>23</nodo_intermedio>
+   		<nodo_intermedio>16</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>6</nodo_intermedio>
+   	</percorso>
+   	<!-- linea D -->
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   		<nodo_intermedio>6</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
    		<nodo_intermedio>51</nodo_intermedio>
    		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>26</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>34</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>36</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>33</nodo_intermedio>
+   		<nodo_intermedio>32</nodo_intermedio>
+   		<nodo_intermedio>38</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>39</nodo_intermedio>
+   		<nodo_intermedio>48</nodo_intermedio>
+   		<nodo_intermedio>14</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>12</nodo_intermedio>
+   	</percorso>
+   	<!-- linea E -->
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>51</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>6</nodo_intermedio>
+   		<nodo_intermedio>7</nodo_intermedio>
+   		<nodo_intermedio>10</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>40</nodo_intermedio>
+   		<nodo_intermedio>50</nodo_intermedio>
+   		<nodo_intermedio>49</nodo_intermedio>
+   		<nodo_intermedio>14</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>8</nodo_intermedio>
+   		<nodo_intermedio>3</nodo_intermedio>
+   		<nodo_intermedio>4</nodo_intermedio>
+   		<nodo_intermedio>42</nodo_intermedio>
+   		<nodo_intermedio>43</nodo_intermedio>
+   		<nodo_intermedio>44</nodo_intermedio>
+   		<nodo_intermedio>45</nodo_intermedio>
+   		<nodo_intermedio>46</nodo_intermedio>
+   		<nodo_intermedio>45</nodo_intermedio>
+   		<nodo_intermedio>47</nodo_intermedio>
+   		<nodo_intermedio>15</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
+   		<nodo_intermedio>16</nodo_intermedio>
+   		<nodo_intermedio>23</nodo_intermedio>
+   		<nodo_intermedio>22</nodo_intermedio>
+   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>26</nodo_intermedio>
+   	</percorso>
+   	<!-- linea F -->
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   		<nodo_intermedio>26</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>21</nodo_intermedio>
    		<nodo_intermedio>22</nodo_intermedio>
    		<nodo_intermedio>23</nodo_intermedio>
-   		<nodo_intermedio>16</nodo_intermedio>
-   		<nodo_intermedio>2</nodo_intermedio>
-   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>24</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>17</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>4</nodo_intermedio>
+   		<nodo_intermedio>42</nodo_intermedio>
+   		<nodo_intermedio>41</nodo_intermedio>
+   		<nodo_intermedio>15</nodo_intermedio>
+   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>10</nodo_intermedio>
+   		<nodo_intermedio>12</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>39</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>37</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>36</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>34</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
    	</percorso>
-   	<!-- linea M -->
+   	<!-- linea G -->
    	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>1</nodo_intermedio>
    		<nodo_intermedio>2</nodo_intermedio>
@@ -256,28 +273,355 @@ and open the template in the editor.
    		<nodo_intermedio>2</nodo_intermedio>
    		<nodo_intermedio>1</nodo_intermedio>
    	</percorso>
+   	<!-- linea H -->
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   		<nodo_intermedio>26</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>51</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>6</nodo_intermedio>
+   		<nodo_intermedio>7</nodo_intermedio>
+   		<nodo_intermedio>10</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>14</nodo_intermedio>
+   		<nodo_intermedio>49</nodo_intermedio>
+   		<nodo_intermedio>50</nodo_intermedio>
+   		<nodo_intermedio>40</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>8</nodo_intermedio>
+   		<nodo_intermedio>7</nodo_intermedio>
+   		<nodo_intermedio>10</nodo_intermedio>
+   		<nodo_intermedio>12</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>38</nodo_intermedio>
+   		<nodo_intermedio>32</nodo_intermedio>
+   		<nodo_intermedio>33</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>34</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   	</percorso>
+   	<!-- linea I -->
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   		<nodo_intermedio>32</nodo_intermedio>
+   		<nodo_intermedio>38</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>39</nodo_intermedio>
+   		<nodo_intermedio>48</nodo_intermedio>
+   		<nodo_intermedio>14</nodo_intermedio>
+   		<nodo_intermedio>49</nodo_intermedio>
+   		<nodo_intermedio>50</nodo_intermedio>
+   		<nodo_intermedio>40</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>10</nodo_intermedio>
+   		<nodo_intermedio>7</nodo_intermedio>
+   		<nodo_intermedio>8</nodo_intermedio>
+   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>15</nodo_intermedio>
+   		<nodo_intermedio>41</nodo_intermedio>
+   		<nodo_intermedio>42</nodo_intermedio>
+   		<nodo_intermedio>4</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
+   		<nodo_intermedio>15</nodo_intermedio>
+   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>8</nodo_intermedio>
+   		<nodo_intermedio>7</nodo_intermedio>
+   		<nodo_intermedio>6</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>51</nodo_intermedio>
+   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>26</nodo_intermedio>
+   	</percorso>
+   	<!-- linea L -->
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>34</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>36</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>37</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>33</nodo_intermedio>
+   		<nodo_intermedio>32</nodo_intermedio>
+   		<nodo_intermedio>38</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>39</nodo_intermedio>
+   		<nodo_intermedio>48</nodo_intermedio>
+   		<nodo_intermedio>14</nodo_intermedio>
+   		<nodo_intermedio>49</nodo_intermedio>
+   		<nodo_intermedio>50</nodo_intermedio>
+   		<nodo_intermedio>40</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>14</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>12</nodo_intermedio>
+   		<nodo_intermedio>10</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>15</nodo_intermedio>
+   		<nodo_intermedio>47</nodo_intermedio>
+   		<nodo_intermedio>45</nodo_intermedio>
+   		<nodo_intermedio>46</nodo_intermedio>
+   		<nodo_intermedio>45</nodo_intermedio>
+   		<nodo_intermedio>44</nodo_intermedio>
+   		<nodo_intermedio>43</nodo_intermedio>
+   		<nodo_intermedio>42</nodo_intermedio>
+   		<nodo_intermedio>41</nodo_intermedio>
+   		<nodo_intermedio>15</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
+   		<nodo_intermedio>3</nodo_intermedio>
+   		<nodo_intermedio>4</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>17</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>24</nodo_intermedio>
+   		<nodo_intermedio>23</nodo_intermedio>
+   		<nodo_intermedio>22</nodo_intermedio>
+   		<nodo_intermedio>21</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>26</nodo_intermedio>
+   	</percorso>
+   	<!-- linea M -->
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   		<nodo_intermedio>26</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>21</nodo_intermedio>
+   		<nodo_intermedio>22</nodo_intermedio>
+   		<nodo_intermedio>23</nodo_intermedio>
+   		<nodo_intermedio>24</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>17</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>4</nodo_intermedio>
+   		<nodo_intermedio>3</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
+   		<nodo_intermedio>15</nodo_intermedio>
+   		<nodo_intermedio>41</nodo_intermedio>
+   		<nodo_intermedio>42</nodo_intermedio>
+   		<nodo_intermedio>43</nodo_intermedio>
+   		<nodo_intermedio>44</nodo_intermedio>
+   		<nodo_intermedio>45</nodo_intermedio>
+   		<nodo_intermedio>46</nodo_intermedio>
+   		<nodo_intermedio>45</nodo_intermedio>
+   		<nodo_intermedio>47</nodo_intermedio>
+   		<nodo_intermedio>15</nodo_intermedio>
+   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>10</nodo_intermedio>
+   		<nodo_intermedio>12</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>14</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>40</nodo_intermedio>
+   		<nodo_intermedio>50</nodo_intermedio>
+   		<nodo_intermedio>49</nodo_intermedio>
+   		<nodo_intermedio>14</nodo_intermedio>
+   		<nodo_intermedio>48</nodo_intermedio>
+   		<nodo_intermedio>39</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>38</nodo_intermedio>
+   		<nodo_intermedio>32</nodo_intermedio>
+   		<nodo_intermedio>33</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>37</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>36</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>34</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   	</percorso>
    	<!-- linea N -->
    	<percorso nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>12</nodo_intermedio>
    		<nodo_intermedio>10</nodo_intermedio>
    		<nodo_intermedio>7</nodo_intermedio>
    		<nodo_intermedio>8</nodo_intermedio>
-   		<nodo_intermedio>3</nodo_intermedio>
-   		<nodo_intermedio>4</nodo_intermedio>
-   		<nodo_intermedio>42</nodo_intermedio>
-   		<nodo_intermedio>41</nodo_intermedio>
-   		<nodo_intermedio>15</nodo_intermedio>
-   		<nodo_intermedio>47</nodo_intermedio>
-   		<nodo_intermedio>15</nodo_intermedio>
-   		<nodo_intermedio>41</nodo_intermedio>
-   		<nodo_intermedio>42</nodo_intermedio>
-   		<nodo_intermedio>4</nodo_intermedio>
+   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>11</nodo_intermedio>
+   		<nodo_intermedio>40</nodo_intermedio>
+   		<nodo_intermedio>50</nodo_intermedio>
+   		<nodo_intermedio>49</nodo_intermedio>
+   		<nodo_intermedio>14</nodo_intermedio>
+   		<nodo_intermedio>48</nodo_intermedio>
+   		<nodo_intermedio>39</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>38</nodo_intermedio>
+   		<nodo_intermedio>32</nodo_intermedio>
+   		<nodo_intermedio>33</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>37</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>36</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>34</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>26</nodo_intermedio>
+   	</percorso>
+   	<!-- linea O -->
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   		<nodo_intermedio>12</nodo_intermedio>
+   		<nodo_intermedio>10</nodo_intermedio>
+   		<nodo_intermedio>7</nodo_intermedio>
+   		<nodo_intermedio>6</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
    		<nodo_intermedio>3</nodo_intermedio>
    		<nodo_intermedio>8</nodo_intermedio>
+   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>15</nodo_intermedio>
+   		<nodo_intermedio>47</nodo_intermedio>
+   		<nodo_intermedio>45</nodo_intermedio>
+   		<nodo_intermedio>46</nodo_intermedio>
+   		<nodo_intermedio>45</nodo_intermedio>
+   		<nodo_intermedio>44</nodo_intermedio>
+   		<nodo_intermedio>43</nodo_intermedio>
+   		<nodo_intermedio>42</nodo_intermedio>
+   		<nodo_intermedio>41</nodo_intermedio>
+   		<nodo_intermedio>42</nodo_intermedio>
+   		<nodo_intermedio>4</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>17</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>24</nodo_intermedio>
+   		<nodo_intermedio>23</nodo_intermedio>
+   		<nodo_intermedio>16</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>51</nodo_intermedio>
+   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>22</nodo_intermedio>
+   		<nodo_intermedio>21</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>34</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>36</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>37</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>39</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>38</nodo_intermedio>
+   		<nodo_intermedio>32</nodo_intermedio>
+   		<nodo_intermedio>33</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>26</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>51</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>6</nodo_intermedio>
+   	</percorso>
+   	<!-- linea P -->
+   	<percorso nodo_partenza = "0" nodo_arrivo = "0">
+   		<nodo_intermedio>6</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>51</nodo_intermedio>
+   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>27</nodo_intermedio>
+   		<nodo_intermedio>26</nodo_intermedio>
+   		<nodo_intermedio>25</nodo_intermedio>
+   		<nodo_intermedio>18</nodo_intermedio>
+   		<nodo_intermedio>19</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>33</nodo_intermedio>
+   		<nodo_intermedio>32</nodo_intermedio>
+   		<nodo_intermedio>38</nodo_intermedio>
+   		<nodo_intermedio>13</nodo_intermedio>
+   		<nodo_intermedio>39</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>37</nodo_intermedio>
+   		<nodo_intermedio>31</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>36</nodo_intermedio>
+   		<nodo_intermedio>35</nodo_intermedio>
+   		<nodo_intermedio>30</nodo_intermedio>
+   		<nodo_intermedio>34</nodo_intermedio>
+   		<nodo_intermedio>29</nodo_intermedio>
+   		<nodo_intermedio>20</nodo_intermedio>
+   		<nodo_intermedio>21</nodo_intermedio>
+   		<nodo_intermedio>22</nodo_intermedio>
+   		<nodo_intermedio>28</nodo_intermedio>
+   		<nodo_intermedio>51</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
+   		<nodo_intermedio>16</nodo_intermedio>
+   		<nodo_intermedio>23</nodo_intermedio>
+   		<nodo_intermedio>24</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>17</nodo_intermedio>
+   		<nodo_intermedio>5</nodo_intermedio>
+   		<nodo_intermedio>4</nodo_intermedio>
+   		<nodo_intermedio>42</nodo_intermedio>
+   		<nodo_intermedio>41</nodo_intermedio>
+   		<nodo_intermedio>42</nodo_intermedio>
+   		<nodo_intermedio>43</nodo_intermedio>
+   		<nodo_intermedio>44</nodo_intermedio>
+   		<nodo_intermedio>45</nodo_intermedio>
+   		<nodo_intermedio>46</nodo_intermedio>
+   		<nodo_intermedio>45</nodo_intermedio>
+   		<nodo_intermedio>47</nodo_intermedio>
+   		<nodo_intermedio>15</nodo_intermedio>
+   		<nodo_intermedio>9</nodo_intermedio>
+   		<nodo_intermedio>8</nodo_intermedio>
+   		<nodo_intermedio>3</nodo_intermedio>
+   		<nodo_intermedio>2</nodo_intermedio>
+   		<nodo_intermedio>1</nodo_intermedio>
+   		<nodo_intermedio>6</nodo_intermedio>
    		<nodo_intermedio>7</nodo_intermedio>
    		<nodo_intermedio>10</nodo_intermedio>
    		<nodo_intermedio>12</nodo_intermedio>
    	</percorso>
+   	
    	
    	<!-- ogni fermata genera 50 utenti, 5 utenti ogni minuto. -->
    	<!-- il numero massimo di utenti è casuale, non è sempre 50. -->

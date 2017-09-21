@@ -217,6 +217,10 @@ public class Utente{
 						label = id_corrente+""+id_precedente;
 						e = roadMap.getCityRoadMap().getEdge(label);
 					}
+					/*if(e == null) {
+						System.out.println(id_corrente+" "+id_precedente);
+						System.out.println("linea = "+id_linea);
+					}*/
 					lenght_corrente += (Integer) e.getAttribute("length");
 					double speed = (Double) e.getAttribute("avgSpeed");
 					min_time_corrente += lenght_corrente/speed;
