@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map.Entry;
-import org.graphstream.algorithm.Dijkstra;
+
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
-import org.graphstream.graph.implementations.*;
+import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.stream.ProxyPipe;
 import org.graphstream.ui.view.Viewer;
 
@@ -26,8 +26,6 @@ import autolinee.Utente;
 public class MobilityMap {
 
     public Graph cityRoadMap;
-    Dijkstra dijkstra;
-    Dijkstra dijkstra_avg_speed;
     public HashMap<String, Bus_node> vehicles = new HashMap<>();
     
     //lista delle linee che vengono popolate in Main_app
@@ -52,20 +50,7 @@ public class MobilityMap {
 
         // Edge lengths are stored in an attribute called "length"
         // The length of a path is the sum of the lengths of its edges
-        dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "length");
-        dijkstra_avg_speed = new Dijkstra(Dijkstra.Element.EDGE, null, "avgSpeed");
-
         // Compute the shortest paths in g from A to all nodes
-        dijkstra.init(cityRoadMap);
-        dijkstra.setSource(cityRoadMap.getNode("0"));
-        dijkstra.compute();
-
-        // Print the lengths of all the shortest paths
-        for (Node node : cityRoadMap) {
-            System.out.printf("%s->%s:%10.2f%n", dijkstra.getSource(), node,
-                    dijkstra.getPathLength(node));
-
-        }
 
         /* Color in blue all the nodes on the shortest path form A to B
         for (Node node : dijkstra.getPathNodes(cityRoadMap.getNode("E"))) {
@@ -88,16 +73,6 @@ public class MobilityMap {
             list1.add(0, node);
         }*/
 
-        dijkstra_avg_speed.init(cityRoadMap);
-        dijkstra_avg_speed.setSource(cityRoadMap.getNode("0"));
-        dijkstra_avg_speed.compute();
-        System.out.println("\n\n...Calcolo dei cammini in base alle velocità medie...");
-        // Print the lengths of all the shortest paths
-        for (Node node : cityRoadMap) {
-            System.out.printf("%s->%s:%10.2f%n", dijkstra_avg_speed.getSource(), node,
-                    dijkstra_avg_speed.getPathLength(node));
-        }
-        
         for (Node n : cityRoadMap) {
             n.addAttribute("label", n.getId());
             if (n.getId().equals("0")){
@@ -476,6 +451,10 @@ public class MobilityMap {
     public void addLinee(int id, HashMap<String, LinkedList<Utente>> linee){
     	//System.out.println("Aggiunta linee per la fermata"+id);
     	fermate.put(id, linee);
+    }
+    
+    public HashMap<Integer, HashMap<String, LinkedList<Utente>>> getFermate(){
+    	return fermate;
     }
     
     public HashMap<String, LinkedList<Utente>> getLinee(int id_fermata){

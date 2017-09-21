@@ -338,7 +338,7 @@ and open the template in the editor.
    		<nodo_intermedio>27</nodo_intermedio>
    		<nodo_intermedio>26</nodo_intermedio>
    	</percorso>
-   	<!-- linea L -->
+   	<!-- linea J -->
    	<percorso linea = "J" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>18</nodo_intermedio>
    		<nodo_intermedio>19</nodo_intermedio>
@@ -398,7 +398,7 @@ and open the template in the editor.
    		<nodo_intermedio>27</nodo_intermedio>
    		<nodo_intermedio>26</nodo_intermedio>
    	</percorso>
-   	<!-- linea M -->
+   	<!-- linea K -->
    	<percorso linea = "K" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>26</nodo_intermedio>
    		<nodo_intermedio>27</nodo_intermedio>
@@ -458,7 +458,7 @@ and open the template in the editor.
    		<nodo_intermedio>19</nodo_intermedio>
    		<nodo_intermedio>18</nodo_intermedio>
    	</percorso>
-   	<!-- linea N -->
+   	<!-- linea L -->
    	<percorso linea = "L" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>12</nodo_intermedio>
    		<nodo_intermedio>10</nodo_intermedio>
@@ -495,7 +495,7 @@ and open the template in the editor.
    		<nodo_intermedio>27</nodo_intermedio>
    		<nodo_intermedio>26</nodo_intermedio>
    	</percorso>
-   	<!-- linea O -->
+   	<!-- linea M -->
    	<percorso linea = "M" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>12</nodo_intermedio>
    		<nodo_intermedio>10</nodo_intermedio>
@@ -558,7 +558,7 @@ and open the template in the editor.
    		<nodo_intermedio>1</nodo_intermedio>
    		<nodo_intermedio>6</nodo_intermedio>
    	</percorso>
-   	<!-- linea P -->
+   	<!-- linea N -->
    	<percorso linea = "N" nodo_partenza = "0" nodo_arrivo = "0">
    		<nodo_intermedio>6</nodo_intermedio>
    		<nodo_intermedio>1</nodo_intermedio>
@@ -733,7 +733,7 @@ and open the template in the editor.
     
    	
    	<!-- il pozzo è il terminal e genera 2 autobus ogni minuto iniziando 5(300000) minuti dopo il simulatore-->
-   	<pozzo gateway = "0" exitAt="300000" generationRate="2" maxVehicles="60" showUI = "0">
+   	<pozzo gateway = "0" exitAt="300000" generationRate="2" maxVehicles="70" showUI = "0">
     </pozzo>
 <!--    
     <router id="2" gateway="4" net_size="5">

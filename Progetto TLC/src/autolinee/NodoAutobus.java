@@ -276,6 +276,7 @@ public class NodoAutobus extends nodo_host {
                             //non si conta l'ultima fermata perchè non ci sono utenti
                             //per questo si usa percorso.size()-1 (archi)
                             Statistica.setStatisticheAutobus(postiOccupati/(percorso.size()-1));
+                            //System.out.println("Autobus "+getId()+" arrivato, numero posti occupati "+numPosti);
                             for(Nodo n : info.getNodes()){
                             	//come arriva al terminal non viene più disegnato.
                             	cityMap.getCityRoadMap().getNode(""+this.id_nodo).clearAttributes();
@@ -333,7 +334,7 @@ public class NodoAutobus extends nodo_host {
     	 * questo perchè l'autobus rimuove l'utente, la size diminuisce
     	 * e l'iteratore non riesce ad andare avanti.
     	*/
-    	for(int i = 0; i < utenti.length; i++){
+    	for(int i = 0; i < POSTI_MAX; i++){
     		if(utenti[i] != null && utenti[i].getNodo_uscita() == id_fermata){
     			System.out.format("L'utente %d è sceso alla fermata %d dall'autobus %d \n", utenti[i].getId(), id_fermata, id_nodo);
     			//si conserva nell'utente il momento in cui finisce di viaggiare
@@ -341,7 +342,9 @@ public class NodoAutobus extends nodo_host {
     			//stampa i tempi di attesa e di viaggio da usare nelle statistiche
     			System.out.format("Utente %d - tempo di attesa %d - tempo viaggio %d \n", utenti[i].getId(), (int)utenti[i].getTempoAttesa(), (int)utenti[i].getTempoViaggio());
     			utenti[i] = null;
-    			numPosti--;
+    			if(numPosti > 0) {
+    				numPosti--;
+    			}
     			ris[0]++;
     		}
     	}
@@ -360,7 +363,12 @@ public class NodoAutobus extends nodo_host {
         		u.setInizioViaggio(s.orologio.getCurrent_Time());
         		//rimuove l'utente dalla coda in cui è presente
         		cityMap.rimuovi_utente(u, id_fermata, id_percorso);
-        		utenti[numPosti] = u;
+        		for(int j = 0; j < POSTI_MAX; j++) {
+        			if(utenti[j] == null) {
+        				utenti[j] = u;
+        				break;
+        			}
+        		}
     			System.out.format("L'utente %d è salito sull'autobus %d dalla fermata %d \n", u.getId(), id_nodo, id_fermata);
         		numPosti++;
         		ris[1]++;

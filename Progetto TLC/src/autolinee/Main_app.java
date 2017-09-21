@@ -232,6 +232,7 @@ public class Main_app extends javax.swing.JFrame {
         } else if (conf_file_path != null) {
             conf_file = new File(conf_file_path);
             res = startParsing(conf_file);
+            this.dispose();
         } else {
             System.out.println("File non esistente");
         }
@@ -549,6 +550,7 @@ public class Main_app extends javax.swing.JFrame {
             		}
             	}
             	roadMap.addLinee(id_fermata, linee);
+            	
             	//generazione degli utenti
             	double tempoGenerazione =  60000.0 / generationRate;
             	

@@ -5,42 +5,29 @@
  */
 package reti_tlc_gruppo_0;
 
-//import Mobility.MobilityMap;
-import Mobility.car_node;
-import Vanet.NodoMacchina;
-import Vanet.Physical80211P;
-import Vanet.waveFSCTPTransportLayer;
-import Vanet.waveNetLayer;
-
-import base_simulator.NetworkInterface;
-import base_simulator.Infos;
-import base_simulator.Applicazione;
-import base_simulator.Grafo;
-import base_simulator.canale;
-import base_simulator.layers.LinkLayer;
-import base_simulator.layers.LinkLayerStopAndWait;
-import base_simulator.layers.NetworkLayer;
-import base_simulator.layers.TransportLayer;
-import base_simulator.layers.physicalLayer;
-import base_simulator.link_extended;
-import base_simulator.scheduler;
-
 import java.io.File;
-
 import java.io.IOException;
 import java.util.List;
+
 import javax.swing.JFileChooser;
 
-
 import org.jdom2.Document;
-
 import org.jdom2.Element;
-
 import org.jdom2.JDOMException;
-
 import org.jdom2.input.SAXBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import base_simulator.Applicazione;
+import base_simulator.Grafo;
+import base_simulator.Infos;
+import base_simulator.NetworkInterface;
+import base_simulator.canale;
+import base_simulator.link_extended;
+import base_simulator.scheduler;
+import base_simulator.layers.LinkLayerStopAndWait;
+import base_simulator.layers.TransportLayer;
+import base_simulator.layers.physicalLayer;
 
 /**
  *

@@ -45,6 +45,10 @@ public class Utente{
 		return nodo_uscita;
 	}
 	
+	public int getNodo_attesa() {
+		return nodo_attesa;
+	}
+	
 	public void Handler(Messaggi m){
 		if (m.getTipo_Messaggio().equals(START_GENERATION)) {
 			//algoritmo di scelta basato su lunghezza viaggio o su meno fermate
@@ -69,6 +73,10 @@ public class Utente{
 		}
 		//aggiorna le linee nella fermata
 		roadMap.addLinee(nodo_attesa, linee);
+	}
+	
+	public String getPercorsoScelto() {
+		return percorso_scelto;
 	}
 	
 	//Algoritmi di scelta dell'autobus
@@ -118,7 +126,7 @@ public class Utente{
 				}
 			}
 		}
-		System.out.format("L'utente %d ha scelto la linea %d con numero di fermate %d \n", id, res, min_fermate);
+		System.out.format("L'utente %d ha scelto la linea %s con numero di fermate %d \n", id, res, min_fermate);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
 		return res;
 	}
@@ -168,7 +176,7 @@ public class Utente{
 				id_precedente = id_corrente;
 			}
 		}
-		System.out.format("L'utente %d ha scelto la linea %d con una lunghezza %d \n", id, res, min_lenght);
+		System.out.format("L'utente %d ha scelto la linea %s con una lunghezza %d \n", id, res, min_lenght);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
 		return res;
 	}
