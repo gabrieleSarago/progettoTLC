@@ -46,7 +46,7 @@ public class Statistica {
 			f.createNewFile();
 		}
 		salvaStat(f, tempoAttesa/numUtenti);
-		System.out.println("tempo attesa = "+tempoViaggio/numUtenti);
+		System.out.println("tempo attesa = "+tempoAttesa/numUtenti);
 		f = new File("src/autolinee/mediaPosti.txt");
 		if(!f.exists()) {
 			f.createNewFile();

@@ -52,7 +52,9 @@ public class NodoAutobus extends nodo_host {
     
     //posti occupati dell'autobus per ogni fermata
     int postiOccupati = 0;
-
+    //numero di fermate in cui ci sono posti occupati
+    int numFermate = 0;
+    
     double currX = 0;
     double currY = 0;
     double currDistance = 0;
@@ -275,9 +277,7 @@ public class NodoAutobus extends nodo_host {
                             carIsPowerOff = true;
                             //non si conta l'ultima fermata perchè non ci sono utenti
                             //per questo si usa percorso.size()-1 (archi)
-                            if(postiOccupati != 0) {
-                            	Statistica.setStatisticheAutobus(postiOccupati/(percorso.size()-1));
-                            }
+                            Statistica.setStatisticheAutobus(postiOccupati/numFermate);
                             //System.out.println("Autobus "+getId()+" arrivato, numero posti occupati "+numPosti);
                             for(Nodo n : info.getNodes()){
                             	//come arriva al terminal non viene più disegnato.
@@ -390,6 +390,9 @@ public class NodoAutobus extends nodo_host {
         	}
         }
         System.out.println("Autobus "+ idAutobus + " linea: "+id_percorso+" num Posti Occupati = "+numPosti);
+        if(numPosti != 0) {
+        	numFermate++;
+        }
         postiOccupati += numPosti;
         return ris;
     }
