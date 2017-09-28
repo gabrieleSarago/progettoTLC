@@ -733,7 +733,7 @@ and open the template in the editor.
     
    	
    	<!-- il pozzo è il terminal e genera 2 autobus ogni minuto iniziando 5(300000) minuti dopo il simulatore-->
-   	<pozzo gateway = "0" exitAt="300000" generationRate="2" maxVehicles="70" showUI = "0">
+   	<pozzo gateway = "0" exitAt="0" generationRate="2" maxVehicles="70" showUI = "0">
     </pozzo>
 <!--    
     <router id="2" gateway="4" net_size="5">

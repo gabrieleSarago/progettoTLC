@@ -53,7 +53,7 @@ public class Main_app extends javax.swing.JFrame {
     
     private static void init_sim_parameters() {
     	//millisecondi - 83 minuti di simulazione
-        s = new scheduler(5000000, false);
+        s = new scheduler(5400000, false);
     }
 
     private String conf_file_path;
@@ -666,7 +666,6 @@ public class Main_app extends javax.swing.JFrame {
                     nh.setNodo_uscita(nodo_uscita);
                     nh.setExitFromGate(exitGateAt);
                     
-                    //car_node car = new car_node(id, 0, 0);
                     Bus_node bus = new Bus_node(0, 0, id);
                     roadMap.vehicles.put("" + id, bus);
 

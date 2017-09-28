@@ -1,7 +1,11 @@
 package autolinee;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 public class Statistica {
@@ -25,15 +29,70 @@ public class Statistica {
 	
 	public static void salva(){
 		try {
-			File f = new File("src/autolinee/log.txt");
-			PrintWriter pw = new PrintWriter(f);
-			String linea = "numero utenti = " + numUtenti + "\n"+"media tempo viaggio = " + tempoViaggio/numUtenti
-					+ "\n"+"media tempo attesa = " + tempoAttesa/numUtenti+"\n"+"media posti occupati = " + totPosti/numAutobus
-					+ "\n"+"utenti generati = "+utentiGenerati;
-			pw.println(linea);
+		File f = new File("src/autolinee/log.txt");
+		if(!f.exists()) {
+			f.createNewFile();
+		}
+		salvaStat(f,numUtenti);
+		f = new File("src/autolinee/tempoViaggio.txt");
+		if(!f.exists()) {
+			f.createNewFile();
+		}
+		salvaStat(f, tempoViaggio/numUtenti);
+		f = new File("src/autolinee/tempoAttesa.txt");
+		if(!f.exists()) {
+			f.createNewFile();
+		}
+		salvaStat(f, tempoAttesa/numUtenti);
+		f = new File("src/autolinee/mediaPosti.txt");
+		if(!f.exists()) {
+			f.createNewFile();
+		}
+		salvaStat(f, totPosti/numAutobus);
+		f = new File("src/autolinee/utentiGenerati.txt");
+		if(!f.exists()) {
+			f.createNewFile();
+		}
+		salvaStat(f, utentiGenerati);
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void salvaStat(File f, double stat) {
+		try {
+			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+			String linea = "", l = "";
+			while(l != null) {
+				l = br.readLine();
+				if(l != null)
+					linea += l+"\n";
+			}
+			br.close();
+			PrintWriter pw = new PrintWriter(new FileWriter(f));
+			pw.print(linea);
+			pw.print(stat);
 			pw.close();
-			System.out.println(linea);
-		} catch (FileNotFoundException e) {
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void salvaStat(File f, int stat) {
+		try {
+			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(f)));
+			String linea = "", l = "";
+			while(l != null) {
+				l = br.readLine();
+				if(l != null)
+					linea += l+"\n";
+			}
+			br.close();
+			PrintWriter pw = new PrintWriter(new FileWriter(f));
+			pw.print(linea);
+			pw.print(stat);
+			pw.close();
+		}catch(IOException e) {
 			e.printStackTrace();
 		}
 	}
