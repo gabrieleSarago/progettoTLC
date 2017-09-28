@@ -34,26 +34,31 @@ public class Statistica {
 			f.createNewFile();
 		}
 		salvaStat(f,numUtenti);
+		System.out.println("numUtenti = "+numUtenti);
 		f = new File("src/autolinee/tempoViaggio.txt");
 		if(!f.exists()) {
 			f.createNewFile();
 		}
 		salvaStat(f, tempoViaggio/numUtenti);
+		System.out.println("tempo viaggio = "+tempoViaggio/numUtenti);
 		f = new File("src/autolinee/tempoAttesa.txt");
 		if(!f.exists()) {
 			f.createNewFile();
 		}
 		salvaStat(f, tempoAttesa/numUtenti);
+		System.out.println("tempo attesa = "+tempoViaggio/numUtenti);
 		f = new File("src/autolinee/mediaPosti.txt");
 		if(!f.exists()) {
 			f.createNewFile();
 		}
 		salvaStat(f, totPosti/numAutobus);
+		System.out.println("media posti = "+totPosti/numAutobus);
 		f = new File("src/autolinee/utentiGenerati.txt");
 		if(!f.exists()) {
 			f.createNewFile();
 		}
 		salvaStat(f, utentiGenerati);
+		System.out.println("utenti generati = "+utentiGenerati);
 		}catch(IOException e) {
 			e.printStackTrace();
 		}

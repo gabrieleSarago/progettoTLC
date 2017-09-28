@@ -275,7 +275,9 @@ public class NodoAutobus extends nodo_host {
                             carIsPowerOff = true;
                             //non si conta l'ultima fermata perchè non ci sono utenti
                             //per questo si usa percorso.size()-1 (archi)
-                            Statistica.setStatisticheAutobus(postiOccupati/(percorso.size()-1));
+                            if(postiOccupati != 0) {
+                            	Statistica.setStatisticheAutobus(postiOccupati/(percorso.size()-1));
+                            }
                             //System.out.println("Autobus "+getId()+" arrivato, numero posti occupati "+numPosti);
                             for(Nodo n : info.getNodes()){
                             	//come arriva al terminal non viene più disegnato.
