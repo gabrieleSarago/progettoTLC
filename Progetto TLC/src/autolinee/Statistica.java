@@ -29,7 +29,7 @@ public class Statistica {
 	
 	public static void salva(){
 		try {
-		File f = new File("src/autolinee/log.txt");
+		File f = new File("src/autolinee/utentiArrivati.txt");
 		if(!f.exists()) {
 			f.createNewFile();
 		}
