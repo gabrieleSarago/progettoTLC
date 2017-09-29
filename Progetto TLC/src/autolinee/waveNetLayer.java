@@ -5,28 +5,28 @@
  */
 package autolinee;
 
-import base_simulator.Grafo;
-import base_simulator.Infos;
-import base_simulator.Messaggi;
-import base_simulator.Nodo;
-import base_simulator.RoutingRow;
-import base_simulator.layers.LinkLayer;
-import base_simulator.scheduler;
-import java.util.ArrayList;
-import java.util.HashMap;
-import base_simulator.layers.NetworkLayer;
-import base_simulator.layers.TransportLayer;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import org.graphstream.algorithm.Dijkstra;
-import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.view.Viewer;
+
+import base_simulator.Grafo;
+import base_simulator.Messaggi;
+import base_simulator.Nodo;
+import base_simulator.RoutingRow;
+import base_simulator.scheduler;
+import base_simulator.layers.LinkLayer;
+import base_simulator.layers.NetworkLayer;
+import base_simulator.layers.TransportLayer;
 
 /**
  *

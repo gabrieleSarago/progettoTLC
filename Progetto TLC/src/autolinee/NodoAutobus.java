@@ -41,7 +41,7 @@ public class NodoAutobus extends nodo_host {
     //tempo impiegato dagli utenti a salire
     final double TEMPO_SALITA = 3000.0;
     final double TEMPO_DISCESA = 2000.0;
-    final int POSTI_MAX = 50;
+    final int POSTI_MAX = 30;
     String nodo_ingresso;
     String nodo_uscita;
     int index_nodo_attuale;
@@ -277,7 +277,9 @@ public class NodoAutobus extends nodo_host {
                             carIsPowerOff = true;
                             //non si conta l'ultima fermata perchè non ci sono utenti
                             //per questo si usa percorso.size()-1 (archi)
-                            Statistica.setStatisticheAutobus(postiOccupati/numFermate);
+                            if(numFermate != 0) {
+                            	Statistica.setStatisticheAutobus(postiOccupati/numFermate);
+                            }
                             //System.out.println("Autobus "+getId()+" arrivato, numero posti occupati "+numPosti);
                             for(Nodo n : info.getNodes()){
                             	//come arriva al terminal non viene più disegnato.
@@ -324,7 +326,7 @@ public class NodoAutobus extends nodo_host {
     }
 
     public void setExitFromGate(double exitGateAt) {
-        Messaggi m = new Messaggi(START_ROAD_RUN, this, this, this, s.orologio.getCurrent_Time());        
+        Messaggi m = new Messaggi(START_ROAD_RUN, this, this, this, s.orologio.getCurrent_Time());
         m.shifta(exitGateAt);
         s.insertMessage(m);
     }
@@ -338,15 +340,15 @@ public class NodoAutobus extends nodo_host {
     	*/
     	for(int i = 0; i < POSTI_MAX; i++){
     		if(utenti[i] != null && utenti[i].getNodo_uscita() == id_fermata){
-    			System.out.format("L'utente %d è sceso alla fermata %d dall'autobus %d \n", utenti[i].getId(), id_fermata, id_nodo);
+    			//System.out.format("L'utente %d è sceso alla fermata %d dall'autobus %d \n", utenti[i].getId(), id_fermata, id_nodo);
     			//si conserva nell'utente il momento in cui finisce di viaggiare
     			utenti[i].setTermineViaggio(s.orologio.getCurrent_Time());
     			//stampa i tempi di attesa e di viaggio da usare nelle statistiche
     			System.out.format("Utente %d - tempo di attesa %d - tempo viaggio %d \n", utenti[i].getId(), (int)utenti[i].getTempoAttesa(), (int)utenti[i].getTempoViaggio());
     			utenti[i] = null;
-    			if(numPosti > 0) {
+    			//if(numPosti > 0) {
     				numPosti--;
-    			}
+    			//}
     			ris[0]++;
     		}
     	}
@@ -371,7 +373,7 @@ public class NodoAutobus extends nodo_host {
         				break;
         			}
         		}
-    			System.out.format("L'utente %d è salito sull'autobus %d dalla fermata %d \n", u.getId(), id_nodo, id_fermata);
+    			//System.out.format("L'utente %d è salito sull'autobus %d dalla fermata %d \n", u.getId(), id_nodo, id_fermata);
         		numPosti++;
         		ris[1]++;
         	}

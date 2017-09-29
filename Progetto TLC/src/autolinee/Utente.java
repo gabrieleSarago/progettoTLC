@@ -52,6 +52,8 @@ public class Utente{
 	public void Handler(Messaggi m){
 		if (m.getTipo_Messaggio().equals(START_GENERATION)) {
 			//algoritmo di scelta basato su lunghezza viaggio o su meno fermate
+			//si inserisce il tempo di inizio attesa
+			inizioAttesa = s.orologio.getCurrent_Time();
 			//busMinHop();
 			//busMinLenght();
 			percorso_scelto = busMinTime();
@@ -81,6 +83,7 @@ public class Utente{
 	
 	//Algoritmi di scelta dell'autobus
 	//algoritmo basato sul numero minore di fermate intermedie
+	@SuppressWarnings("unused")
 	private String busMinHop(){
 		String res = "";
 		//per ogni linea percorribile estrai la lista di fermate
@@ -126,12 +129,13 @@ public class Utente{
 				}
 			}
 		}
-		System.out.format("L'utente %d ha scelto la linea %s con numero di fermate %d \n", id, res, min_fermate);
+		//System.out.format("L'utente %d ha scelto la linea %s con numero di fermate %d \n", id, res, min_fermate);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
 		return res;
 	}
 	
 	//algoritmo basato sulla lunghezza minore percorsa
+	@SuppressWarnings("unused")
 	private String busMinLenght(){
 		String res = "";
 		//per ogni linea percorribile
@@ -176,7 +180,7 @@ public class Utente{
 				id_precedente = id_corrente;
 			}
 		}
-		System.out.format("L'utente %d ha scelto la linea %s con una lunghezza %d \n", id, res, min_lenght);
+		//System.out.format("L'utente %d ha scelto la linea %s con una lunghezza %d \n", id, res, min_lenght);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
 		return res;
 	}
@@ -236,7 +240,7 @@ public class Utente{
 				id_precedente = id_corrente;
 			}
 		}
-		System.out.format("L'utente %d ha scelto la linea %s con un tempo %d \n", id, res, min_time);
+		//System.out.format("L'utente %d ha scelto la linea %s con un tempo %d \n", id, res, min_time);
 		//System.out.println("percorso migliore : "+ percorsi.get(percorso_scelto).toString());
 		return res;
 	}
@@ -251,10 +255,6 @@ public class Utente{
 	     m.shifta(tempoAttesa);
 	     s.insertMessage(m);
 	}
-	
-	public void setInizioAttesa(double inizioAttesa) {
-		this.inizioAttesa = inizioAttesa;
-	}
 
 	public void setInizioViaggio(double inizioViaggio) {
 		this.inizioViaggio = inizioViaggio;
@@ -268,7 +268,7 @@ public class Utente{
 	//tempo totale di attesa
 	public double getTempoAttesa(){
 		//momento in cui sale sull'autobus - momento in cui inizia 
-		//ad attendere(viene generato)
+		//ad attendere
 		return inizioViaggio - inizioAttesa;
 	}
 	
@@ -294,7 +294,7 @@ public class Utente{
 				int percorso_casuale = (new Random()).nextInt(copia.size());
 				percorso_scelto = copia.get(percorso_casuale);
 				accoda();
-				System.out.println("L'utente "+id+" ha scelto la nuova linea "+percorso_scelto);
+				//System.out.println("L'utente "+id+" ha scelto la nuova linea "+percorso_scelto);
 			}
 		}
 		else{
@@ -304,7 +304,7 @@ public class Utente{
 			if(!(percorsi_migliori[percorso_corrente].equals(""))){
 				percorso_scelto = percorsi_migliori[percorso_corrente];
 				accoda();
-				System.out.println("L'utente "+id+" ha scelto la nuova linea "+percorso_scelto);
+				//System.out.println("L'utente "+id+" ha scelto la nuova linea "+percorso_scelto);
 			}
 		}
 	}

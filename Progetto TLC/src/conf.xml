@@ -626,114 +626,113 @@ and open the template in the editor.
    	<!-- ogni fermata genera 50 utenti, 5 utenti ogni minuto. -->
    	<!-- il numero massimo di utenti è casuale, non è sempre 50. -->
    	<!-- il tempo di inizio di generazione varia in base alla distanza della fermata dal terminal -->
-   	<fermata id = "0" numUtenti = "50" generationRate = "5" exitAt="0">
+   	<fermata id = "0" numUtenti = "500" generationRate = "25" exitAt="0">
     </fermata>
-    <fermata id = "1" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "1" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "2" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "2" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "3" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "3" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "4" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "4" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "5" numUtenti = "50" generationRate = "5" exitAt="300000">
+    <fermata id = "5" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-    <fermata id = "6" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "6" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "7" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "7" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "8" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "8" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "9" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "9" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "10" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "10" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "11" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "11" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "12" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "12" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "13" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "13" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "14" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "14" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "15" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "15" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-   	<fermata id = "16" numUtenti = "50" generationRate = "5" exitAt="180000">
+   	<fermata id = "16" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-   	<fermata id = "17" numUtenti = "50" generationRate = "5" exitAt="300000">
+   	<fermata id = "17" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-   	<fermata id = "18" numUtenti = "50" generationRate = "5" exitAt="0">
+   	<fermata id = "18" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "19" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "19" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "20" numUtenti = "20" generationRate = "2" exitAt="180000">
+    <fermata id = "20" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "21" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "21" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "22" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "22" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "23" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "23" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "24" numUtenti = "50" generationRate = "5" exitAt="300000">
+    <fermata id = "24" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-    <fermata id = "25" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "25" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "26" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "26" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "27" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "27" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "28" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "28" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "29" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "29" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "30" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "30" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "31" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "31" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "32" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "32" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "33" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "33" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "34" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "34" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "35" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "35" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "36" numUtenti = "50" generationRate = "5" exitAt="300000">
+    <fermata id = "36" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-    <fermata id = "37" numUtenti = "50" generationRate = "5" exitAt="300000">
+    <fermata id = "37" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-    <fermata id = "38" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "38" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
-    <fermata id = "39" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "39" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "40" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "40" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "41" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "41" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "42" numUtenti = "50" generationRate = "5" exitAt="300000">
+    <fermata id = "42" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-    <fermata id = "43" numUtenti = "50" generationRate = "5" exitAt="300000">
+    <fermata id = "43" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-    <fermata id = "44" numUtenti = "50" generationRate = "5" exitAt="300000">
+    <fermata id = "44" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-    <fermata id = "45" numUtenti = "50" generationRate = "5" exitAt="300000">
+    <fermata id = "45" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-    <fermata id = "46" numUtenti = "50" generationRate = "5" exitAt="300000">
+    <fermata id = "46" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-    <fermata id = "47" numUtenti = "50" generationRate = "5" exitAt="100000">
+    <fermata id = "47" numUtenti = "50" generationRate = "2" exitAt="100000">
     </fermata>
-    <fermata id = "48" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "48" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "49" numUtenti = "50" generationRate = "5" exitAt="180000">
+    <fermata id = "49" numUtenti = "50" generationRate = "2" exitAt="180000">
     </fermata>
-    <fermata id = "50" numUtenti = "50" generationRate = "5" exitAt="300000">
+    <fermata id = "50" numUtenti = "50" generationRate = "2" exitAt="300000">
     </fermata>
-    <fermata id = "51" numUtenti = "50" generationRate = "5" exitAt="0">
+    <fermata id = "51" numUtenti = "50" generationRate = "2" exitAt="0">
     </fermata>
     
-   	
    	<!-- il pozzo è il terminal e genera 2 autobus ogni minuto iniziando 5(300000) minuti dopo il simulatore-->
-   	<pozzo gateway = "0" exitAt="0" generationRate="2" maxVehicles="70" showUI = "0">
+   	<pozzo gateway = "0" exitAt="60000" generationRate="4" maxVehicles="84" showUI = "0">
     </pozzo>
 <!--    
     <router id="2" gateway="4" net_size="5">

@@ -5,12 +5,12 @@
  */
 package autolinee;
 
-import base_simulator.layers.Applicazione;
-import base_simulator.Messaggi;
-import base_simulator.Nodo;
-import base_simulator.scheduler;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import base_simulator.Messaggi;
+import base_simulator.scheduler;
+import base_simulator.layers.Applicazione;
 import reti_tlc_gruppo_0.tcpTransportLayer;
 
 /**
